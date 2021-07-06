@@ -1,8 +1,5 @@
-import Blog from './Blog.js';
+import Blog from "./Blog.js";
 function App() {
-  return (
-    <Blog></Blog>
-  );
+  return <Blog></Blog>;
 }
-
 export default App;
