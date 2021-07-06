@@ -1,0 +1,19 @@
+.blog_container{
+    height: 100vh;
+    width: 100vh;
+    margin: 100px;
+    background-color: aquamarine;
+    overflow: hidden;
+    /* position: absolute; */
+}
+.blog{
+    background-color: rgb(255, 217, 2);
+}
+.foot{
+    margin-top: 82%;
+    background-color: turquoise;
+    height: 1000px;
+}
+h1{
+    padding-top: 1.5%;
+}

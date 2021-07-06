@@ -1,7 +1,8 @@
-import React from "react";
-
+import Blog from './Blog.js';
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Blog></Blog>
+  );
 }
 
 export default App;
