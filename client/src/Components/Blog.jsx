@@ -1,5 +1,5 @@
 import React from 'react';
-import './../Stylesheets/blog.css'
+import 'E:/BLOG/BlogBay/client/src/stylesheets/blog.css'
 function Blog(){
     return(
         <center>
