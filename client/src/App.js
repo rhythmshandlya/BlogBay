@@ -1,5 +1,7 @@
-import Blog from "./Blog.js";
+import Navbar from "./Components/Navbar";
+import "./app.css";
+
 function App() {
-  return <Blog></Blog>;
+  return <Navbar></Navbar>;
 }
 export default App;

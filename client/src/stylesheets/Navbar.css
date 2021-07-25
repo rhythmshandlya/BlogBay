@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  background-color: #d9dd6b;
+  color: #035397;
+  box-shadow: 0 0 10px 0 gray;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+.nav-link {
+  display: inline-block;
+  margin: 20px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 300;
+}
+.nav-links {
+  flex-basis: 50%;
+}
+.icon {
+  margin-top: 15px;
+  margin-left: 15px;
+  height: 13%;
+  width: 16.5%;
+}
+.inner-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
