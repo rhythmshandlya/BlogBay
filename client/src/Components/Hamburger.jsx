@@ -3,12 +3,14 @@ import './../Stylesheets/ham.css';
 
 const Hamburger = () => {
     return (
-        <label for="check">
+        <div className="balle">
+        <label  for="check">
             <input type="checkbox" id="check"/> 
             <span></span>
             <span></span>
             <span></span>
         </label>
+        </div>
     )
 }
 

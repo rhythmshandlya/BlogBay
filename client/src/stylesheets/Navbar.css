@@ -10,7 +10,6 @@
   justify-content: space-around;
 }
 .nav-link {
-  display: inline-block;
   margin: 20px;
   text-decoration: none;
   color: inherit;
@@ -30,3 +29,19 @@
   align-items: center;
   flex-wrap: nowrap;
 }
+.hidden{
+  display: none;
+} 
+/* @media screen and (max-width: 800px){
+  .container{
+    display: none;
+    flex-direction: column;
+  } 
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+  }
+  .inner-container {
+    flex-direction: column;
+  }
+} */
