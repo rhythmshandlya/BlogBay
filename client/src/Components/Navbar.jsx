@@ -5,7 +5,7 @@ import Profile from './Profile'
 import Search from './Search';
 import LoginButton from './../Components/Login';
 
-import logo from './../data/icon-st.png';
+import logo from './../data/icon-st.svg';
 import Hamburger from './Hamburger';
 
 
