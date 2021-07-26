@@ -4,10 +4,11 @@
   font-family: "Poppins", sans-serif;
   font-size: 1.3rem;
   background-color: #3d0b0b;
-  color:#f3f2c9 ;
+  color: #f3f2c9;
   box-shadow: 0 0 10px 0 gray;
   flex-wrap: nowrap;
   justify-content: space-around;
+  flex-direction: row;
 }
 .nav-link {
   display: inline-block;

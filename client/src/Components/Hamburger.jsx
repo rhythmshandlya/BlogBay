@@ -1,9 +1,13 @@
 import React from 'react'
 import './../Stylesheets/ham.css';
 
+const toggler = ()=>{
+    
+}
+
 const Hamburger = () => {
     return (
-        <label for="check">
+        <label for="check" onClick={toggler}>
             <input type="checkbox" id="check"/> 
             <span></span>
             <span></span>
