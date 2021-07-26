@@ -13,7 +13,6 @@ const Navbar_m = () => {
             <Hamburger/>
             <img className="icon_m" src={icon} alt="_NA"/>
             </div>
-
             <div className="dropdown">
                 <a className="nav-link_m" href="/home">Home</a>
                 <a className="nav-link_m" href="/blog">Blog</a>
