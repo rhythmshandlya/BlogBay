@@ -1,8 +1,12 @@
-import Navbar from "./Components/Navbar";
-import Navbar_M from "./Components/Navbar_M";
+import Navbar from "./Components/NavbarComponents/Navbar";
 import "./app.css";
 
 function App() {
-  return <Navbar_M></Navbar_M>;
+  return (
+    <>
+      <Navbar></Navbar>
+      <h1>BLOG</h1>
+    </>
+  );
 }
 export default App;

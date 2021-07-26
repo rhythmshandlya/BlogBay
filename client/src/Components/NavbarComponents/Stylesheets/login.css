@@ -193,14 +193,14 @@
 
 .animated-button1 {
   background: linear-gradient(-30deg, #3d0b0b 50%, #2b0808 50%);
-  padding: 20px 40px;
-  margin: 12px;
+  padding: 18px 30px;
+  margin: 20px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
   transform: translate(0%, 0%);
   overflow: hidden;
   color: #f7d4d4;
-  font-size: 20px;
+  font-size: 1rem;
   letter-spacing: 2.5px;
   text-align: center;
   text-transform: uppercase;
