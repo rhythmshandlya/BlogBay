@@ -7,12 +7,14 @@ const toggler = ()=>{
 
 const Hamburger = () => {
     return (
-        <label for="check" onClick={toggler}>
+        <div className="balle">
+        <label  for="check">
             <input type="checkbox" id="check"/> 
             <span></span>
             <span></span>
             <span></span>
         </label>
+        </div>
     )
 }
 
