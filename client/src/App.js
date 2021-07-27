@@ -7,6 +7,7 @@ function App() {
     <>
       {/* <Navbar></Navbar> */}
       <Profile></Profile>
+      
 
     </>
   );
