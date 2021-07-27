@@ -14,7 +14,7 @@
   height: 0px;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease-in;
+  transition: height 0.3s ease-in;
 }
 .drop {
   height: 400px;
