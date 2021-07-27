@@ -1,10 +1,11 @@
 import React from 'react'
 import './Stylesheets/profile.css';
 const Profile = () => {
+    
     return (
         <div>
             <div className="cover">
-                <div className="avatar"></div>
+                <div className="avatar" ></div>
             </div>
             <div className="info">
                 <p className="info_links" >About</p>

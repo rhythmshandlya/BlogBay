@@ -6,7 +6,10 @@
     position: relative;
     height: 14em;
     width: 100%;
-    background-color: #f3f2c9;
+    background-image: url(E:/BLOG/BlogBay/client/src/data/icon-st.svg);
+    background-size: 14em 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .avatar{
     position: absolute;
@@ -16,8 +19,12 @@
     border-radius: 100px;
     height: 200px;
     width: 200px;
-    background-color: maroon;
+    background-image: url(E:/BLOG/BlogBay/client/src/data/logo-w.png);
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+    background-position: center;
     z-index: 3;
+    border: 1px solid black;
 }
 .info{  
     height: 180px;
@@ -26,7 +33,7 @@
     justify-content: space-around;
     align-items: center;
     background-color: #f3f2c9;
-    filter:drop-shadow(5px 5px 10px black);
+    filter:drop-shadow(5px 5px 15px #f3f2c9);
 }
 .info_links{
     margin-top: 7%;
