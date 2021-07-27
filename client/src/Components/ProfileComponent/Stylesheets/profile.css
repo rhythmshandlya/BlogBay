@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.cover {
+  position: relative;
+  height: 14em;
+  width: 100%;
+  background-image: url('./../../../data/icon-st.svg');
+  background-size: 14em 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.avatar {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translateX(-50%);
+  border-radius: 100px;
+  height: 200px;
+  width: 200px;
+  background-image: url('./../../../data/logo-w.png');
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 3;
+  border: 1px solid black;
+}
+.info {
+  height: 180px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f3f2c9;
+  filter: drop-shadow(5px 5px 15px #f3f2c9);
+}
+.info_links {
+  margin-top: 7%;
+  color: #3d0b0b;
+  font-size: 30px;
+  font-family: 'Poppins', sans-serif;
+}
