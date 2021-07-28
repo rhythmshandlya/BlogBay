@@ -1,5 +1,4 @@
 const express = require('express');
-const fs = require('fs');
 const morgan = require('morgan');
 
 //Exporting Routers
@@ -8,7 +7,8 @@ const userRouter = require('./routes/userRouter');
 
 const app = express();
 
-if (process.env.mode === 'DEV') {
+console.log(process.env.MODE);
+if (process.env.MODE == 'DEV') {
   console.clear();
   app.use(morgan('dev'));
 }
@@ -17,7 +17,7 @@ if (process.env.mode === 'DEV') {
 as a JSON Object.*/
 app.use(express.json());
 
-app.use('/api/v1/blog', blogRouter);
-app.use('/api/v1/user', userRouter);
+app.use('/api/v1/blogs', blogRouter);
+app.use('/api/v1/users', userRouter);
 
 module.exports = app;
