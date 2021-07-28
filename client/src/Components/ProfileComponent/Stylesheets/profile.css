@@ -24,12 +24,14 @@
   background-repeat: no-repeat;
   background-position: center;
   z-index: 3;
-  border: 1px solid black;
+  border: 10px solid #8d1b1b;
 }
 .info {
   height: 180px;
   width: 100%;
   display: flex;
+  position: sticky;
+  top: 0;
   justify-content: space-around;
   align-items: center;
   background-color: #f3f2c9;
