@@ -43,3 +43,20 @@
   font-size: 30px;
   font-family: 'Poppins', sans-serif;
 }
+.addBlog{
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  display: flex;
+  position: fixed;
+  top:85%;
+  left: 93%;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: #8d1b1b;
+  font-weight: bold;
+  background-color: #f3f2c9;
+  border: 5px solid #8d1b1b;
+  filter: drop-shadow(5px 5px 10px black);
+}

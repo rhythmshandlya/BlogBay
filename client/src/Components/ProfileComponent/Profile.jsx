@@ -12,7 +12,8 @@ const Profile = () => {
                 <p className="info_links" style={{paddingLeft:"3em"}}>Blogs</p>
                 <p className="info_links">Personal Info</p>
             </div>
-            <div style={{height:"1000px", backgroundColor:"red"}}></div>
+            <div className="addBlog">+</div>
+            <div style={{height:"1000px", backgroundColor:"white"}}></div>
         </div>
     )
 }
