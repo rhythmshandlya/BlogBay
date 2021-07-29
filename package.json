@@ -4,7 +4,8 @@
   "description": "A blogging website, for all",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "debug": "ndb server.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.13.3",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "ndb": "^1.1.5"
   }
 }

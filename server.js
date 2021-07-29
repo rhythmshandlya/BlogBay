@@ -19,13 +19,27 @@ mongoose.connect(uri, {
 /* .then(() => { console.log('Connected to the local database...');}) */
 //Handling ERROR
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function () {
   console.log('Connected to the mongo database');
 });
 
 //Listening to requests on local port
 const port = process.env.port;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`App listening on port port ${port}...`);
+});
+
+process.on('unhandledRejection', (err) => {
+  console.log(err.name, err.message);
+  console.log('Unhandled error occluded, shutting the server down');
+  server.close(() => {
+    process.exit(1);
+  });
+});
+process.on('uncaughtException', (err) => {
+  console.log(err.name, err.message);
+  console.log('Uncaught exception has occluded, shutting the server down');
+  server.close(() => {
+    process.exit(1);
+  });
 });

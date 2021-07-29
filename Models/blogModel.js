@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 const BlogSchema = mongoose.Schema({
   title: {
@@ -20,6 +22,12 @@ const BlogSchema = mongoose.Schema({
   },
   authorID: {
     type: String,
+    validate: {
+      validator: function (v) {
+        return mongoose.isValidObjectId(this.authorID);
+      },
+      message: (props) => `Invalid AuthorID`
+    },
     required: true
   }
 });

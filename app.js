@@ -7,7 +7,9 @@ const userRouter = require('./routes/userRouter');
 
 const app = express();
 
-console.log(process.env.MODE);
+const AppError = require('./Util/AppError');
+const globalErrHandler = require('./Controllers/ErrorController');
+
 if (process.env.MODE == 'DEV') {
   console.clear();
   app.use(morgan('dev'));
@@ -19,5 +21,16 @@ app.use(express.json());
 
 app.use('/api/v1/blogs', blogRouter);
 app.use('/api/v1/users', userRouter);
+
+app.all('*', (req, res, next) => {
+  /*
+  const err = new Error(`Can't find ${req.originalUrl} on the server`);
+  err.statusCode = 404;
+  next(err);
+  */
+  next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
+});
+
+app.use(globalErrHandler);
 
 module.exports = app;
