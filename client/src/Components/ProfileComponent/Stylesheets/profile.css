@@ -31,7 +31,7 @@
   width: 100%;
   display: flex;
   position: sticky;
-  top: 0;
+  top: -15%;
   justify-content: space-around;
   align-items: center;
   background-color: #f3f2c9;
@@ -42,6 +42,7 @@
   color: #3d0b0b;
   font-size: 30px;
   font-family: 'Poppins', sans-serif;
+  cursor:pointer;
 }
 .addBlog{
   height: 80px;
@@ -59,4 +60,5 @@
   background-color: #f3f2c9;
   border: 5px solid #8d1b1b;
   filter: drop-shadow(5px 5px 10px black);
+  cursor: pointer;
 }
