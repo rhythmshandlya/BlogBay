@@ -45,13 +45,13 @@
   cursor:pointer;
 }
 .addBlog{
-  height: 80px;
-  width: 80px;
-  border-radius: 40px;
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 0.75em;
   display: flex;
   position: fixed;
-  top:85%;
-  left: 93%;
+  bottom: 20px;
+  right: 20px;
   justify-content: center;
   align-items: center;
   font-size: 60px;
@@ -61,4 +61,10 @@
   border: 5px solid #8d1b1b;
   filter: drop-shadow(5px 5px 10px black);
   cursor: pointer;
+  transition:0.3s ease-in;
+}
+.addBlog:hover{
+   height: 1.6em;
+   width: 1.6em;
+   border-radius: 0.8em;
 }
