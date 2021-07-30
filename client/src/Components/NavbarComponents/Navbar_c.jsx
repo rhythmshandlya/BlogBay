@@ -2,6 +2,8 @@ import React from 'react'
 import LoginButton from './Login';
 import Search from './Search';
 import logo from './../../data/icon-st.svg';
+import Btn_2 from './Btn_2';
+import './Stylesheets/Navbar.css'
 
 const Navbar_c = () => {
     return (
@@ -13,7 +15,7 @@ const Navbar_c = () => {
             <a className="nav-link" href="/tutorial">Tutorial</a>
         </div>
         <div className="inner-container">
-            <LoginButton />
+            <Btn_2 />
             <Search />
         </div>
         </div>
