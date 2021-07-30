@@ -6,6 +6,7 @@ import Search from './Search';
 import icon from './../../data/icon-st.svg'
 import './Stylesheets/Navbar_m.css'
 import './Stylesheets/Navbar.css'
+import Btn2 from './Btn_2';
 
 const Navbar_m = () => {
     return (
@@ -19,7 +20,8 @@ const Navbar_m = () => {
                 <a className="nav-link_m" href="/blog">Blog</a>
                 <a className="nav-link_m" href="/tutorial">Tutorial</a>
                 <Search />
-                <LoginButton />
+                <br></br>
+                <Btn2 />
             </div>
         </>
     )

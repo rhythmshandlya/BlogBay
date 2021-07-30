@@ -6,6 +6,7 @@
   font-weight: 300;
 }
 body {
+  overflow-y: hidden;
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
@@ -52,7 +53,7 @@ body :-ms-input-placeholder {
 }
 .container_p {
   max-width: 600px;
-  margin: 7% auto;
+  margin: 6% auto;
   padding: 80px 0;
   height: 90%;
   text-align: center;
@@ -93,8 +94,15 @@ form input:focus {
   color: #53e3a6;
 }
 .dont_have_an_account{
+  display: inline-block;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
   color: white;
   cursor: pointer;
+}
+.dont_have_an_account:hover{
+  color: black;
 }
 form button {
   appearance: none;

@@ -11,8 +11,9 @@ const LoginPage = () => {
                 <input type="text" placeholder="Username" />
                 <input type="password" placeholder="Password" />
                 <button type="submit" id="login-button">Login</button>
+                <br></br>
+                <a href="signup"  className="dont_have_an_account">Dont have an account?</a>
                 </form>
-                <a href="signup" className="dont_have_an_account">Dont have an account?</a>
                 </div>
                 <ul className="bg-bubbles">
                     <li></li>
