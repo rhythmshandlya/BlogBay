@@ -24,7 +24,7 @@ db.once('open', function () {
 });
 
 //Listening to requests on local port
-const port = process.env.port;
+const port = process.env.port || 8000;
 const server = app.listen(port, () => {
   console.log(`App listening on port port ${port}...`);
 });
