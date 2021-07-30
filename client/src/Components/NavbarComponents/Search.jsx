@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 const Search = () => {
     return (
         <div className="search-box">
-            <button className="btn-search"><FontAwesomeIcon icon={faSearch}/></button>
+            <button className="btn-search"><FontAwesomeIcon icon={faSearch} /></button>
             <input type="text" className="input-search" placeholder="Type to Search..." />
         </div>
     )

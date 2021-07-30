@@ -5,6 +5,7 @@ import Search from './Search';
 
 import icon from './../../data/icon-st.svg'
 import './Stylesheets/Navbar_m.css'
+import './Stylesheets/Navbar.css'
 
 const Navbar_m = () => {
     return (
