@@ -1,4 +1,4 @@
-//import Navbar from './Components/NavbarComponents/Navbar';
+import Navbar from './Components/NavbarComponents/Navbar';
 import Profile from './Components/ProfileComponent/Profile.jsx';
 import './app.css';
 

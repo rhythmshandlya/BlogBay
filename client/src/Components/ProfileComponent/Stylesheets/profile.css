@@ -61,7 +61,7 @@
   border: 5px solid #8d1b1b;
   filter: drop-shadow(5px 5px 10px black);
   cursor: pointer;
-  transition:0.3s ease-in;
+  transition:0.2s ease-in;
 }
 .addBlog:hover{
    height: 1.6em;
