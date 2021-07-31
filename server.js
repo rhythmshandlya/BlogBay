@@ -12,9 +12,9 @@ const uri = process.env.DATABASE_URI.replace(
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-});
+  useCify: false
+});reateIndex: true,
+  useFindAndMod
 
 /* .then(() => { console.log('Connected to the local database...');}) */
 //Handling ERROR
