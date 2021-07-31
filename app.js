@@ -6,7 +6,8 @@ const blogRouter = require('./routes/blogRouter');
 const userRouter = require('./routes/userRouter');
 
 const app = express();
-app.runAll=(port)=>{app.get("/",function(req,res){
+app.runAll=(port)=>{
+  app.get("/",function(req,res){
   res.sendFile(__dirname+"/client/build/index.html");
 });
 app.listen(port,() => {
