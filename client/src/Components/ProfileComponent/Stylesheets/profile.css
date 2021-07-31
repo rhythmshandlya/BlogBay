@@ -1,70 +1,87 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-.cover {
-  position: relative;
-  height: 14em;
-  width: 100%;
-  background-image: url('./../../../data/icon-st.svg');
-  background-size: 14em 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 .avatar {
-  position: absolute;
+  position: relative;
   left: 50%;
-  top: 55%;
-  transform: translateX(-50%);
+  top: -100px;
+  transform: translateX(-45%);
+  margin-bottom: -150px;
   border-radius: 100px;
-  height: 200px;
-  width: 200px;
-  background-image: url('./../../../data/logo-w.png');
+  height: 150px;
+  width: 150px;
   background-size: 200px 200px;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 3;
-  border: 10px solid #8d1b1b;
+  border: 3px solid white;
 }
 .info {
-  height: 180px;
+  height: 100px;
   width: 100%;
   display: flex;
-  position: sticky;
-  top: -15%;
   justify-content: space-around;
   align-items: center;
-  background-color: #f3f2c9;
-  filter: drop-shadow(5px 5px 15px #f3f2c9);
+  background-color: white;
 }
 .info_links {
   margin-top: 7%;
   color: #3d0b0b;
-  font-size: 30px;
+  font-size: 1.5rem;
   font-family: 'Poppins', sans-serif;
-  cursor:pointer;
-}
-.addBlog{
-  height: 1.5em;
-  width: 1.5em;
-  border-radius: 0.75em;
-  display: flex;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  justify-content: center;
-  align-items: center;
-  font-size: 60px;
-  color: #8d1b1b;
-  font-weight: bold;
-  background-color: #f3f2c9;
-  border: 5px solid #8d1b1b;
-  filter: drop-shadow(5px 5px 10px black);
   cursor: pointer;
-  transition:0.2s ease-in;
 }
-.addBlog:hover{
-   height: 1.6em;
-   width: 1.6em;
-   border-radius: 0.8em;
+.link-grow {
+  margin-right: 38px;
+}
+
+/* Background image */
+.FlexEmbed {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.FlexEmbed:before {
+  content: '';
+  display: block;
+  width: 100%;
+}
+
+.FlexEmbed--2by1:before {
+  padding-bottom: 50%;
+}
+
+.CoverImage {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 1px auto;
+  max-height: 300px;
+  max-width: 1000px;
+}
+
+/* text decoration transition */
+
+.un {
+  display: inline-block;
+}
+
+.un::after {
+  content: '';
+  width: 0px;
+  height: 1px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+
+.un:hover::after {
+  width: 100%;
+}
+
+.un-p::after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  display: block;
+  background: black;
+  transition: 300ms;
 }
