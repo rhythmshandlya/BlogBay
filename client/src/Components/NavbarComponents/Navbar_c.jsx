@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginButton from './Login';
+// import LoginButton from './Login';
 import Search from './Search';
 import logo from './../../data/icon-st.svg';
 import Btn2 from './Btn_2';

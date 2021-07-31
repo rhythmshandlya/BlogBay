@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-
+const path=require('path');
 //Exporting Routers
 const blogRouter = require('./routes/blogRouter');
 const userRouter = require('./routes/userRouter');
@@ -30,7 +30,15 @@ app.all('*', (req, res, next) => {
   */
   next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
 });
-
+app.runAll=(port)=>{
+  app.use(express.static(path.join(__dirname,'client/build')));
+  app.get('/helo',function(req,res){
+    res.sendFile(path.join(__dirname,'client/build','index.html'));
+  });
+  app.listen(port,() => {
+    console.log(`App lsssssistening on port port ${port}...`);
+  });
+  }
 app.use(globalErrHandler);
 
 module.exports = app;

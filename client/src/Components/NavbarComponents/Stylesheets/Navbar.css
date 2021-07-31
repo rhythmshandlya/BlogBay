@@ -8,10 +8,10 @@ body {
   font-size: 1rem;
   background-color: transparent;
   color: black;
-  box-shadow: 0 0 5px 0 gray;
   flex-wrap: nowrap;
   justify-content: space-around;
   flex-direction: row;
+  border: none;
 }
 .remove-shadow {
   box-shadow: 0px !important;

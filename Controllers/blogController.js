@@ -1,11 +1,7 @@
 const AppError = require('../Util/AppError');
 const Blog = require('./../Models/blogModel');
+const {catchAsync}=require('./../Util/catchAsync');
 
-const catchAsync = (fn) => {
-  return (req, res, next) => {
-    fn(req, res, next).catch(next);
-  };
-};
 
 exports.getAllBlogs = catchAsync(async (req, res) => {
   const allBlogs = await Blog.find({});
