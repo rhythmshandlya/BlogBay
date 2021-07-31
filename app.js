@@ -6,7 +6,13 @@ const blogRouter = require('./routes/blogRouter');
 const userRouter = require('./routes/userRouter');
 
 const app = express();
-
+app.runAll=(port)=>{app.get("/",function(req,res){
+  res.sendFile(__dirname+"/client/build/index.html");
+});
+app.listen(port,() => {
+  console.log(`App listening on port port ${port}...`);
+});;
+}
 const AppError = require('./Util/AppError');
 const globalErrHandler = require('./Controllers/ErrorController');
 
@@ -30,15 +36,8 @@ app.all('*', (req, res, next) => {
   */
   next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
 });
-app.runAll=(port)=>{
-  app.use(express.static(path.join(__dirname,'client/build')));
-  app.get('/helo',function(req,res){
-    res.sendFile(path.join(__dirname,'client/build','index.html'));
-  });
-  app.listen(port,() => {
-    console.log(`App lsssssistening on port port ${port}...`);
-  });
-  }
+ 
+
 app.use(globalErrHandler);
 
 module.exports = app;
