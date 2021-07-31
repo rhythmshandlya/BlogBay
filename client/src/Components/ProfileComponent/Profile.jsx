@@ -37,7 +37,8 @@ const Profile = () => {
 
     return (
         <div>
-            <div className="CoverImage FlexEmbed FlexEmbed--2by1" style={{ backgroundImage: `url(${backgroundImg})` }}></div>
+        
+        <div className="grad"><div className="CoverImage FlexEmbed FlexEmbed--2by1" style={{ backgroundImage: `url(${backgroundImg})`}}></div> </div>
             <div className="avatar" style={{ backgroundImage: `url(${displayPicture})` }}></div>
             <div className="info">
                 <p className="info_links link-grow un" onClick={clickHandler}>About</p>
