@@ -1,7 +1,6 @@
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 const app = require('./app');
-const path=require('path');
 const mongoose = require('mongoose');
 
 //Connecting to the mongoose server!
@@ -24,9 +23,9 @@ db.once('open', function () {
   console.log('Connected to the mongo database');
 });
 
-//Listening to requests on local port
-const port = process.env.port || 8000;
-const server=app.runAll(port);
+app.listen(process.env.PORT, () => {
+  console.log(`Api running on ${process.env.PORT}`);
+});
 
 process.on('unhandledRejection', (err) => {
   console.log(err.name, err.message);
