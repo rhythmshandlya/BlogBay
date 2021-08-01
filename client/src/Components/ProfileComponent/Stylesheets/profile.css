@@ -48,22 +48,13 @@
 .FlexEmbed--2by1:before {
   padding-bottom: 50%;
 }
-.grad{
-  background-image: url(http://placeimg.com/1000/1000/nature);
-  background-position: 50%;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  filter: blur(5px);
-}
 .CoverImage {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 1px auto;
-  max-height: 300px;
-  max-width: 1000px;
-  filter: blur(0);
- 
+  max-height: 310px;
+  max-width: 900px;
 }
 
 /* text decoration transition */
