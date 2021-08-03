@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.landing-page {
+  background: url('./../../../data/pen.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: poppins;
+}
+.landing {
+  height: 86vh;
+}
+.h1-landing {
+  font-size: 2.5rem;
+  color: white;
+  padding-top: 15%;
+  padding-left: 15%;
+}
+
+@media only screen and (max-width: 600px) {
+  .landing {
+    padding: 30% 10%;
+  }
+}
