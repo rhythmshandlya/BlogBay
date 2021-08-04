@@ -6,7 +6,13 @@ const castErrorDB = (err) => {
 };
 
 const validationErrorDB = (err) => {
-  const message = `Blog validation failed, unable to validate certain fields`;
+  const error = Object.values(err.errors).map((el) => el.message);
+  const message = `Validation failed!  ${error.join(' | ')}`;
+  return new AppError(message, 400);
+};
+
+const duplicateErrorDB = (err) => {
+  const message = `Email already exists, please login`;
   return new AppError(message, 400);
 };
 
@@ -46,6 +52,7 @@ module.exports = (err, req, res, next) => {
     let error = Object.create(err);
     if (error.name == 'CastError') error = castErrorDB(error);
     if (error.name == 'ValidationError') error = validationErrorDB(error);
+    if (error.code == 11000) error = duplicateErrorDB(error);
     //..
     prodError(error, res);
   }
