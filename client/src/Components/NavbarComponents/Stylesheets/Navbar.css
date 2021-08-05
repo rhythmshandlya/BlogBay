@@ -12,6 +12,8 @@ body {
   justify-content: space-around;
   flex-direction: row;
   border: none;
+  position: sticky;
+  top: 0;
 }
 .remove-shadow {
   box-shadow: 0px !important;
