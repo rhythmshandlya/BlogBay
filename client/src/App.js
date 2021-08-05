@@ -8,11 +8,11 @@
 // import CardExplore from './Components/BlogCards/CardExplore';
 
 import LandingPage from './Components/LandingPage/LandingPage';
-import Navbar from './Components/NavbarComponents/Navbar';
+
 function App() {
   return (
     <>
-      <Navbar />
+      
       <LandingPage />
       {/* <FullPageCard></FullPageCard> */}
     </>
