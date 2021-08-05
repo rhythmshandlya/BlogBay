@@ -21,12 +21,14 @@ as a JSON Object.
 app.use(express.json());
 
 app.use('/api/v1/blogs', blogRouter);
-app.use('/api/v1/users', userRouter);
+app.use('/api/v1/user', userRouter);
 
 app.all('*', (req, res, next) => {
-  /*   const err = new Error(`Can't find ${req.originalUrl} on the server`);
+  /* 
+  const err = new Error(`Can't find ${req.originalUrl} on the server`);
   err.statusCode = 404;
-  next(err); */
+  next(err); 
+  */
   next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
 });
 
