@@ -1,9 +1,13 @@
 const express = require('express');
+const { protect, restrictTo } = require('../Controllers/authController');
 const blogController = require('./../Controllers/blogController');
 
 const router = express.Router();
 
-router.route('/').get(blogController.getAllBlogs).post(blogController.addBlog);
+router
+  .route('/')
+  .get(protect, blogController.getAllBlogs)
+  .post(protect, restrictTo('admin'), blogController.addBlog);
 
 router
   .route('/:id')

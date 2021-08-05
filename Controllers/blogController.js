@@ -1,7 +1,6 @@
 const AppError = require('../Util/AppError');
 const Blog = require('./../Models/blogModel');
-const {catchAsync}=require('./../Util/catchAsync');
-
+const { catchAsync } = require('./../Util/catchAsync');
 
 exports.getAllBlogs = catchAsync(async (req, res) => {
   const allBlogs = await Blog.find({});
@@ -15,6 +14,7 @@ exports.getAllBlogs = catchAsync(async (req, res) => {
 });
 
 exports.addBlog = catchAsync(async (req, res) => {
+  req.body.authorID = req.user._id;
   const newBlog = await Blog.create(req.body);
   res.status(201).json({
     status: true,

@@ -13,7 +13,6 @@ const BlogSchema = mongoose.Schema({
   },
   date: {
     type: Date,
-    require: false,
     default: Date.now()
   },
   content: {
@@ -27,8 +26,7 @@ const BlogSchema = mongoose.Schema({
         return mongoose.isValidObjectId(this.authorID);
       },
       message: (props) => `Invalid AuthorID`
-    },
-    required: true
+    }
   }
 });
 

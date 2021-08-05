@@ -16,6 +16,12 @@ const duplicateErrorDB = (err) => {
   return new AppError(message, 400);
 };
 
+const jsonWebTokenError = (err) =>
+  new AppError('Invalid Token, please login again', 401);
+
+const jwtExpiredError = (err) =>
+  new AppError('Token has expired, please login again', 401);
+
 //Send All error details when in development
 const devError = (err, res) => {
   res.status(err.statusCode).json({
@@ -37,8 +43,7 @@ const prodError = (err, res) => {
     console.error('Unexpected ERROR', err);
     res.status(500).json({
       status: false,
-      message: 'Something went wrong!',
-      err
+      message: 'Something went wrong!'
     });
   }
 };
@@ -53,6 +58,8 @@ module.exports = (err, req, res, next) => {
     if (error.name == 'CastError') error = castErrorDB(error);
     if (error.name == 'ValidationError') error = validationErrorDB(error);
     if (error.code == 11000) error = duplicateErrorDB(error);
+    if (error.name == 'JsonWebTokenError') error = jsonWebTokenError(error);
+    if (error.name == 'TokenExpiredError') error = jwtExpiredError(error);
     //..
     prodError(error, res);
   }
