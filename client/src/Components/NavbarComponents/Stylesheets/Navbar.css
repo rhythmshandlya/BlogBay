@@ -14,6 +14,8 @@ body {
   border: none;
   position: sticky;
   top: 0;
+  z-index: 255611;
+  background-color: white;
 }
 .remove-shadow {
   box-shadow: 0px !important;

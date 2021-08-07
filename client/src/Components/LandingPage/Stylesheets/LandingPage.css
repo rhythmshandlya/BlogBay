@@ -3,7 +3,7 @@
   padding: 0;
 }
 .landing-page {
-  background: url('./../../../data/pen.jpg') no-repeat center center fixed;
+  background: url('./../../../data/428.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -12,43 +12,41 @@
 }
 .landing {
   height: 100vh;
+  position: relative;
 }
 .h1-landing {
   font-size: 2.5rem;
-  color: white;
+  color: black;
   padding-top: 15%;
   padding-left: 15%;
 }
-
+/* 
 @media only screen and (max-width: 600px) {
   .landing {
     padding: 30% 10%;
   }
-}
-.land-about-us{
-  width: 100%;
-  height: 1000px;
-  background: url('./../../../data/BLOGBAY.svg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  font-family: poppins;
-}
+} */
+
 .sample-blogs{
   width: 100%;
   height: 100vh;
   /* background-color: aqua; */
   display: flex;
-  margin-top: 10%;
+  /* margin-top: 10%; */
+  align-items: center;
   justify-content: space-around;
-  flex-wrap: wrap;
 }
 .footer{
   width: 100%;
   height: 300px;
-  background-color: aqua;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+@media screen and (max-width: 975px) {
+  .sample-blogs{
+    margin-top: 25%;
+    flex-direction: column;
+  }
 }
