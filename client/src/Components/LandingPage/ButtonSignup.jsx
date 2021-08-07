@@ -2,7 +2,7 @@ import React from 'react'
 import './Stylesheets/ButtonSignup.scss'
 const ButtonSignup = () => {
     return (
-        <div class="base" data-aos="fade-down">
+        <div class="base">
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>

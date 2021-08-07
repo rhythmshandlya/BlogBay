@@ -7,7 +7,7 @@ import './Stylesheets/Navbar.css'
 
 const Navbar_c = () => {
     return (
-        <div className="container" data-aos="fade-down">
+        <div className="container">
         <img className="icon" src={logo} alt="_N.F"/>
         <div className="nav-links">
             <a className="nav-link" href="/home">Home</a>

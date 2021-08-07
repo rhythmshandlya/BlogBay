@@ -14,7 +14,7 @@ const LandingPage = () => {
         <Navbar />
         <div className="landing-page">
             <div className='landing'>
-                <h1 className="h1-landing" data-aos="fade-down">Write blogs with us</h1>
+                <h1 className="h1-landing" data-aos="fade-up">Write blogs with us</h1>
                 <ButtonSignup />
             </div>
           
