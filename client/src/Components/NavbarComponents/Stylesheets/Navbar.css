@@ -16,6 +16,7 @@ body {
   top: 0;
   z-index: 255611;
   background-color: white;
+  filter: drop-shadow(0px 0px 10px black);
 }
 .remove-shadow {
   box-shadow: 0px !important;
