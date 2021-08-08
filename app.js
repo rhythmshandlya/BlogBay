@@ -1,5 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
+const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
+const sanitize = require('express-mongo-sanitize');
+const xss = require('xss-clean');
+const hpp = require('hpp');
 
 //Exporting Routers
 const blogRouter = require('./routes/blogRouter');
@@ -9,16 +14,29 @@ const app = express();
 const AppError = require('./Util/AppError');
 const globalErrHandler = require('./Controllers/errorController');
 
+app.use(helmet());
+
 if (process.env.MODE == 'DEV') {
   console.clear();
   app.use(morgan('dev'));
 }
 
+app.use(sanitize());
+app.use(xss());
+
+const limiter = rateLimit({
+  max: 120,
+  windowMs: 60 * 60 * 1000,
+  message: 'Too many requests, try after sometime'
+});
+app.use('/api', limiter);
+
+app.use(hpp({ whitelist: [] }));
 /*
 express.json() is a method inbuilt in express to recognize the incoming Request Object 
 as a JSON Object.
 */
-app.use(express.json());
+app.use(express.json({ limit: '10kb' }));
 
 app.use('/api/v1/blogs', blogRouter);
 app.use('/api/v1/user', userRouter);
