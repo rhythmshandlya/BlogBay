@@ -89,6 +89,8 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError('Incorrect email or password', 401));
 
   const token = getJwt(user._id, process.env.JWT, process.env.JWT_EXPIRY);
+  sendCookie(res, token);
+
   res.status(200).json({
     status: true,
     message: 'Login successful',
@@ -131,6 +133,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   await user.save();
 
   const token = getJwt(user._id, process.env.JWT, process.env.JWT_EXPIRY);
+  sendCookie(res, token);
   res.status(200).json({
     status: true,
     message: 'Password changed successfully',
@@ -149,6 +152,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   await user.save();
 
   const token = getJwt(user._id, process.env.JWT, process.env.JWT_EXPIRY);
+  sendCookie(res, token);
   res.status(200).json({
     status: true,
     message: 'Password changed successfully',

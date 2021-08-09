@@ -46,7 +46,7 @@ app.all('*', (req, res, next) => {
   const err = new Error(`Can't find ${req.originalUrl} on the server`);
   err.statusCode = 404;
   next(err); 
-  */
+*/
   next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
 });
 
