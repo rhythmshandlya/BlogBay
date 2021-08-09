@@ -41,7 +41,7 @@ const ButtonSignup = () => {
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
             <i></i><i></i><i></i><i></i>
-            <div class="bg">Sigh Up</div>
+            <div class="bg">Sign Up</div>
         </div>
     )
 }

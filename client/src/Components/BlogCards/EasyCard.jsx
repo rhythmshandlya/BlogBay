@@ -3,6 +3,7 @@ import './stylesheets/EasyCaed.css'
 const EasyCard = () => {
     return (
         <div>
+        <div className="blog-filter"> LOREM IPSUM</div>
             <div  class="card_ez">
                 <div class="card-header">
                     <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
@@ -20,6 +21,7 @@ const EasyCard = () => {
                     </div>
                 </div>
             </div>
+       
         </div>
     );
 }

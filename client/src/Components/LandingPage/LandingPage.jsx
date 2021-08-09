@@ -22,6 +22,13 @@ const LandingPage = () => {
                 <EasyCard></EasyCard>
                 <EasyCard></EasyCard>
                 <EasyCard></EasyCard>
+                <EasyCard></EasyCard>
+                <EasyCard></EasyCard>
+                <EasyCard></EasyCard>
+                <EasyCard></EasyCard>
+                <EasyCard></EasyCard>
+                <EasyCard></EasyCard>
+                <EasyCard></EasyCard>
             </div>   
         </div>
         </>

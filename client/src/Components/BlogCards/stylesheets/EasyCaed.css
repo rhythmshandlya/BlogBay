@@ -1,12 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .card_ez {
-  margin: 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  /* margin: 10px; */
+  background-color: white;
+  border-radius: 0px;
+  /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2); */
   overflow: hidden;
   width: 300px;
+}
+.blog-filter{
+  height: 380px;
+  width: 300px;
+  background-color: aqua;
+  position: absolute;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: 30px;
+  transition: ease 0.25s;
+}
+.blog-filter:hover{
+  opacity: 0;
 }
 .card-header img {
   width: 100%;
