@@ -1,12 +1,21 @@
 import React from 'react'
 import './stylesheets/EasyCaed.css'
+import {  useState } from 'react';
 const EasyCard = () => {
+    const [state,setState]=useState(false);
+    // useEffect(() => {
+    //     document.getElementsByClassName("blog-filter").style.display='absolute'
+    // }, []);
+    function setter(){
+        setState(!state);
+    }
     return (
         <div>
-        <div className="blog-filter"> LOREM IPSUM</div>
-            <div  class="card_ez">
+        <div className="blog-filter" style={state?{display:"flex"}:{display:"none"}}></div>
+        <h3 className="thumbnail-title" style={state?{visibility:"visible"}:{visibility:"hidden"}}>Read More</h3>
+            <div  class="card_ez" onMouseEnter={setter} onMouseLeave={setter}>
                 <div class="card-header">
-                    <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+                    <img src="https://source.unsplash.com/user/erondu/1600x900" alt="rover" />
                 </div>
                 <div class="card-body">
                     <span class="tag tag-teal">Technology</span>
@@ -21,7 +30,6 @@ const EasyCard = () => {
                     </div>
                 </div>
             </div>
-       
         </div>
     );
 }

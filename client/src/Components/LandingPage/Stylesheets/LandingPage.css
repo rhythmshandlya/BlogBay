@@ -25,13 +25,14 @@
 } */
 
 .sample-blogs{
-  width: 100%;
-  height: 100vh;
+  height: 100%;
+  padding-left: 5%;
   /* background: url('./../../../data/backk2.jpg') no-repeat;
-  background-size: 100% 100vh; */
+  background-size: 100% 100%; */
   background-color: white;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 320px 320px 320px 320px;
+  justify-content: center;
  
   grid-gap: 0px;
 }
@@ -48,4 +49,20 @@
     margin-top: 25%;
     flex-direction: column;
   }
+}
+.cat-name{
+  margin-left: 10%;
+  margin-top: 3%;
+}
+.about-us img{
+  margin-left: 10%;
+  display: flex;
+}
+.about-us h3{
+  margin-left: 10%;
+}
+.footer{
+  height: 300px;
+  width: 100%;
+  background-color: aqua;
 }
