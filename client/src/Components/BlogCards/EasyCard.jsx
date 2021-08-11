@@ -6,14 +6,12 @@ const EasyCard = () => {
     // useEffect(() => {
     //     document.getElementsByClassName("blog-filter").style.display='absolute'
     // }, []);
-    function setter(){
-        setState(!state);
-    }
+    
     return (
         <div>
-        <div className="blog-filter" style={state?{display:"flex"}:{display:"none"}}></div>
-        <h3 className="thumbnail-title" style={state?{visibility:"visible"}:{visibility:"hidden"}}>Read More</h3>
-            <div  class="card_ez" onMouseEnter={setter} onMouseLeave={setter}>
+        <div className="blog-filter" style={state?{display:"flex"}:{display:"none"}} onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)}></div>
+        <h3 className="thumbnail-title" onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)} style={state?{visibility:"visible"}:{visibility:"hidden"}}>Read More</h3>
+            <div  class="card_ez" onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)}>
                 <div class="card-header">
                     <img src="https://source.unsplash.com/user/erondu/1600x900" alt="rover" />
                 </div>

@@ -26,7 +26,9 @@
   background-size: 300px 380px;
   transition: ease 0.25s;
 }
-
+.card_ez:hover + .blog-filter{
+  display: flex;
+}
 .thumbnail-title{
   width: 150px;
   font-family: 'Poppins', sans-serif;
