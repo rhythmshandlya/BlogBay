@@ -31,7 +31,6 @@
   background-size: 100% 100%; */
   background-color: white;
   display: grid;
-  grid-template-columns: 320px 320px 320px 320px;
   justify-content: center;
  
   grid-gap: 0px;
@@ -56,9 +55,11 @@
 }
 .about-us img{
   margin-left: 10%;
+}
+.about-us{
   display: flex;
 }
-.about-us h3{
+.about-us p{
   margin-left: 10%;
 }
 .footer{
