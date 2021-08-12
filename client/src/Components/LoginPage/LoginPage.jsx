@@ -5,7 +5,7 @@ const LoginPage = () => {
         <div className="wrapper">
 	           
                <div className="container_p">
-               <h1>Login</h1>
+               <h1 className="login-heading">Login</h1>
 		
                 <form className="form">
                 <input type="text" placeholder="Username" />

@@ -1,20 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-weight: 300;
-}
-body {
-  overflow-y: hidden;
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  font-weight: 300;
-}
+
 body ::-webkit-input-placeholder {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
+}
+.login-heading{
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 body :-moz-placeholder {
   font-family: 'Source Sans Pro', sans-serif;

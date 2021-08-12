@@ -3,6 +3,7 @@ import './Stylesheets/LandingPage.css'
 import ButtonSignup from './ButtonSignup'
 import EasyCard from './../BlogCards/EasyCard.jsx'
 import Navbar from './../NavbarComponents/Navbar';
+// import LoginPage from './../LoginPage/LoginPage';
 import Aos from 'aos';
 import logo from './../../data/icon-st.svg';
 import 'aos/dist/aos.css';
@@ -40,7 +41,7 @@ const LandingPage = () => {
     }
     return (
         <>
-        <Navbar />
+        
         <div className="landing-page">
             <div className='landing'>
                 <h1 className="h1-landing" data-aos="fade-up">Write blogs with us</h1>
