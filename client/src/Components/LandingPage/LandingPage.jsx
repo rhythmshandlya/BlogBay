@@ -7,14 +7,14 @@ import Aos from 'aos';
 import logo from './../../data/icon-st.svg';
 import 'aos/dist/aos.css';
 const LandingPage = () => {
-    const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/300)-1)
+    const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/300-1))
     function check(){
         numBlogsSetter(Math.floor(window.innerWidth/300)-1);
-        console.log(numBlogs)
     }
     function renderer(amount){
         var EasyCardRenderer=[];
-        for(let i=0;i<amount;i++){
+        EasyCardRenderer.push(<EasyCard></EasyCard>);
+        for(let i=0;i<amount-1;i++){
             EasyCardRenderer.push(<EasyCard></EasyCard>);
         }
         return EasyCardRenderer;

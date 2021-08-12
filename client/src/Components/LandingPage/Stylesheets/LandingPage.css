@@ -44,9 +44,13 @@
   justify-content: space-around;
 }
 @media screen and (max-width: 975px) {
-  .sample-blogs{
-    margin-top: 25%;
+  .about-us{
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-us img{
+    margin-left: 0%;
   }
 }
 .cat-name{
