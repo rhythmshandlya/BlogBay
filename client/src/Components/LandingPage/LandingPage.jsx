@@ -55,7 +55,7 @@ const LandingPage = () => {
             <CatBlogs></CatBlogs>
             <CatName name="About Us"/>
         <div className="about-us"> 
-            <img src={logo} alt="us" height='500px' width='400px'/>
+            <img src={logo} alt="us" height='50%' width='30%'/>
             <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id dictum arcu, sit amet vestibulum mi. Ut vestibulum non augue eget condimentum. Ut vel molestie erat, lobortis lobortis tellus. Phasellus non diam mattis, suscipit lacus vel, venenatis metus. Nullam sit amet placerat nunc. Duis sit amet bibendum felis, nec posuere erat. Maecenas consequat efficitur sodales. Donec rutrum pulvinar tortor in scelerisque. Donec molestie blandit massa et porta. In facilisis sodales tempor. Maecenas vel sodales sapien. Aliquam sed ex non tortor viverra dignissim. In interdum congue justo, nec iaculis tortor auctor id. Maecenas ut quam venenatis, iaculis orci eu, hendrerit turpis. Morbi eget erat libero.
 
 Etiam euismod at lacus sed aliquet. Vivamus tincidunt nulla a augue consequat, vitae eleifend ipsum euismod. Maecenas magna risus, porta vitae metus ultrices, convallis efficitur felis. Sed a vulputate diam. Morbi convallis ac est at venenatis. Sed quis eros auctor mauris pulvinar posuere eu ac ligula. Nunc vitae efficitur leo. Donec ipsum orci, feugiat ac lacus sit amet, finibus congue ex. Aliquam posuere elit ut viverra ultrices. Suspendisse felis orci, condimentum vitae elit eu, ultrices cursus orci. Nulla aliquet ligula est, ut tempus sem dictum quis. Nam vel tincidunt ex. Mauris ut ante dapibus, molestie elit ac, pretium tortor. Vivamus tempus imperdiet leo, at rutrum risus sollicitudin vel. Donec placerat nulla magna, sed accumsan nibh accumsan eu.
