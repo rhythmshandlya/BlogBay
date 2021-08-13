@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.0.2",
     "dotenv": "^10.0.0",
@@ -26,6 +28,7 @@
     "nodemailer": "^6.6.3",
     "passport-google-oauth20": "^2.0.0",
     "react-bootstrap": "^2.0.0-beta.4",
+    "react-icons": "^4.2.0",
     "swiper": "^6.8.0",
     "validator": "^13.6.0",
     "xss-clean": "^0.1.1"

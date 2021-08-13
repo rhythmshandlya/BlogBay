@@ -15,9 +15,8 @@ const AppError = require('./Util/AppError');
 const globalErrHandler = require('./Controllers/errorController');
 
 app.use(helmet());
-
+console.clear();
 if (process.env.MODE == 'DEV') {
-  console.clear();
   app.use(morgan('dev'));
 }
 
@@ -33,8 +32,8 @@ app.use('/api', limiter);
 
 app.use(hpp({ whitelist: [] }));
 /*
-express.json() is a method inbuilt in express to recognize the incoming Request Object 
-as a JSON Object.
+  express.json() is a method inbuilt in express to recognize the incoming Request Object 
+  as a JSON Object.
 */
 app.use(express.json({ limit: '10kb' }));
 
@@ -46,7 +45,7 @@ app.all('*', (req, res, next) => {
   const err = new Error(`Can't find ${req.originalUrl} on the server`);
   err.statusCode = 404;
   next(err); 
-*/
+  */
   next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
 });
 

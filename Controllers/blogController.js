@@ -60,3 +60,14 @@ exports.deleteBlog = catchAsync(async (req, res) => {
     message: 'Any such id was deleted if existing'
   });
 });
+
+exports.search = catchAsync(async (req, res, next) => {
+  const searchField = req.params.text;
+  const searchResults = await Blog.find({
+    summary: { $regex: searchField, $options: '$i' }
+  });
+  res.status(200).json({
+    searchField,
+    searchResults
+  });
+});

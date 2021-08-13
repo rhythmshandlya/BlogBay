@@ -14,7 +14,6 @@ const Profile = () => {
         const nav = document.querySelectorAll('.info_links');
         switch (e.target.textContent) {
             case 'About':
-                console.log(nav[1],nav[2])
                 nav[1].classList.remove('un-p');
                 nav[2].classList.remove('un-p');
                 stateSetter(about);

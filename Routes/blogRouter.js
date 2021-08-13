@@ -15,4 +15,6 @@ router
   .patch(blogController.updateBlog)
   .delete(blogController.deleteBlog);
 
+router.get('/search/:text', blogController.search);
+
 module.exports = router;
