@@ -25,7 +25,7 @@
     padding-left: 10%;
   }
   .landing-page {
-    background-size: 98% 80vh;
+    background-size: 100% 90vh;
   }
 }
 
@@ -52,7 +52,6 @@
 .cat-name {
   font-size: 225%;
   margin-left: 10%;
-  margin-top: 3%;
 }
 .about-us img {
   margin-left: 10%;

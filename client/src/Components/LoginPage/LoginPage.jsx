@@ -8,7 +8,7 @@ const LoginPage = () => {
                <h1 className="login-heading">Login</h1>
 		
                 <form className="form">
-                <input type="text" placeholder="Username" />
+                <input type="text" placeholder="Email" />
                 <input type="password" placeholder="Password" />
                 <button type="submit" id="login-button">Login</button>
                 <br></br>
