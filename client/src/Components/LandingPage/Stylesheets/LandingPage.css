@@ -14,15 +14,20 @@
 .h1-landing {
   font-size: 2.5rem;
   color: white;
+  display: inline-block;
   padding-top: 15%;
   padding-left: 15%;
 }
-/* 
+
 @media only screen and (max-width: 600px) {
-  .landing {
-    padding: 30% 10%;
+  .h1-landing {
+    padding-top: 25%;
+    padding-left: 10%;
   }
-} */
+  .landing-page {
+    background-size: 98% 80vh;
+  }
+}
 
 .sample-blogs {
   height: 100%;
@@ -33,13 +38,6 @@
   display: grid;
   justify-content: center;
   grid-gap: 0px;
-}
-.footer {
-  width: 100%;
-  height: 300px;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
 }
 @media screen and (max-width: 975px) {
   .about-us {
@@ -63,17 +61,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 1%;
 }
 .about-us p {
   margin: 2%;
   padding: 3%;
   flex-basis: 50%;
-}
-.footer {
-  height: 300px;
-  width: 100%;
-  background-color: aqua;
 }
 .about-us-icon {
   height: 10%;
