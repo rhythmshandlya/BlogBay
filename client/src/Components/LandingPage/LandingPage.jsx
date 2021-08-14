@@ -5,6 +5,8 @@ import EasyCard from './../BlogCards/EasyCard.jsx'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Footer from '../Footer/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 
 const LandingPage = () => {
     const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/300-1))
@@ -28,7 +30,7 @@ const LandingPage = () => {
     }, []);
     function CatName(props){
         return(
-            <h1 className="cat-name">{props.name}</h1>
+            <h1 className="cat-name">{props.name} <a style={{paddingBottom:"4px", color:"black",position:"relative",bottom:"6px"}} href={`${props.name}`}> <FontAwesomeIcon icon={faArrowRight} size="lg"/> </a> </h1>
         )
     }
     function CatBlogs(){

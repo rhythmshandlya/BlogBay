@@ -12,6 +12,7 @@ import SignupPage from './Components/LoginPage/SignupPage';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Footer from './Components/Footer/Footer.jsx';
 import './app.css';
+import commingsoon from './Components/Extras/commingsoon';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/Home" component={LandingPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignupPage} />
+          <Route exact path="/tutorial" component={commingsoon} />
         </Switch>
         {/*   <Footer /> */}
       </Router>
