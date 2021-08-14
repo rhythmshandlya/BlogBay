@@ -76,7 +76,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .col {
+  .col-cs {
     flex: 100%;
   }
 }

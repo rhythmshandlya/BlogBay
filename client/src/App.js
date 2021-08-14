@@ -9,10 +9,10 @@ import Navbar from './Components/NavbarComponents/Navbar';
 import LandingPage from './Components/LandingPage/LandingPage';
 import LoginPage from './Components/LoginPage/LoginPage';
 import SignupPage from './Components/LoginPage/SignupPage';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Footer from './Components/Footer/Footer.jsx';
+import { BrowserRouter as Router, Route, Switch, DefaultRoute } from 'react-router-dom';
 import './app.css';
-import commingsoon from './Components/Extras/commingsoon';
+import Commingsoon from './Components/Extras/Commingsoon';
+import P404 from './Components/Extras/P404';
 
 function App() {
   return (
@@ -24,9 +24,9 @@ function App() {
           <Route exact path="/Home" component={LandingPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignupPage} />
-          <Route exact path="/tutorial" component={commingsoon} />
+          <Route exact path="/tutorial" component={Commingsoon} />
+          <Route path='*' component={P404} />
         </Switch>
-        {/*   <Footer /> */}
       </Router>
     </>
   );

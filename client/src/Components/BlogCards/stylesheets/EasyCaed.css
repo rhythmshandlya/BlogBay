@@ -41,6 +41,7 @@
   text-align: center;
   visibility: hidden;
   z-index: 5;
+  cursor: pointer;
 }
 
 .card-header img {
