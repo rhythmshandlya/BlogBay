@@ -19,7 +19,7 @@ const ZoomCard = () => {
                             <div class="body_zm">
                                 <p>Enamel pin selvage health goth edison bulb, venmo glossier tattooed hella butcher cred iPhone.</p>
                             </div>
-                        </figcaption><a href="#"></a>
+                        </figcaption><a href="id"> </a>
                     </figure>
                 </div>
             </div>
