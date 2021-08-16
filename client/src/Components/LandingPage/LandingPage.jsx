@@ -28,11 +28,12 @@ const LandingPage = () => {
                     console.log(res.data);
                 }
             } catch (err) {
+                console.log(err.response.data.message || err.response || err);
                 setSignupCard(<SignupHeading />);
             }
         }
         fetchMyAPI()
-    });
+    },[]);
 
     const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/300-1))
     function check(){
