@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 let cookies = new Cookies();
 
-const LoginPage = () => {
+const SignupPage = () => {
     let history = useHistory();
     const [loading, setLoading] = useState(null);
 
@@ -28,7 +28,7 @@ const LoginPage = () => {
             const res = await api.post('user/signup', response);
             setLoading(null);
             //store as cookie
-            cookies.set('jwt', res.data.token, { path: '/',httpOnly:true});
+            cookies.set('jwt', res.data.token, { path: '/', maxAge: 2592000, secure: false });
             //redirect to home
             history.push('/home');
         } catch (err) {
@@ -70,4 +70,4 @@ const LoginPage = () => {
     );
 }
 
-export default LoginPage;
+export default SignupPage;

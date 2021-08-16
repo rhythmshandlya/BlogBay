@@ -163,25 +163,25 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 exports.protect = catchAsync(async (req, res, next) => {
   let token = '';
   if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith('Bearer')
+    (req.headers.authorization &&
+      req.headers.authorization.startsWith('Bearer')) ||
+    req.cookies.jwt
   ) {
-    token = req.headers.authorization.split(' ')[1];
+    token = req.cookies.jwt || req.headers.authorization.split(' ')[1];
   }
-  if (!token) return next(new AppError('Please login to get access.'), 401);
+  if (!token) return next(new AppError('Please login to get access.', 401));
 
   const payLoad = await promisify(jwt.verify)(token, process.env.JWT);
   const user = await User.findById(payLoad.id).select('+isVerified');
   if (!user.isVerified)
     return next(
-      new AppError('Please verify your email to access this route'),
-      403
+      new AppError('Please verify your email to access this route', 401)
     );
 
-  if (!user) return next(new AppError('User does not exists any longer'), 401);
+  if (!user) return next(new AppError('User does not exists any longer', 401));
 
   if (user.changedPassword(payLoad.iat)) {
-    return next(new AppError('Password was changed, please login again'));
+    return next(new AppError('Password was changed, please login again', 401));
   }
   req.user = user;
   next();
@@ -195,3 +195,23 @@ exports.restrictTo =
     }
     next();
   };
+
+exports.isLoggedIn = catchAsync(async (req, res, next) => {
+  let token = req.cookies.jwt;
+  console.log(token);
+
+  if (!token) return next(new AppError('Please login to get access.', 401));
+  const payLoad = await promisify(jwt.verify)(token, process.env.JWT);
+  const user = await User.findById(payLoad.id).select('+isVerified');
+
+  if (!user) return next(new AppError('User does not exists any longer', 401));
+
+  if (user.changedPassword(payLoad.iat))
+    return next(new AppError('Password was changed, please login again', 401));
+
+  res.status(200).json({
+    status: true,
+    message: 'User is loggedIn',
+    user
+  });
+});

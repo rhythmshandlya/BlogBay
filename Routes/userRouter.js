@@ -13,6 +13,8 @@ router.patch('/verifyEmail/:token', authController.verifyEmail);
 router.patch('/updatePassword', protect, authController.updatePassword);
 router.patch('/update', protect, userController.update);
 router.delete('/delete', protect, userController.delete);
+router.get('/isLoggedIn', authController.isLoggedIn);
+
 router.route('/').get(userController.getAllUsers);
 
 router
