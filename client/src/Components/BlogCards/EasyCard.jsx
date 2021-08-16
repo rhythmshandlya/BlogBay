@@ -1,11 +1,16 @@
 import React from 'react'
 import './stylesheets/EasyCaed.css'
 import {  useState } from 'react';
-const EasyCard = () => {
+
+
+const EasyCard = (props) => {
+   
     const [state,setState]=useState(false);
-    // useEffect(() => {
-    //     document.getElementsByClassName("blog-filter").style.display='absolute'
-    // }, []);
+   
+   
+    
+    
+
     
     return (
         <div>
@@ -17,7 +22,7 @@ const EasyCard = () => {
                 </div>
                 <div class="card-body">
                     <span class="tag tag-teal">Technology</span>
-                    <h4>Why is the Tesla Cybertruck designed the way it is?</h4>
+                    <h4>{props.content}</h4>
                     <p>An exploration into the truck's polarising design</p>
                     <div class="user_ez">
                         <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />

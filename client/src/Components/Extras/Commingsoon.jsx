@@ -59,7 +59,7 @@ const Commingsoon = () => {
                         <h2>Awesome tutorials coming very soon.</h2>
                         <p>Subscribe to get notification when we start</p>
                         <form>
-                            <input type="text" placeholder="Enter Your Email" />
+                            <input type="text" className="email-input" placeholder="Enter Your Email" placeholder="Email"/>
                             <button type="button" className="newslatter-button-cs">Subscribe</button>
                         </form>
                     </div>

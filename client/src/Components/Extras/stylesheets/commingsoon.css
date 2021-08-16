@@ -80,3 +80,7 @@
     flex: 100%;
   }
 }
+.email-input::placeholder{
+  color: grey;
+  opacity: 1;
+}

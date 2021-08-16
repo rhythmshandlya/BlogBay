@@ -5,17 +5,34 @@ import EasyCard from './../BlogCards/EasyCard.jsx'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Footer from '../Footer/Footer';
+import api from './../.././Util/api.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 
 const LandingPage = () => {
+        var a="hello";
+        const [content, setContent]=useState();
+        var cont
+        async function getmeBlogs(){
+            try{
+                cont= await api.get('http://localhost:8000/api/v1/blogs');
+                a=cont.data.data.allBlogs[4].content; 
+                console.log(a);
+                setContent(a);
+            }
+            catch(err){}
+        }
+        getmeBlogs();
+        useEffect(() => {
+
+        },)
     const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/300-1))
     function check(){
         numBlogsSetter(Math.floor(window.innerWidth/300)-1);
     }
     function renderer(amount){
         var EasyCardRenderer=[];
-        EasyCardRenderer.push(<EasyCard></EasyCard>);
+        EasyCardRenderer.push(<EasyCard content={content}></EasyCard>);
         for(let i=0;i<amount-1;i++){
             EasyCardRenderer.push(<EasyCard></EasyCard>);
         }

@@ -6,7 +6,7 @@ const router = express.Router();
 
 router
   .route('/')
-  .get(protect, blogController.getAllBlogs)
+  .get(blogController.getAllBlogs)
   .post(protect, blogController.addBlog);
 
 router
