@@ -3,11 +3,11 @@
   padding: 0;
 }
 .landing-page {
-  background: url('./../../../data/backk.jpg') no-repeat;
-  background-size: 100% 100vh;
   font-family: poppins;
 }
 .landing {
+  background: url('./../../../data/backk.jpg') no-repeat;
+  background-size: 100% 100vh;
   height: 100vh;
   position: relative;
 }

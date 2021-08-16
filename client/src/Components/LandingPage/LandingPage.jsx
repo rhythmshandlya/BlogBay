@@ -9,6 +9,16 @@ import api from './../.././Util/api.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 
+
+const SignupHeading = () => {
+    return (
+        <div className='landing'>
+        <h1 className="h1-landing" data-aos="fade-up">Write blogs with us</h1>
+        <ButtonSignup />
+        </div>
+    );
+}
+
 const LandingPage = () => {
         var a="hello";
         const [content, setContent]=useState();
@@ -26,6 +36,22 @@ const LandingPage = () => {
         useEffect(() => {
 
         },)
+    const [signupCard, setSignupCard] = useState(null);
+    useEffect(() => {
+        async function fetchMyAPI() {
+            try {
+                let res = await api.get('user/isLoggedIn', { withCredentials: true });
+                if (res.data.user) {
+                    console.log(res.data);
+                }
+            } catch (err) {
+                console.log(err.response.data.message || err.response || err);
+                setSignupCard(<SignupHeading />);
+            }
+        }
+        fetchMyAPI()
+    },[]);
+
     const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/300-1))
     function check(){
         numBlogsSetter(Math.floor(window.innerWidth/300)-1);
@@ -38,9 +64,7 @@ const LandingPage = () => {
         }
         return EasyCardRenderer;
     }
-    // useEffect(()=>{
-    //     renderer(numBlogs)
-    // },[numBlogs]);
+
     window.addEventListener("resize",check);
     useEffect(() => {
       Aos.init({duration:2000});
@@ -60,17 +84,13 @@ const LandingPage = () => {
     return (
         <>
             <div className="landing-page">
-                <div className='landing'>
-                    <h1 className="h1-landing" data-aos="fade-up">Write blogs with us</h1>
-                    <ButtonSignup />
-                </div>
-
+                {signupCard}
                 <CatName name="TOP BLOGS"></CatName>
-                <CatBlogs></CatBlogs>
+                <CatBlogs />
                 <CatName name="Recommended Blogs"></CatName>
-                <CatBlogs></CatBlogs>
+                <CatBlogs />
                 <CatName name="Travel Blogs"></CatName>
-                <CatBlogs></CatBlogs>
+                <CatBlogs />
                 <CatName name="About Us" />
 
                 <div className="about-us">

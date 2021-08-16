@@ -13,15 +13,18 @@ const blogRouter = require('./routes/blogRouter');
 const userRouter = require('./routes/userRouter');
 
 const app = express();
+
 const AppError = require('./Util/AppError');
 const globalErrHandler = require('./Controllers/errorController');
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: true,
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200
 };
+
 app.use(cors(corsOptions));
+app.use(cookieParser());
 
 app.use(helmet());
 console.clear();
@@ -45,7 +48,6 @@ app.use(hpp({ whitelist: [] }));
   as a JSON Object.
 */
 app.use(express.json({ limit: '10kb' }));
-app.use(cookieParser());
 
 app.use('/api/v1/blogs', blogRouter);
 app.use('/api/v1/user', userRouter);
