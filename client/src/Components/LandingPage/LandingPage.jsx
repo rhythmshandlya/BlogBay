@@ -52,7 +52,7 @@ const LandingPage = () => {
         fetchMyAPI()
     },[]);
 
-    const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/300-1))
+    const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/400))
     function check(){
         numBlogsSetter(Math.floor(window.innerWidth/300)-1);
     }
@@ -111,7 +111,7 @@ const LandingPage = () => {
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
                 {/* {renderer(numBlogs)} */}
-                {content.slice(2,(numBlogs+3)).map(renderer)}
+                {content.slice(2,(numBlogs+2)).map(renderer)}
             </div>
         )
     }
