@@ -21,21 +21,22 @@ const SignupHeading = () => {
 
 const LandingPage = () => {
         var a="hello";
-        const [content, setContent]=useState();
+        const [content, setContent]=useState([]);
         var cont
-        async function getmeBlogs(){
-            try{
-                cont= await api.get('http://localhost:8000/api/v1/blogs');
-                a=cont.data.data.allBlogs[4].content; 
-                console.log(a);
-                setContent(a);
-            }
-            catch(err){}
-        }
-        getmeBlogs();
         useEffect(() => {
-
-        },)
+            async function getmeBlogs(){
+                try{
+                    cont= await api.get('http://localhost:8000/api/v1/blogs');
+                    a=cont.data.data.allBlogs; 
+                    setContent(a);
+                    console.log(content[0]);
+                }
+                catch(err){
+                }
+            }
+            getmeBlogs(); 
+        }, [])
+        
     const [signupCard, setSignupCard] = useState(null);
     useEffect(() => {
         async function fetchMyAPI() {
@@ -55,13 +56,20 @@ const LandingPage = () => {
     function check(){
         numBlogsSetter(Math.floor(window.innerWidth/300)-1);
     }
-    function renderer(amount){
-        var EasyCardRenderer=[];
-        EasyCardRenderer.push(<EasyCard content={content}></EasyCard>);
-        for(let i=0;i<amount-1;i++){
-            EasyCardRenderer.push(<EasyCard></EasyCard>);
-        }
-        return EasyCardRenderer;
+    // function renderer(amount){
+    //     var EasyCardRenderer=[];
+    //     EasyCardRenderer.push(<EasyCard content={content}></EasyCard>);
+    //     for(let i=0;i<amount-1;i++){
+    //         EasyCardRenderer.push(<EasyCard></EasyCard>);
+    //     }
+    //     return EasyCardRenderer;
+    // }
+    function renderer(content){
+        var trimmedStringContent = (content.content).substring(0, 80);
+        var trimmedStringTitle = ((content.title).substring(0, 50));
+        return(
+            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage}/>
+        )
     }
 
     window.addEventListener("resize",check);
@@ -76,7 +84,8 @@ const LandingPage = () => {
     function CatBlogs(){
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
-                {renderer(numBlogs)}
+                {/* {renderer(numBlogs)} */}
+                {content.slice(2,(numBlogs+3)).map(renderer)}
             </div>
         )
     }
