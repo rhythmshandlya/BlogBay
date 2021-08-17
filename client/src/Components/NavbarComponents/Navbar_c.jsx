@@ -11,7 +11,7 @@ const Navbar_c = () => {
 
     const ProfilePicture = (props) => {
         return (
-            <Link to="/profile"><img className="navebar-profile" src={props.dpUrl} alt="Girl in a jacket" width="50px" height="50px" /></Link>
+            <Link to="/profile"><img className="navebar-profile" src={props.dpUrl} alt="jacket" width="40px" height="40px" /></Link>
         );
     };
     const [loginOrProfile, setLoginOrProfile] = useState(null);

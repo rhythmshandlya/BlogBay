@@ -1,37 +1,15 @@
 import api from './../../Util/api'
-import { useEffect, useState } from 'react';
+import { useEffect, useState ,useRef} from 'react';
 import './Stylesheets/profile.css';
 import Navbar from './../NavbarComponents/Navbar';
 import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faAddressBook, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
 
-const About = ({user}) => {
-    return (
-        <>
-            <p>Name: {`${user.name}`}</p>
-            <p>Niche: {`${user.niche}`}</p>
-            <p>Job: {`${user.job}`}</p>
-            <p>Description :{`${user.description}`}</p>
-        </>
-    );
-}
-const Blogs = (props) => {
-    return (
-        <>
-        </>
-    );
-}
-const Stats = (props) => {
-    return (
-        <>
-        </>
-    );
-}
 
 const Profile = () => {
     let history = useHistory();
     const [user, setUser] = useState({});
-    const [state, stateSetter] = useState(<Blogs />);
-
     useEffect(() => {
         async function fetchMyAPI() {
            try {
@@ -44,8 +22,38 @@ const Profile = () => {
            }
        }
        fetchMyAPI();
-    }, []);
-    
+    });
+
+    const About = ({ user }) => {
+        if (user)
+            return (
+                <div className="about_wrapper">
+                    <p className="name_about">{`${user.name}`}</p>
+                    <p className="email_about">{`${user.email}`}</p>
+                    <p><FontAwesomeIcon icon={faPen} />{`  ${user.niche}`}</p>
+                    <p><FontAwesomeIcon icon={faAlignLeft} />{` ${user.job}`}</p>
+                    <p className="description_about"><FontAwesomeIcon icon={faAddressBook} />{` ${user.description}`}</p>
+                </div>
+            );
+        else
+            return (<></>);
+}
+    const Blogs = (props) => {
+        return (
+            <>
+            </>
+        );
+    }
+    const Stats = (props) => {
+        return (
+            <>
+            </>
+        );
+    }
+
+    const [state, stateSetter] = useState(<About />);
+
+  
     const clickHandler = (e) => {
         const nav = document.querySelectorAll('.info_links');
         switch (e.target.textContent) {
@@ -77,8 +85,8 @@ const Profile = () => {
                 <div className="CoverImage FlexEmbed FlexEmbed--2by1" style={{ backgroundImage: `url(${user.cover}})` }}></div>
                 <img className="avatar" src={`${user.dp}`} alt="Girl in a jacket" />
                 <div className="info">
-                    <p className="info_links link-grow un" onClick={clickHandler}>About</p>
-                    <p className="info_links un un-p" onClick={clickHandler}>Blogs</p>
+                    <p className="info_links link-grow un un-p" onClick={clickHandler}>About</p>
+                    <p className="info_links un" onClick={clickHandler}>Blogs</p>
                     <p className="info_links un" onClick={clickHandler}>Stats</p>
                 </div>
                 {state}

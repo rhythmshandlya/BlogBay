@@ -22,12 +22,13 @@
   background-color: white;
 }
 .info_links {
-  margin-top: 7%;
+  margin-top: 5%;
   color: #3d0b0b;
   font-size: 1.5rem;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
 }
+
 .link-grow {
   margin-right: 38px;
 }
@@ -84,4 +85,41 @@
   display: block;
   background: black;
   transition: 300ms;
+}
+
+/*
+  About
+*/
+.about_wrapper {
+  padding: 20px;
+  font-family: poppins;
+  margin-left: 12%;
+}
+
+.name_about {
+  font-size: 170%;
+  font-weight: 700;
+}
+.email_about {
+  color: grey;
+  font-size: 100%;
+  margin-bottom: 2%;
+}
+.description_about {
+  padding-right: 50%;
+}
+
+@media only screen and (max-width: 900px) {
+  .about_wrapper {
+    margin-left: 1%;
+  }
+  .info_links {
+    margin-top: 12%;
+  }
+  .email_about {
+    margin-bottom: 8%;
+  }
+  .description_about {
+    padding-right: 10%;
+  }
 }

@@ -29,7 +29,6 @@ const LandingPage = () => {
                     cont= await api.get('http://localhost:8000/api/v1/blogs');
                     a=cont.data.data.allBlogs; 
                     setContent(a);
-                    console.log(content[0]);
                 }
                 catch(err){
                 }
@@ -52,9 +51,9 @@ const LandingPage = () => {
         fetchMyAPI()
     },[]);
 
-    const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/400))
+    const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/350))
     function check(){
-        numBlogsSetter(Math.floor(window.innerWidth/300)-1);
+        numBlogsSetter(Math.floor(window.innerWidth/350));
     }
     // function renderer(amount){
     //     var EasyCardRenderer=[];
@@ -67,7 +66,7 @@ const LandingPage = () => {
     function renderer(content){
         var now=new Date();
         var post=new Date(content.date);
-        var net=Math.floor((now-post)/(100*60*60*24));
+        var net=Math.floor((now-post)/(1000*60*60*24));
         if(net>365){
             net='Long Time ago';
         }
@@ -91,27 +90,52 @@ const LandingPage = () => {
                 }
             }
         }
+        ///////////////////////////////////
+        useEffect(() => {
+            async function getmephoto(id){
+                try{
+                    var contt= await api.get("http://localhost:8000/api/v1/user/"+id);
+                    if(contt.data==='damn'){
+                    // return "https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo";
+                    console.log("YVSV")
+                    }
+                    else{
+                        console.log("zzzzzzzzz")
+                    }
+                    
+                }
+                catch(err){
+                    return "https://i.ibb.co/r28m6vR/dp5.jpg";
+                }
+            }
+        }, [])
+        ///////////////////////////////////
         var trimmedStringContent = (content.content).substring(0, 80);
         var trimmedStringTitle = ((content.title).substring(0, 50));
         return(
-            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net}/>
+            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net} bloggerPic={bloggerPic}/>
         )
     }
 
+    
+
     window.addEventListener("resize",check);
+
     useEffect(() => {
       Aos.init({duration:2000});
     }, []);
+
     function CatName(props){
         return(
             <h1 className="cat-name">{props.name} <a style={{paddingBottom:"4px", color:"black",position:"relative",bottom:"6px"}} href={`${props.name}`}> <FontAwesomeIcon icon={faArrowRight} size="lg"/> </a> </h1>
         )
     }
+
     function CatBlogs(){
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
                 {/* {renderer(numBlogs)} */}
-                {content.slice(2,(numBlogs+2)).map(renderer)}
+                {content.slice(0,(numBlogs)).map(renderer)}
             </div>
         )
     }
