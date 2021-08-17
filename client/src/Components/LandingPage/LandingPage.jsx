@@ -52,9 +52,9 @@ const LandingPage = () => {
         fetchMyAPI()
     },[]);
 
-    const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/400))
+    const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/350))
     function check(){
-        numBlogsSetter(Math.floor(window.innerWidth/300)-1);
+        numBlogsSetter(Math.floor(window.innerWidth/350));
     }
     // function renderer(amount){
     //     var EasyCardRenderer=[];
