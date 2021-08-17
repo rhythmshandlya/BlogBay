@@ -27,8 +27,8 @@ const EasyCard = (props) => {
                     <div class="user_ez">
                         <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
                         <div class="user-info_ez">
-                            <h5>July Dec</h5>
-                            <small>2h ago</small>
+                            <h5>{props.date}</h5>
+                            <small>{props.interval}</small>
                         </div>
                     </div>
                 </div>

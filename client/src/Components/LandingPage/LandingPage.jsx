@@ -65,10 +65,36 @@ const LandingPage = () => {
     //     return EasyCardRenderer;
     // }
     function renderer(content){
+        var now=new Date();
+        var post=new Date(content.date);
+        var net=Math.floor((now-post)/(100*60*60*24));
+        if(net>365){
+            net='Long Time ago';
+        }
+        else{
+            if(net>30)
+            net=Math.floor(net/30)+" Mon ago";
+            else{
+                if(net>7){
+                    net=Math.floor(net/7)+" W ago";
+                }
+                else{
+                    if(net>1)
+                    net=net+ " D ago"
+                    else{
+                        if(net*24>1)
+                    net=net*24+ "h ago"
+                    else{
+                        net="now";
+                    }
+                    }
+                }
+            }
+        }
         var trimmedStringContent = (content.content).substring(0, 80);
         var trimmedStringTitle = ((content.title).substring(0, 50));
         return(
-            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage}/>
+            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net}/>
         )
     }
 
