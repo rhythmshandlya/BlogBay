@@ -29,7 +29,6 @@ const LandingPage = () => {
                     cont= await api.get('http://localhost:8000/api/v1/blogs');
                     a=cont.data.data.allBlogs; 
                     setContent(a);
-                    console.log(content[0]);
                 }
                 catch(err){
                 }
@@ -91,22 +90,47 @@ const LandingPage = () => {
                 }
             }
         }
+        ///////////////////////////////////
+        useEffect(() => {
+            async function getmephoto(id){
+                try{
+                    var contt= await api.get("http://localhost:8000/api/v1/user/"+id);
+                    if(contt.data==='damn'){
+                    // return "https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo";
+                    console.log("YVSV")
+                    }
+                    else{
+                        console.log("zzzzzzzzz")
+                    }
+                    
+                }
+                catch(err){
+                    return "https://i.ibb.co/r28m6vR/dp5.jpg";
+                }
+            }
+        }, [])
+        ///////////////////////////////////
         var trimmedStringContent = (content.content).substring(0, 80);
         var trimmedStringTitle = ((content.title).substring(0, 50));
         return(
-            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net}/>
+            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net} bloggerPic={bloggerPic}/>
         )
     }
 
+    
+
     window.addEventListener("resize",check);
+
     useEffect(() => {
       Aos.init({duration:2000});
     }, []);
+
     function CatName(props){
         return(
             <h1 className="cat-name">{props.name} <a style={{paddingBottom:"4px", color:"black",position:"relative",bottom:"6px"}} href={`${props.name}`}> <FontAwesomeIcon icon={faArrowRight} size="lg"/> </a> </h1>
         )
     }
+
     function CatBlogs(){
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>

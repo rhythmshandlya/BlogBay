@@ -34,6 +34,15 @@ exports.delete = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getUser = () => {};
+exports.getUser = catchAsync(async(req,res,next) => {
+  User.findOne({_id:req.params.id},function(err,foundUser){
+      if(foundUser){
+        res.send(foundUser);
+      }
+      else{
+        res.send("damn");
+      }
+  }); 
+});
 exports.updateUser = () => {};
 exports.deleteUser = () => {};
