@@ -67,7 +67,7 @@ const LandingPage = () => {
     function renderer(content){
         var now=new Date();
         var post=new Date(content.date);
-        var net=Math.floor((now-post)/(100*60*60*24));
+        var net=Math.floor((now-post)/(1000*60*60*24));
         if(net>365){
             net='Long Time ago';
         }
@@ -111,7 +111,7 @@ const LandingPage = () => {
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
                 {/* {renderer(numBlogs)} */}
-                {content.slice(2,(numBlogs+2)).map(renderer)}
+                {content.slice(0,(numBlogs)).map(renderer)}
             </div>
         )
     }
