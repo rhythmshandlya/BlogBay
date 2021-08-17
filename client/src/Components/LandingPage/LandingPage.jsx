@@ -5,9 +5,9 @@ import EasyCard from './../BlogCards/EasyCard.jsx'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Footer from '../Footer/Footer';
+import api from './../.././Util/api.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
-import api from './../../Util/api';
 import Navbar from '../NavbarComponents/Navbar';
 
 const SignupHeading = () => {
@@ -20,6 +20,23 @@ const SignupHeading = () => {
 }
 
 const LandingPage = () => {
+        var a="hello";
+        const [content, setContent]=useState([]);
+        var cont
+        useEffect(() => {
+            async function getmeBlogs(){
+                try{
+                    cont= await api.get('http://localhost:8000/api/v1/blogs');
+                    a=cont.data.data.allBlogs; 
+                    setContent(a);
+                    console.log(content[0]);
+                }
+                catch(err){
+                }
+            }
+            getmeBlogs(); 
+        }, [])
+        
     const [signupCard, setSignupCard] = useState(null);
     useEffect(() => {
         async function fetchMyAPI() {
@@ -35,17 +52,50 @@ const LandingPage = () => {
         fetchMyAPI()
     },[]);
 
-    const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/300-1))
+    const [numBlogs, numBlogsSetter]=useState(Math.floor(window.innerWidth/400))
     function check(){
         numBlogsSetter(Math.floor(window.innerWidth/300)-1);
     }
-    function renderer(amount){
-        var EasyCardRenderer=[];
-        EasyCardRenderer.push(<EasyCard></EasyCard>);
-        for(let i=0;i<amount-1;i++){
-            EasyCardRenderer.push(<EasyCard></EasyCard>);
+    // function renderer(amount){
+    //     var EasyCardRenderer=[];
+    //     EasyCardRenderer.push(<EasyCard content={content}></EasyCard>);
+    //     for(let i=0;i<amount-1;i++){
+    //         EasyCardRenderer.push(<EasyCard></EasyCard>);
+    //     }
+    //     return EasyCardRenderer;
+    // }
+    function renderer(content){
+        var now=new Date();
+        var post=new Date(content.date);
+        var net=Math.floor((now-post)/(100*60*60*24));
+        if(net>365){
+            net='Long Time ago';
         }
-        return EasyCardRenderer;
+        else{
+            if(net>30)
+            net=Math.floor(net/30)+" Mon ago";
+            else{
+                if(net>7){
+                    net=Math.floor(net/7)+" W ago";
+                }
+                else{
+                    if(net>1)
+                    net=net+ " D ago"
+                    else{
+                        if(net*24>1)
+                    net=net*24+ "h ago"
+                    else{
+                        net="now";
+                    }
+                    }
+                }
+            }
+        }
+        var trimmedStringContent = (content.content).substring(0, 80);
+        var trimmedStringTitle = ((content.title).substring(0, 50));
+        return(
+            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net}/>
+        )
     }
 
     window.addEventListener("resize",check);
@@ -60,7 +110,8 @@ const LandingPage = () => {
     function CatBlogs(){
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
-                {renderer(numBlogs)}
+                {/* {renderer(numBlogs)} */}
+                {content.slice(2,(numBlogs+2)).map(renderer)}
             </div>
         )
     }

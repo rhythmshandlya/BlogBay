@@ -24,7 +24,8 @@ const Navbar_c = () => {
                     setLoginOrProfile(<ProfilePicture dpUrl={res.data.user.dp} />);
                 }
             } catch (err) {
-                setLoginOrProfile(<Btn2 />);
+                setLoginOrProfile(<Btn2/>);
+                
             }
         }
         fetchMyAPI();
