@@ -5,28 +5,30 @@ import logo from './../../data/icon-st.svg';
 import Btn2 from './Btn_2';
 import './Stylesheets/Navbar.css'
 import api from './../../Util/api'
+import { Link } from 'react-router-dom';
 
-const Navbar_c = (props) => {
+const Navbar_c = () => {
 
-    const ProfilePicture = () => {
+    const ProfilePicture = (props) => {
         return (
-            <img src="https://www.w3schools.com/html/img_girl.jpg" alt="Girl in a jacket" width="30px" height="30px" />
+            <Link to="/profile"><img className="navebar-profile" src={props.dpUrl} alt="Girl in a jacket" width="40px" height="40px" /></Link>
         );
     };
     const [loginOrProfile, setLoginOrProfile] = useState(null);
+    
     useEffect(() => {
          async function fetchMyAPI() {
             try {
                 let res = await api.get('user/isLoggedIn', { withCredentials: true });
                 if (res.data.user) {
-                    setLoginOrProfile(<ProfilePicture />);
+                    setLoginOrProfile(<ProfilePicture dpUrl={res.data.user.dp} />);
                 }
             } catch (err) {
                 setLoginOrProfile(<Btn2 />);
             }
         }
         fetchMyAPI();
-    });
+    },[]);
 
     return (
         <div className="container">
@@ -44,4 +46,4 @@ const Navbar_c = (props) => {
     )
 }
 
-export default Navbar_c
+export default Navbar_c;

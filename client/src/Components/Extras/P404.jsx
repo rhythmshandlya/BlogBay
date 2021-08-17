@@ -1,50 +1,48 @@
 import React from 'react'
 import './stylesheets/p404.css'
+import Navbar from '../NavbarComponents/Navbar';
+
 const P404 = () => {
     return (
+        <>
+        <Navbar/>
         <div className="cover-404">
-            <a href="https://codepen.io/ZonFire99/full/njdls/" class="viewFull" target="_parent">View in full it looks way better :)</a>
-            <div class="error">
+            <a href="https://codepen.io/ZonFire99/full/njdls/" className="viewFull-404" target="_parent">View in full it looks way better :)</a>
+            <div className="error-404">
 
-                <div class="wrap">
-                    <div class="404">
+                <div className="wrap-404">
+                    <div className="404">
                         <pre>
                             <code>
-                                <span class="green">&lt;!</span><span>DOCTYPE html</span><span class="green">&gt;</span><br />
-                                <span class="orange">&lt;html&gt;</span>
+                                <span className="green-404">&lt;!</span><span>DOCTYPE html</span><span className="green-404">&gt;</span><br />
+                                <span className="orange-404">&lt;html&gt;</span>
                                 <br />
-                                <span class="orange">&lt;style&gt;</span>
+                                <span className="orange-404">&lt;style&gt;</span>
                                 <br />
-                                <span class="green">everything</span>:<span class="blue">awesome</span>;
+                                <span className="green-404">everything</span>:<span className="blue-404">awesome</span>;
                                 <br />
-                                <span class="orange">&lt;/style&gt;</span>
+                                <span className="orange-404">&lt;/style&gt;</span>
                                 <br />
-                                <span class="orange">&lt;body&gt;</span>
+                                <span className="orange-404">&lt;body&gt;</span>
                                 <br />
                                 ERROR 404!
                                 FILE NOT FOUND!
                                 <br />
-                                <span class="comment">&lt;!--The file you are looking for,
+                                <span className="comment-404">&lt;!--The file you are looking for,
                                     is not where you think it is.--&gt;
                                 </span>
-                                <span class="orange"></span>
-			  
-
-                                    
-                                <span class="info">
-                                    
-
-                                    <span class="orange">&nbsp;&lt;/body&gt;</span>
-
-                                        
-                                    <span class="orange">&lt;/html&gt;</span>
+                                <span className="orange-404"></span>           
+                                <span className="info-404">
+                                    <span className="orange-404">&nbsp;&lt;/body&gt;</span>
+                                    <span className="orange-404">&lt;/html&gt;</span>
                                 </span>
                             </code>
                         </pre>
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 }
 

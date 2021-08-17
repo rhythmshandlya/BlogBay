@@ -1,6 +1,11 @@
 body {
   background-color: white;
 }
+.navebar-profile {
+  border: 2px solid #63c8ad;
+  border-radius: 50%;
+  cursor: pointer;
+}
 .container {
   display: flex;
   align-items: center;

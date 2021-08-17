@@ -36,7 +36,7 @@ app.use(sanitize());
 app.use(xss());
 
 const limiter = rateLimit({
-  max: 120,
+  max: 1200,
   windowMs: 60 * 60 * 1000,
   message: 'Too many requests, try after sometime'
 });

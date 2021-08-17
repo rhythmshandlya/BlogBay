@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './stylesheets/commingsoon.css'
-
+import Navbar from '../NavbarComponents/Navbar';
 
 
 const Commingsoon = () => {
@@ -44,6 +44,8 @@ const Commingsoon = () => {
     });
 
     return (
+        <>
+        <Navbar/>
         <div>
             <div className="page-cs">
                 <div className="countdown-col-cs col-cs">
@@ -65,7 +67,8 @@ const Commingsoon = () => {
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+            </>
     );
 }
 

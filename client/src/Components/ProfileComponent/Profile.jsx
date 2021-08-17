@@ -1,5 +1,6 @@
 import React from 'react'
 import './Stylesheets/profile.css';
+import Navbar from './../NavbarComponents/Navbar';
 
 const about = (<><h1>About</h1></>);
 const blog = (<><h1>Blog</h1></>);
@@ -35,8 +36,9 @@ const Profile = () => {
     }
 
     return (
+        <>
+        <Navbar />
         <div>
-        
         <div className="CoverImage FlexEmbed FlexEmbed--2by1" style={{ backgroundImage: `url(${backgroundImg})`}}></div>
             <div className="avatar" style={{ backgroundImage: `url(${displayPicture})` }}></div>
             <div className="info">
@@ -45,7 +47,8 @@ const Profile = () => {
                 <p className="info_links un" onClick={clickHandler}>Contact</p>
             </div>
             {state}
-        </div>
+            </div>
+        </>
     )
 }
 

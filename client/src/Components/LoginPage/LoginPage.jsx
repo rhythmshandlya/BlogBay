@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import api from './../../Util/api';
 import Loading from '../Extras/Loading';
-
+import Navbar from './../NavbarComponents/Navbar'
 let cookies = new Cookies();
 
 const LoginPage = () => {
@@ -27,17 +27,13 @@ const LoginPage = () => {
                 history.push('/home');
             }catch (err) {
                 setLoading(null);
-                //Error message to popup on screen!
-                if (err.response.hasOwnProperty('data')) {
-                    alert(err.response.data.message);
-                }
-                else {
-                    alert(err);
-                }
+                alert(err.response.data.message);
             }
     }
 
     return (
+        <>
+        <Navbar />
         <div className="wrapper">
 	           
                <div className="container_p">
@@ -65,7 +61,8 @@ const LoginPage = () => {
 		            <li></li>
 		            <li></li>
 	            </ul>
-        </div>
+            </div>
+        </>
     );
 }
 

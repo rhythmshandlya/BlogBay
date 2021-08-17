@@ -5,10 +5,10 @@
 // import EasyCard from './Components/BlogCards/EasyCard';
 // import AnimatedCard from './Components/BlogCards/AnimatedCard';
 // import CardExplore from './Components/BlogCards/CardExplore';
-import Navbar from './Components/NavbarComponents/Navbar';
 import LandingPage from './Components/LandingPage/LandingPage';
 import LoginPage from './Components/LoginPage/LoginPage';
 import SignupPage from './Components/LoginPage/SignupPage';
+import Profile from './Components/ProfileComponent/Profile.jsx';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './app.css';
@@ -19,13 +19,13 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/Home" component={LandingPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/tutorial" component={Commingsoon} />
+          <Route exact path="/profile" component={Profile} />
           <Route path="*" component={P404} />
         </Switch>
       </Router>
