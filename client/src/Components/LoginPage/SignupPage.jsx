@@ -5,6 +5,7 @@ import Cookies from 'universal-cookie';
 import api from './../../Util/api';
 import Loading from '../Extras/Loading';
 import { useState } from 'react';
+import Navbar from '../NavbarComponents/Navbar';
 
 let cookies = new Cookies();
 
@@ -39,6 +40,8 @@ const SignupPage = () => {
     }
 
     return (
+        <>
+        <Navbar/>
         <div className="wrapper">
 	           
                <div className="container_p">
@@ -66,7 +69,8 @@ const SignupPage = () => {
 		            <li></li>
 		            <li></li>
 	            </ul>
-        </div>
+            </div>
+        </>
     );
 }
 

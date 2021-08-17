@@ -8,7 +8,7 @@ import Footer from '../Footer/Footer';
 import api from './../.././Util/api.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
-
+import Navbar from '../NavbarComponents/Navbar';
 
 const SignupHeading = () => {
     return (
@@ -45,7 +45,6 @@ const LandingPage = () => {
                     console.log(res.data);
                 }
             } catch (err) {
-                console.log(err.response.data.message || err.response || err);
                 setSignupCard(<SignupHeading />);
             }
         }
@@ -83,6 +82,7 @@ const LandingPage = () => {
     }
     return (
         <>
+            <Navbar />
             <div className="landing-page">
                 {signupCard}
                 <CatName name="TOP BLOGS"></CatName>

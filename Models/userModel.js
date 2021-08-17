@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const { isEmail } = require('validator');
+const { isEmail, isURL } = require('validator');
 const bcrypt = require('bcrypt');
+const { dps } = require('./../Data/dp_default');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -16,6 +17,13 @@ const userSchema = new mongoose.Schema({
   description: {
     type: String,
     maxLength: 100
+  },
+  dp: {
+    type: String,
+    validate: [isURL, 'Please provide valid URL to your profile picture'],
+    default: function () {
+      return dps[~~(dps.length * Math.random())];
+    }
   },
   niche: {
     type: String,
