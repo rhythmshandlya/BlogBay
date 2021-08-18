@@ -67,6 +67,7 @@ const LandingPage = () => {
         var now=new Date();
         var post=new Date(content.date);
         var net=Math.floor((now-post)/(1000*60*60*24));
+        var bloggerPic="";
         if(net>365){
             net='Long Time ago';
         }
@@ -91,25 +92,35 @@ const LandingPage = () => {
             }
         }
         ///////////////////////////////////
-        useEffect(() => {
-            async function getmephoto(id){
-                try{
-                    var contt= await api.get("http://localhost:8000/api/v1/user/"+id);
-                    if(contt.data==='damn'){
-                    // return "https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo";
-                    console.log("YVSV")
-                    }
-                    else{
-                        console.log("zzzzzzzzz")
-                    }
+        // useEffect(() => {
+        //     async function getmephoto(id){
+        //         try{
+        //             var contt= await api.get("http://localhost:8000/api/v1/user/"+id);
+        //             if(contt.data==='damn'){
+        //             // return "https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo";
+        //             console.log("YVSV")
+        //             }
+        //             else{
+        //                 console.log("zzzzzzzzz")
+        //             }
                     
-                }
-                catch(err){
-                    return "https://i.ibb.co/r28m6vR/dp5.jpg";
-                }
-            }
-        }, [])
+        //         }
+        //         catch(err){
+        //             return "https://i.ibb.co/r28m6vR/dp5.jpg";
+        //         }
+        //     }
+        // }, [])
         ///////////////////////////////////
+        api.get(`user/${content.authorID}`).then((response)=>{
+            if(response.data==="NO USER FOUND"){
+                bloggerPic="https://i.ibb.co/r28m6vR/dp5.jpg"
+                console.log(bloggerPic);
+            }
+            else{
+                bloggerPic=response.data.dp;
+                console.log("zzz")
+            }
+        });
         var trimmedStringContent = (content.content).substring(0, 80);
         var trimmedStringTitle = ((content.title).substring(0, 50));
         return(
