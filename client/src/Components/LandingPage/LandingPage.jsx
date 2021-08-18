@@ -68,6 +68,7 @@ const LandingPage = () => {
         var now=new Date();
         var post=new Date(content.date);
         var net=Math.floor((now-post)/(1000*60*60*24));
+        var bloggerPic="";
         if(net>365){
             net='Long Time ago';
         }

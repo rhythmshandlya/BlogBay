@@ -6,12 +6,6 @@ import {  useState } from 'react';
 const EasyCard = (props) => {
    
     const [state,setState]=useState(false);
-   
-   
-    
-    
-
-    
     return (
         <div>
         <div className="blog-filter" style={state?{display:"flex"}:{display:"none"}} onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)}></div>

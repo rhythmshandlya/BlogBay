@@ -40,7 +40,7 @@ exports.getUser = catchAsync(async(req,res,next) => {
         res.send(foundUser);
       }
       else{
-        res.send("damn");
+        res.send("NO USER FOUND");
       }
   }); 
 });

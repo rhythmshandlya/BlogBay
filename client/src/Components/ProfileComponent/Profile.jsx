@@ -5,7 +5,7 @@ import Navbar from './../NavbarComponents/Navbar';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faAddressBook, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
-
+import CardExplore from '../BlogCards/CardExplore';
 
 const About = ({ user }) => {
     if (user)
@@ -25,19 +25,13 @@ const About = ({ user }) => {
 }
 
 const Blogs = (props) => {
-    useEffect(() => {
-        async function fetchMyAPI() {
-            try {
-                let res = await api.get('/blogs', { withCredentials: true });
-            } catch (err) {
-               
-            }
-        }
-        fetchMyAPI();
-    }, []);
-    return (
-        <>
-        </>
+  console.log(props)
+  return (
+    <div className='explore-card-parent'>
+      {
+        props.blogs.map((blog) => {return (<CardExplore title={blog.title} content={blog.content}/>)})
+      }
+      </div>
     );
 }
 
@@ -50,16 +44,17 @@ const Stats = (props) => {
 
 const Profile = () => {
     const history = useHistory();
-    const [user, setUser] = useState({}); // <-- undefined, falsey
-    const [state, stateSetter] = useState('About'); // <-- use type
+    const [user, setUser] = useState({}); 
+    const [state, stateSetter] = useState('About'); 
+    const [blogs, setBlogs] = useState([]);
   
     useEffect(() => {
       async function fetchMyAPI() {
         try {
           let res = await api.get('user/isLoggedIn', { withCredentials: true });
-          if (res.data.user) {
-            setUser(res.data.user);
-          }
+          let res_2 = await api.get(`blogs?authorID=${res.data.user._id}`, { withCredentials: true });
+          setBlogs(res_2.data.data.allBlogs);
+          setUser(res.data.user);
         } catch(err) {
           history.push('/login');
         }
@@ -102,13 +97,13 @@ const Profile = () => {
           </div>
           <img className="avatar" src={`${user.dp}`} alt="Girl in a jacket" />
           <div className="info">
-            <p className="info_links link-grow un un-p" onClick={clickHandler}>About</p>
+            <p className="info_links un un-p" onClick={clickHandler}>About</p>
             <p className="info_links un" onClick={clickHandler}>Blogs</p>
             <p className="info_links un" onClick={clickHandler}>Stats</p>
           </div>
           {state === 'About' && <About user={user} />}
-          {state === 'Stats' && <Stats user={user} />}
-          {state === 'Blogs' && <Blogs user={user} />}
+          {state === 'Stats' && <Stats blogs={blogs} />}
+          {state === 'Blogs' && <Blogs blogs={blogs} />}
         </div>
       </>
     );

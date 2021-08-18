@@ -13,6 +13,14 @@
   z-index: 3;
   border: 2px solid white;
 }
+.explore-card-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 3%;
+}
 .info {
   height: 100px;
   width: 100%;
@@ -27,10 +35,6 @@
   font-size: 1.5rem;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
-}
-
-.link-grow {
-  margin-right: 38px;
 }
 
 /* Background image */
@@ -93,7 +97,7 @@
 .about_wrapper {
   padding: 20px;
   font-family: poppins;
-  margin-left: 12%;
+  margin-left: 10%;
 }
 
 .name_about {
