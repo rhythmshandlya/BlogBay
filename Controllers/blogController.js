@@ -3,7 +3,7 @@ const Blog = require('./../Models/blogModel');
 const { catchAsync } = require('./../Util/catchAsync');
 
 exports.getAllBlogs = catchAsync(async (req, res) => {
-  const allBlogs = await Blog.find({});
+  const allBlogs = await Blog.find(req.query);
   res.status(200).json({
     status: true,
     length: allBlogs.length,

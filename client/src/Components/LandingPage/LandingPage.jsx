@@ -19,6 +19,7 @@ const SignupHeading = () => {
     );
 }
 
+let bloggerPic = '';
 const LandingPage = () => {
         var a="hello";
         const [content, setContent]=useState([]);
@@ -90,7 +91,7 @@ const LandingPage = () => {
                 }
             }
         }
-        ///////////////////////////////////
+       /*  ///////////////////////////////////
         useEffect(() => {
             async function getmephoto(id){
                 try{
@@ -109,7 +110,7 @@ const LandingPage = () => {
                 }
             }
         }, [])
-        ///////////////////////////////////
+        /////////////////////////////////// */
         var trimmedStringContent = (content.content).substring(0, 80);
         var trimmedStringTitle = ((content.title).substring(0, 50));
         return(
