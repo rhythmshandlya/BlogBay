@@ -56,66 +56,55 @@ const LandingPage = () => {
     function check(){
         numBlogsSetter(Math.floor(window.innerWidth/350));
     }
-    // function renderer(amount){
-    //     var EasyCardRenderer=[];
-    //     EasyCardRenderer.push(<EasyCard content={content}></EasyCard>);
-    //     for(let i=0;i<amount-1;i++){
-    //         EasyCardRenderer.push(<EasyCard></EasyCard>);
-    //     }
-    //     return EasyCardRenderer;
-    // }
-    function renderer(content){
+   
+    function Renderer(content){
+        const [dp, dpSetter]=useState();
         var now=new Date();
         var post=new Date(content.date);
-        var net=Math.floor((now-post)/(1000*60*60*24));
+        var net=((now-post)/(1000*60*60*24));
         var bloggerPic="";
         if(net>365){
             net='Long Time ago';
         }
         else{
-            if(net>30)
+            if(net>30){
             net=Math.floor(net/30)+" Mon ago";
+            }
             else{
                 if(net>7){
                     net=Math.floor(net/7)+" W ago";
                 }
                 else{
-                    if(net>1)
-                    net=net+ " D ago"
+                    if(net>1){
+                    net=Math.floor(net)+ " D ago";
+                    }
                     else{
                         if(net*24>1)
-                    net=net*24+ "h ago"
-                    else{
-                        net="now";
-                    }
+                    net=Math.floor(net*24)+ "h ago"
+                        else{
+                            net="now";
+                        }
                     }
                 }
             }
         }
-       /*  ///////////////////////////////////
         useEffect(() => {
-            async function getmephoto(id){
-                try{
-                    var contt= await api.get("http://localhost:8000/api/v1/user/"+id);
-                    if(contt.data==='damn'){
-                    // return "https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo";
-                    console.log("YVSV")
-                    }
-                    else{
-                        console.log("zzzzzzzzz")
-                    }
-                    
-                }
-                catch(err){
-                    return "https://i.ibb.co/r28m6vR/dp5.jpg";
-                }
+           async function getMePhoto(id){
+            try{
+                bloggerPic= await api.get('http://localhost:8000/api/v1/user/'+id);
+                bloggerPic=bloggerPic.data.dp
+                dpSetter(bloggerPic);
             }
+            catch(err){
+                
+            }
+        }
+        getMePhoto(content.authorID); 
         }, [])
-        /////////////////////////////////// */
         var trimmedStringContent = (content.content).substring(0, 80);
         var trimmedStringTitle = ((content.title).substring(0, 50));
         return(
-            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net} bloggerPic={bloggerPic}/>
+            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net} bloggerPic={dp}/>
         )
     }
 
@@ -137,7 +126,7 @@ const LandingPage = () => {
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
                 {/* {renderer(numBlogs)} */}
-                {content.slice(0,(numBlogs)).map(renderer)}
+                {content.slice(6,(numBlogs+6)).map(Renderer)}
             </div>
         )
     }
