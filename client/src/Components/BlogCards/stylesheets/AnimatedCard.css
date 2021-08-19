@@ -1,31 +1,31 @@
-.card {
+.card_animated {
   width: 400px;
   background-color: white;
 }
-.card:hover .card__caption {
+.card_animated:hover .card__caption {
   top: 50%;
   transform: translateY(-50%);
 }
-.card:hover .card__image {
+.card_animated:hover .card__image {
   transform: translateY(-10px);
 }
-.card:hover .card__thumb::after {
+.card_animated:hover .card__thumb::after {
   top: 0;
 }
-.card:hover .card__snippet {
+.card_animated:hover .card__snippet {
   margin: 20px 0;
 }
-.card__thumb {
+.card__thumb_animated {
   position: relative;
   max-height: 400px;
   overflow: hidden;
 }
 @media (min-width: 1024px) {
-  .card__thumb {
+  .card__thumb_animated {
     max-height: 500px;
   }
 }
-.card__thumb::after {
+.card__thumb_animated ::after {
   position: absolute;
   top: 0;
   display: block;
@@ -40,14 +40,14 @@
   transition: 0.3s;
 }
 @media (min-width: 1024px) {
-  .card__thumb::after {
+  .card__thumb_animated ::after {
     top: calc(100% - 140px);
   }
 }
-.card__image {
+.card__image_animated {
   transition: 0.5s ease-in-out;
 }
-.card__caption {
+.card__caption_animated {
   position: absolute;
   top: 50%;
   z-index: 1;
@@ -58,12 +58,12 @@
   transition: 0.3s;
 }
 @media (min-width: 1024px) {
-  .card__caption {
+  .card__caption_animated {
     top: calc(100% - 110px);
     transform: unset;
   }
 }
-.card__title {
+.card__title_animated {
   display: -webkit-box;
   max-height: 85px;
   overflow: hidden;
@@ -75,7 +75,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-.card__snippet {
+.card__snippet_animated {
   display: -webkit-box;
   max-height: 150px;
   margin: 20px 0;
@@ -89,11 +89,11 @@
   -webkit-box-orient: vertical;
 }
 @media (min-width: 1024px) {
-  .card__snippet {
+  .card__snippet_animated {
     margin: 60px 0;
   }
 }
-.card__button {
+.card__button_animated {
   display: inline-block;
   padding: 10px 20px;
   color: white;
@@ -104,7 +104,7 @@
   text-decoration: none;
   transition: 0.3s;
 }
-.card__button:hover {
+.card__button_animated :hover {
   color: black;
   background-color: white;
 }

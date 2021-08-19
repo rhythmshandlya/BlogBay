@@ -19,6 +19,7 @@ const SignupHeading = () => {
     );
 }
 
+let bloggerPic = '';
 const LandingPage = () => {
         var a="hello";
         const [content, setContent]=useState([]);

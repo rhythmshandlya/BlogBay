@@ -11,7 +11,15 @@
   background-repeat: no-repeat;
   background-position: center;
   z-index: 3;
-  border: 3px solid white;
+  border: 2px solid white;
+}
+.explore-card-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 3%;
 }
 .info {
   height: 100px;
@@ -22,14 +30,11 @@
   background-color: white;
 }
 .info_links {
-  margin-top: 7%;
+  margin-top: 5%;
   color: #3d0b0b;
   font-size: 1.5rem;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
-}
-.link-grow {
-  margin-right: 38px;
 }
 
 /* Background image */
@@ -54,8 +59,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin: 1px auto;
-  max-height: 310px;
-  max-width: 900px;
+  max-height: 280px;
+  max-width: 800px;
 }
 
 /* text decoration transition */
@@ -84,4 +89,41 @@
   display: block;
   background: black;
   transition: 300ms;
+}
+
+/*
+  About
+*/
+.about_wrapper {
+  padding: 20px;
+  font-family: poppins;
+  margin-left: 10%;
+}
+
+.name_about {
+  font-size: 170%;
+  font-weight: 700;
+}
+.email_about {
+  color: grey;
+  font-size: 100%;
+  margin-bottom: 2%;
+}
+.description_about {
+  padding-right: 50%;
+}
+
+@media only screen and (max-width: 900px) {
+  .about_wrapper {
+    margin-left: 1%;
+  }
+  .info_links {
+    margin-top: 12%;
+  }
+  .email_about {
+    margin-bottom: 8%;
+  }
+  .description_about {
+    padding-right: 10%;
+  }
 }

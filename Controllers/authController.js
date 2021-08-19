@@ -198,7 +198,6 @@ exports.restrictTo =
 
 exports.isLoggedIn = catchAsync(async (req, res, next) => {
   let token = req.cookies.jwt;
-  console.log(token);
 
   if (!token) return next(new AppError('Please login to get access.', 401));
   const payLoad = await promisify(jwt.verify)(token, process.env.JWT);
