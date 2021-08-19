@@ -55,15 +55,9 @@ const LandingPage = () => {
     function check(){
         numBlogsSetter(Math.floor(window.innerWidth/350));
     }
-    // function renderer(amount){
-    //     var EasyCardRenderer=[];
-    //     EasyCardRenderer.push(<EasyCard content={content}></EasyCard>);
-    //     for(let i=0;i<amount-1;i++){
-    //         EasyCardRenderer.push(<EasyCard></EasyCard>);
-    //     }
-    //     return EasyCardRenderer;
-    // }
-    function renderer(content){
+   
+    function Renderer(content){
+        const [dp, dpSetter]=useState();
         var now=new Date();
         var post=new Date(content.date);
         var net=Math.floor((now-post)/(1000*60*60*24));
@@ -91,40 +85,23 @@ const LandingPage = () => {
                 }
             }
         }
-        ///////////////////////////////////
-        // useEffect(() => {
-        //     async function getmephoto(id){
-        //         try{
-        //             var contt= await api.get("http://localhost:8000/api/v1/user/"+id);
-        //             if(contt.data==='damn'){
-        //             // return "https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo";
-        //             console.log("YVSV")
-        //             }
-        //             else{
-        //                 console.log("zzzzzzzzz")
-        //             }
-                    
-        //         }
-        //         catch(err){
-        //             return "https://i.ibb.co/r28m6vR/dp5.jpg";
-        //         }
-        //     }
-        // }, [])
-        ///////////////////////////////////
-        api.get(`user/${content.authorID}`).then((response)=>{
-            if(response.data==="NO USER FOUND"){
-                bloggerPic="https://i.ibb.co/r28m6vR/dp5.jpg"
-                console.log(bloggerPic);
+        useEffect(() => {
+           async function getMePhoto(id){
+            try{
+                bloggerPic= await api.get('http://localhost:8000/api/v1/user/'+id);
+                bloggerPic=bloggerPic.data.dp
+                dpSetter(bloggerPic);
             }
-            else{
-                bloggerPic=response.data.dp;
-                console.log("zzz")
+            catch(err){
+                
             }
-        });
+        }
+        getMePhoto(content.authorID); 
+        }, [])
         var trimmedStringContent = (content.content).substring(0, 80);
         var trimmedStringTitle = ((content.title).substring(0, 50));
         return(
-            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net} bloggerPic={bloggerPic}/>
+            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net} bloggerPic={dp}/>
         )
     }
 
@@ -146,7 +123,7 @@ const LandingPage = () => {
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
                 {/* {renderer(numBlogs)} */}
-                {content.slice(0,(numBlogs)).map(renderer)}
+                {content.slice(6,(numBlogs+6)).map(Renderer)}
             </div>
         )
     }
