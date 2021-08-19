@@ -1,0 +1,152 @@
+.RichEditor-root {
+  background: #fff;
+  border: 1px solid #ddd;
+  font-family: poppins, serif;
+  font-size: 14px;
+  padding: 15px;
+  margin: 0% 3% 0.5% 3%;
+  border: 1px solid grey;
+}
+.RichEditor-controls {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+.RichEditor-editor {
+  border-top: 1px solid #ddd;
+  cursor: text;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.public-DraftEditorPlaceholder-inner {
+  margin-left: 17%;
+}
+.RichEditor-editor .public-DraftEditorPlaceholder-root,
+.RichEditor-editor .public-DraftEditor-content {
+  margin: 0 -15px -15px;
+  padding: 15px;
+}
+
+.RichEditor-editor .public-DraftEditor-content {
+  width: 70%;
+  min-height: 70vh;
+  margin: 0 auto;
+}
+
+.RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {
+  display: none;
+}
+
+.RichEditor-editor .RichEditor-blockquote {
+  border-left: 5px solid #eee;
+  color: #666;
+  font-family: 'Hoefler Text', 'Georgia', serif;
+  font-style: italic;
+  margin: 16px 0;
+  padding: 10px 20px;
+}
+
+.RichEditor-editor .public-DraftStyleDefault-pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.RichEditor-controls {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  margin-bottom: 5px;
+  user-select: none;
+}
+
+.RichEditor-styleButton {
+  color: #999;
+  cursor: pointer;
+  margin-right: 16px;
+  padding: 2px 0;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.RichEditor-activeButton {
+  color: #63c8ad;
+}
+/*
+  Buttons
+*/
+
+.preview-submit {
+  display: flex;
+  justify-content: center;
+}
+.example_c {
+  color: #494949 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 0.7rem 1rem;
+  border: 0.1rem solid #494949 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+  margin: 0 10px;
+  margin: 10px;
+}
+.example_c:hover {
+  color: #ffffff !important;
+  background: #63c8ad;
+  border-color: #63c8ad !important;
+  transition: all 0.4s ease 0s;
+}
+
+.editor-h1 {
+  margin: 3% 0;
+  font-family: poppins;
+  text-align: center;
+}
+/*
+  preview
+*/
+.preview-editor {
+  margin: 2% 15%;
+  border: 2px solid black;
+}
+.preview-h1 {
+  margin-top: 3%;
+  font-family: poppins;
+  text-align: center;
+}
+/*
+ title
+*/
+.title-editor {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 10px;
+  padding: 1%;
+}
+
+.label-title {
+  font-family: poppins;
+  font-size: 25px;
+  align-self: center;
+  padding: 5px;
+}
+.enter-title {
+  height: 50px;
+  font-family: poppins;
+  font-size: 22px;
+  width: 70%;
+  padding: 2px;
+  border: 2px solid grey;
+  align-self: center;
+}
+
+input:focus {
+  outline: none !important;
+  border-color: grey;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+}

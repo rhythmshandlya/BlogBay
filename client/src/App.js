@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './app.css';
 import Commingsoon from './Components/Extras/Commingsoon';
 import P404 from './Components/Extras/P404';
+import BlogEditor from './Components/Editor/BlogEditor';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/tutorial" component={Commingsoon} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/editor" component={BlogEditor} />
           <Route path="*" component={P404} />
         </Switch>
       </Router>
