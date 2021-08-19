@@ -61,27 +61,29 @@ const LandingPage = () => {
         const [dp, dpSetter]=useState();
         var now=new Date();
         var post=new Date(content.date);
-        var net=Math.floor((now-post)/(1000*60*60*24));
+        var net=((now-post)/(1000*60*60*24));
         var bloggerPic="";
         if(net>365){
             net='Long Time ago';
         }
         else{
-            if(net>30)
+            if(net>30){
             net=Math.floor(net/30)+" Mon ago";
+            }
             else{
                 if(net>7){
                     net=Math.floor(net/7)+" W ago";
                 }
                 else{
-                    if(net>1)
-                    net=net+ " D ago"
+                    if(net>1){
+                    net=Math.floor(net)+ " D ago";
+                    }
                     else{
                         if(net*24>1)
-                    net=net*24+ "h ago"
-                    else{
-                        net="now";
-                    }
+                    net=Math.floor(net*24)+ "h ago"
+                        else{
+                            net="now";
+                        }
                     }
                 }
             }
