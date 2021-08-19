@@ -5,6 +5,11 @@ const blogController = require('./../Controllers/blogController');
 const router = express.Router();
 
 router
+  .route('/currentBlog')
+  .get(blogController.getCurrentBlog)
+  .patch(blogController.updateCurrentBlog);
+
+router
   .route('/')
   .get(blogController.getAllBlogs)
   .post(protect, blogController.addBlog);

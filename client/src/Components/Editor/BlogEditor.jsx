@@ -114,8 +114,8 @@ class RichEditorExample extends React.Component {
               />
             </div>
           </div>
-          <h1 className="preview-h1">Preview Of The Blog</h1>
-          <iframe className='preview-editor' title='preview' src="http://localhost:3000/home" width="70%" height="550px" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" ></iframe>
+          <h1 className="preview-h1">Preview Of Blog</h1>
+          <iframe className='preview-editor' title='preview' src="http://localhost:3000/preview" width="70%" height="550px" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" ></iframe>
           <div class="button_cont" align="center"><a style={{width:"50%"}} class="example_c" href="add-website-here" target="_blank" rel="nofollow noopener">PUBLISH</a></div>
           <Footer />
         </>

@@ -15,6 +15,7 @@ import './app.css';
 import Commingsoon from './Components/Extras/Commingsoon';
 import P404 from './Components/Extras/P404';
 import BlogEditor from './Components/Editor/BlogEditor';
+import BlogPagePreview from './Components/BlogPages/BlogPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/tutorial" component={Commingsoon} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/editor" component={BlogEditor} />
+          <Route exact path="/preview" component={BlogPagePreview} />
           <Route path="*" component={P404} />
         </Switch>
       </Router>

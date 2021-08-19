@@ -71,3 +71,9 @@ exports.search = catchAsync(async (req, res, next) => {
     searchResults
   });
 });
+
+exports.getCurrentBlog = catchAsync(async (req, res, next) => {
+  const currentBlog = await User.find();
+});
+
+exports.updateCurrentBlog = (req, res, next) => {};

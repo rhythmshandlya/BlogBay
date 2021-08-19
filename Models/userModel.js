@@ -45,6 +45,10 @@ const userSchema = new mongoose.Schema({
     enum: ['admin', 'mod', 'user'],
     default: 'user'
   },
+  currentBlog: {
+    type: Object,
+    default: {}
+  },
   password: {
     type: String,
     required: [true, 'Please enter a password'],
