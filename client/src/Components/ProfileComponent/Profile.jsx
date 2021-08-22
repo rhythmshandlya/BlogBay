@@ -43,7 +43,7 @@ const Stats = (props) => {
 }
 
 const Profile = () => {
-    const history = useHistory();
+  const history = useHistory();
     const [user, setUser] = useState({}); 
     const [state, stateSetter] = useState('About'); 
     const [blogs, setBlogs] = useState([]);

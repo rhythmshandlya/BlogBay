@@ -15,12 +15,18 @@ router.patch('/update', protect, userController.update);
 router.delete('/delete', protect, userController.delete);
 router.get('/isLoggedIn', authController.isLoggedIn);
 
+router
+  .route('/currentBlog')
+  .get(protect, userController.getCurrentBlog)
+  .patch(protect, userController.updateCurrentBlog);
+
 router.route('/').get(userController.getAllUsers);
 
-router
+/* router
   .route('/:id')
   .get(userController.getUser)
   .patch(userController.updateUser)
   .delete(userController.deleteUser);
+*/
 
 module.exports = router;

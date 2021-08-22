@@ -47,7 +47,8 @@ const userSchema = new mongoose.Schema({
   },
   currentBlog: {
     type: Object,
-    default: {}
+    select: false,
+    default: undefined
   },
   password: {
     type: String,
