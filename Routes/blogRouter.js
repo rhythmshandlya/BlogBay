@@ -20,6 +20,10 @@ router
   .patch(blogController.updateBlog)
   .delete(blogController.deleteBlog);
 
+router
+  .route('/upvote/:id')
+  .patch(protect,blogController.upvoteBlog)
+
 router.get('/search/:text', blogController.search);
 
 module.exports = router;

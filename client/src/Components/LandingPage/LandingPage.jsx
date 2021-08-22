@@ -43,7 +43,7 @@ const LandingPage = () => {
             try {
                 let res = await api.get('user/isLoggedIn', { withCredentials: true });
                 if (res.data.user) {
-                    console.log(res.data);
+                    console.log("dsdad "+res.data);
                 }
             } catch (err) {
                 setSignupCard(<SignupHeading />);
@@ -91,7 +91,7 @@ const LandingPage = () => {
         useEffect(() => {
            async function getMePhoto(id){
             try{
-                bloggerPic= await api.get('http://localhost:8000/api/v1/user/'+id);
+                bloggerPic= await api.get('http://localhost:8000/api/v1/user?id='+id);
                 bloggerPic=bloggerPic.data.dp
                 dpSetter(bloggerPic);
             }
@@ -104,7 +104,7 @@ const LandingPage = () => {
         var trimmedStringContent = (content.content).substring(0, 80);
         var trimmedStringTitle = ((content.title).substring(0, 50));
         return(
-            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net} bloggerPic={dp}/>
+            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net} bloggerPic={dp} ID={content._id} upvotes={content.upvotes}/>
         )
     }
 

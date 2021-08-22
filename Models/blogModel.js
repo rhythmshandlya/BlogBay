@@ -20,6 +20,10 @@ const BlogSchema = mongoose.Schema({
     type: Date,
     default: Date.now()
   },
+  upvotes: {
+    type: Number,
+    default: 0
+  },
   content: {
     type: String,
     required: true

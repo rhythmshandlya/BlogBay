@@ -1,11 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Editor, EditorState, RichUtils, getDefaultKeyBinding } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
 import Navbar from '../NavbarComponents/Navbar'
-import SaveButton from '../NavbarComponents/SaveButton';
+// import SaveButton from '../NavbarComponents/SaveButton';
 import './Stylesheets/editor.css'
 import './Stylesheets/draft.css'
 import Footer from './../Footer/Footer'
+import PreviewBlog from './.././BlogPages/BlogPage'
+
+function Head(){
+  const [Title, setTitle] = useState();
+  return(
+          <div className="title-editor">
+            <label className='label-title' for="name">TITLE </label>
+            <input type="text" className="enter-title" onChange={event => setTitle(event.target.value)} placeholder="Title" title="Title"/>
+            <div class="button_cont center-v" align="center"><a class="example_c" href="add-website-here" target="_blank" rel="nofollow noopener">SAVE</a></div>
+          </div>
+  )
+}
+function SampleBlog(){
+
+}
 class RichEditorExample extends React.Component {
     constructor(props) {
       super(props);
@@ -16,13 +31,12 @@ class RichEditorExample extends React.Component {
           this.setState({ editorState })
         };
         
-
+        
       this.handleKeyCommand = this._handleKeyCommand.bind(this);
       this.mapKeyToEditorCommand = this._mapKeyToEditorCommand.bind(this);
       this.toggleBlockType = this._toggleBlockType.bind(this);
       this.toggleInlineStyle = this._toggleInlineStyle.bind(this);
     }
-
     _handleKeyCommand(command, editorState) {
       const newState = RichUtils.handleKeyCommand(editorState, command);
       if (newState) {
@@ -64,10 +78,9 @@ class RichEditorExample extends React.Component {
         )
       );
     }
-
+    
     render() {
       const {editorState} = this.state;
-
       // If the user changes block type before entering any text, we can
       // either style the placeholder or hide it. Let's just hide it now.
       let className = 'RichEditor-editor';
@@ -80,17 +93,12 @@ class RichEditorExample extends React.Component {
           className += ' RichEditor-hidePlaceholder';
         }
       }
-
+      
       return (
         <>
           <Navbar />
           <h1 className='editor-h1'>BLOG EDITOR V 1.0.2</h1>
-          <div className="title-editor">
-            <label className='label-title' for="name">TITLE </label>
-            <input type="text" className="enter-title" placeholder="Title" />
-            <div class="button_cont center-v" align="center"><a class="example_c" href="add-website-here" target="_blank" rel="nofollow noopener">SAVE</a></div>
-          </div>
-          
+          <Head/>
           <div className="RichEditor-root">
             <BlockStyleControls
               editorState={editorState}
@@ -115,14 +123,15 @@ class RichEditorExample extends React.Component {
             </div>
           </div>
           <h1 className="preview-h1">Preview Of Blog</h1>
-          <iframe className='preview-editor' title='preview' src="http://localhost:3000/preview" width="70%" height="550px" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" ></iframe>
+          {/* <iframe className='preview-editor' title='preview' src="http://localhost:3000/preview" width="70%" height="550px" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" ></iframe> */}
+          <PreviewBlog content={html} blogTitle={document.getElementsByClassName('')}/>
           <div class="button_cont" align="center"><a style={{width:"50%"}} class="example_c" href="add-website-here" target="_blank" rel="nofollow noopener">PUBLISH</a></div>
           <Footer />
         </>
       );
     }
   }
-
+  
   // Custom overrides for "code" style.
   const styleMap = {
     CODE: {
@@ -222,6 +231,5 @@ class RichEditorExample extends React.Component {
         )}
       </div>
     );
-};
-  
+  };
 export default RichEditorExample;

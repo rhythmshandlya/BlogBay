@@ -49,6 +49,10 @@ const userSchema = new mongoose.Schema({
     type: Object,
     default: {}
   },
+  upvotedBlogs: {
+    type: Array,
+    default: {}
+  },
   password: {
     type: String,
     required: [true, 'Please enter a password'],

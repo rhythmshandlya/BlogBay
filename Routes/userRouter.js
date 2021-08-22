@@ -15,10 +15,10 @@ router.patch('/update', protect, userController.update);
 router.delete('/delete', protect, userController.delete);
 router.get('/isLoggedIn', authController.isLoggedIn);
 
-router.route('/').get(userController.getAllUsers);
+// router.route('/').get(userController.getAllUsers);
 
 router
-  .route('/:id')
+  .route('/')
   .get(userController.getUser)
   .patch(userController.updateUser)
   .delete(userController.deleteUser);

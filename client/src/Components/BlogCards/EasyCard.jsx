@@ -1,13 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './stylesheets/EasyCaed.css'
-import {  useState } from 'react';
+import api from './../../Util/api'
 
 
 const EasyCard = (props) => {
+    const [content, setcontent] = useState(props.upvotes)
+    async function ClickHandler(event){
+       try{
+           console.log("CHALLA")
+        var loginUser=await api.get('/user/isLoggedIn',{ withCredentials: true });
+        console.log(loginUser);
+        let blogId=event.target.getAttribute('id');      
+        console.log(blogId);
+        if(loginUser){
+        var blog=await api.patch('blogs/upvote/'+blogId);
+        console.log(blog);
+         setcontent(blog.data.upvotes);
+        }    
+       }
+       catch(err){
+           console.log(err);
+          alert("fsdfsdf"+err.response.data.message);
+       }
+        
+     }
    
     const [state,setState]=useState(false);
     return (
-        <div>
+        <div zxc="help">
         <div className="blog-filter" style={state?{display:"flex"}:{display:"none"}} onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)}></div>
         <h3 className="thumbnail-title" onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)} style={state?{visibility:"visible"}:{visibility:"hidden"}}>Read More</h3>
             <div  class="card_ez" onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)}>
@@ -27,6 +47,7 @@ const EasyCard = (props) => {
                     </div>
                 </div>
             </div>
+            <button onClick={ClickHandler} id={props.ID}>{content}</button>
         </div>
     );
 }

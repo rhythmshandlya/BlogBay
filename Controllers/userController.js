@@ -35,7 +35,8 @@ exports.delete = catchAsync(async (req, res, next) => {
 });
 
 exports.getUser = catchAsync(async(req,res,next) => {
-  User.findOne({_id:req.params.id},function(err,foundUser){
+  console.log(req.query.name);
+  User.findOne({_id:req.query.id},function(err,foundUser){
       if(foundUser){
         res.send(foundUser);
       }
