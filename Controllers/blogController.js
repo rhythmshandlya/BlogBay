@@ -1,5 +1,6 @@
 const AppError = require('../Util/AppError');
 const Blog = require('./../Models/blogModel');
+const User = require('./../Models/userModel');
 const { catchAsync } = require('./../Util/catchAsync');
 const mongoose =require('mongoose');
 
@@ -22,6 +23,7 @@ exports.addBlog = catchAsync(async (req, res) => {
     data: {
       title: newBlog.title,
       date: newBlog.date,
+      _id: newBlog._id,
       authorID: newBlog.authorID
     }
   });
@@ -91,9 +93,3 @@ exports.search = catchAsync(async (req, res, next) => {
     searchResults
   });
 });
-
-exports.getCurrentBlog = catchAsync(async (req, res, next) => {
-  const currentBlog = await User.find();
-});
-
-exports.updateCurrentBlog = (req, res, next) => {};

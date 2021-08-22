@@ -14,8 +14,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './app.css';
 import Commingsoon from './Components/Extras/Commingsoon';
 import P404 from './Components/Extras/P404';
-import BlogEditor from './Components/Editor/BlogEditor';
-import BlogPagePreview from './Components/BlogPages/BlogPage';
+import BlogEditor from './Components/Editor/BlogEditorV1.0.2';
+import BlogPagePreview from './Components/BlogPages/BlogPagePreview';
 
 function App() {
   return (

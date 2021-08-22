@@ -4,7 +4,7 @@ const { catchAsync } = require('./../Util/catchAsync');
 const { filterData } = require('./../Util/filterData');
 
 exports.getAllUsers = async (req, res, next) => {
-  const users = await User.find();
+  const users = await User.find(req.query);
   res.status(200).json({
     status: true,
     length: users.length,
@@ -34,16 +34,46 @@ exports.delete = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getUser = catchAsync(async(req,res,next) => {
-  console.log(req.query.name);
-  User.findOne({_id:req.query.id},function(err,foundUser){
-      if(foundUser){
-        res.send(foundUser);
+exports.getUser = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+  if (user) {
+    res.status(200).json({
+      status: true,
+      user: {
+        name: user.name,
+        description: user.description,
+        dp: user.dp,
+        cover: user.cover,
+        job: user.job
       }
-      else{
-        res.send("NO USER FOUND");
-      }
-  }); 
+    });
+  } else {
+    next(new AppError(404, 'User not found'));
+  }
 });
-exports.updateUser = () => {};
+
+exports.getCurrentBlog = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.user._id).select('currentBlog');
+  res.status(200).json({
+    status: true,
+    blog: user.currentBlog
+  });
+});
+
+exports.updateCurrentBlog = catchAsync(async (req, res, next) => {
+  const { currentBlog } = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      currentBlog: req.body
+    },
+    { new: true }
+  ).select('currentBlog');
+
+  res.status(200).json({
+    status: true,
+    blog: currentBlog
+  });
+});
+
 exports.deleteUser = () => {};
+exports.updateUser = () => {};
