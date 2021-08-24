@@ -73,6 +73,24 @@ exports.upvoteBlog=catchAsync(async (req,res,next)=>{
   )
   res.send(asd);
 });
+exports.downvoteBlog=catchAsync(async (req,res,next)=>{
+  console.log(req.user);
+  var asd=await Blog.findOneAndUpdate(
+    {
+      _id:req.params.id
+    },
+    {
+      $inc:{
+      upvotes: -1
+      },
+    },
+    {
+      upsert:true,
+      new:true
+    }
+  )
+  res.send(asd);
+});
 exports.deleteBlog = catchAsync(async (req, res) => {
   const blog = await Blog.findByIdAndDelete(req.params.id);
   if (!blog) return next(new AppError('No tour found with this ID', 404));
