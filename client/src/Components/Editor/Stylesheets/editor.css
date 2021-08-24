@@ -40,3 +40,16 @@
 .btn-publish {
   background-color: red;
 }
+.btn-preview {
+  background-color: cadetblue;
+}
+/*Preview*/
+.inlineFrame {
+  margin: 0 20%;
+  border: 1px solid grey;
+  transition: all 500ms ease-out;
+}
+.hide {
+  height: 0px;
+  border: 0px;
+}

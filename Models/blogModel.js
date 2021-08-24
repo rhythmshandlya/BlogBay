@@ -12,9 +12,8 @@ const BlogSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  blogImage: {
-    type: String,
-    validate: [isURL, 'Please provide valid URL to your profile picture']
+  blogImages: {
+    type: Array
   },
   date: {
     type: Date,

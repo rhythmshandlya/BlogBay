@@ -9,7 +9,7 @@ import LandingPage from './Components/LandingPage/LandingPage';
 import LoginPage from './Components/LoginPage/LoginPage';
 import SignupPage from './Components/LoginPage/SignupPage';
 import Profile from './Components/ProfileComponent/Profile.jsx';
-
+import Blog from './Components/BlogPages/BlogPage';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './app.css';
 import Commingsoon from './Components/Extras/Commingsoon';
@@ -30,6 +30,7 @@ function App() {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/editor" component={BlogEditor} />
           <Route exact path="/preview" component={BlogPagePreview} />
+          <Route exact path="/blog/:id" component={Blog} />
           <Route path="*" component={P404} />
         </Switch>
       </Router>

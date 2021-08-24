@@ -13,7 +13,7 @@ const ReactEditor = (props) => {
   const history = useHistory();
   const [loadingSave, setLoadingSave] = React.useState(null);
   const [loadingPublish, setLoadingPublish] = React.useState(null);
-  
+
   console.log(props.data);
   const editorJsRef = React.useRef(null);
 
@@ -24,9 +24,11 @@ const ReactEditor = (props) => {
         setLoadingSave(<Loading/>);
         const savedData = await editorJsRef.current.save();
         await api.patch('user/currentBlog', savedData, { withCredentials: true });
+        document.querySelector('.inlineFrame').contentWindow.location.reload()
         setLoadingSave(null);
       } catch (err) {
-        alert(err);
+        setLoadingSave(null);
+        alert(err.response.data.message);
       }
   }
   fetchMyAPI();
@@ -35,10 +37,18 @@ const ReactEditor = (props) => {
   //publish data
   const handlePublish=async ()=>{
     const savedData = await editorJsRef.current.save();
+
+    let sampleImages = [];
+    savedData.blocks.forEach(element => {
+    if (element.type === 'simpleImage')
+        sampleImages.push(element.data.url);
+    });
+
     const blog = {
       title: savedData.blocks[0].data.text,
       content: savedData,
-      summary: savedData.blocks[1].data.text
+      summary: savedData.blocks[1].data.text,
+      blogImages: sampleImages
     }
     try {
       setLoadingPublish(<Loading />);
@@ -46,20 +56,31 @@ const ReactEditor = (props) => {
       await api.patch('user/currentBlog', {}, { withCredentials: true });
       setLoadingPublish(null);
 
-      history.push(`/blog?_id=${newBlog.data.data._id}`);
+      history.push(`/blog/${newBlog.data.data._id}`);
     } catch (err) {
-      console.log(err.response);
+      setLoadingPublish(null);
+      alert(err.response);
     }
-   
+  }
+  const handlePreview = () => {
+    document.querySelector('.inlineFrame').classList.toggle('hide');
   }
 
   return (
     <React.Fragment>
       <div className='btn-container-editor'>
         <div className='btn-editor btn-save' onClick={handleSave}>SAVE{loadingSave}</div>
+        <div className='btn-editor btn-preview' onClick={handlePreview}>PREVIEW</div>
         <div className='btn-editor btn-publish' onClick={handlePublish}>PUBLISH{loadingPublish}</div>
       </div>
-     
+
+      <iframe className="inlineFrame hide"
+        title="Inline Frame Preview"
+        width="60%"
+        height="600px"
+        src="http://localhost:3000/preview">
+      </iframe>
+
       <EditorJs
         instanceRef={instance => (editorJsRef.current = instance)}
         tools={EDITOR_JS_TOOLS}

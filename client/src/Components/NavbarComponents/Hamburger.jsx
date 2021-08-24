@@ -3,6 +3,7 @@ import './Stylesheets/ham.css';
 
 const dropdownToggler = () => {
     document.querySelector('.dropdown').classList.toggle('drop');
+    window.scrollTo(0, 0);
 }
 const Hamburger = () => {
     return (

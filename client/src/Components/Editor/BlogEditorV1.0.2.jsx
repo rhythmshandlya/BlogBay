@@ -31,7 +31,7 @@ const BlogEditorV1_0_2 = () => {
             <Navbar />
             <h1 className='editor-h1'>Blog Editor V1.0.2</h1>
             {content==='loading' && <Loading/>}
-            {content === 'editor' && <Editor data={data}/>}
+            {content === 'editor' && <Editor data={data} />}
         </React.Fragment>
     )
 }
