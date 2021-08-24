@@ -5,7 +5,7 @@
   transform: translate(0%, 0%);
   overflow: hidden;
   color: #f3f2c9;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 2.5px;
   text-align: center;
   text-transform: uppercase;
@@ -15,7 +15,7 @@
 }
 
 .animated-button::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -194,7 +194,7 @@
 .animated-button1 {
   background: linear-gradient(-30deg, #3d0b0b 50%, #2b0808 50%);
   padding: 18px 30px;
-  margin: 20px;
+  margin: 0;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
   transform: translate(0%, 0%);
@@ -210,7 +210,7 @@
 }
 
 .animated-button1::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -361,7 +361,7 @@
 }
 
 .animated-button2::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -512,7 +512,7 @@
 }
 
 .animated-button3::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -663,7 +663,7 @@
 }
 
 .animated-button4::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -814,7 +814,7 @@
 }
 
 .animated-button5::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -965,7 +965,7 @@
 }
 
 .animated-button6::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1116,7 +1116,7 @@
 }
 
 .animated-button7::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1267,7 +1267,7 @@
 }
 
 .animated-button8::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1418,7 +1418,7 @@
 }
 
 .animated-button9::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1569,7 +1569,7 @@
 }
 
 .animated-button10::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1720,7 +1720,7 @@
 }
 
 .animated-button11::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1871,7 +1871,7 @@
 }
 
 .animated-button12::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;

@@ -1,17 +1,19 @@
 import React from 'react'
 import './Stylesheets/login.css'
+import { Link } from 'react-router-dom'
 
-const Login = () => {
+const Login = (props) => {
   return (
-    <div className='login-button'>
-      <a href="/login" className="animated-button1">
+    <Link to={props.link}> <div className='login-button'>
+      <div className="animated-button1">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
-        LOGIN
-      </a>
+        {props.message}
+      </div>
     </div>
+   </ Link>
   )
 }
 

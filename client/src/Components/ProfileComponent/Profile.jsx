@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faAddressBook, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
 import CardExplore from '../BlogCards/CardExplore';
+import ButtonRed from './../NavbarComponents/Login';
 
 const About = ({ user }) => {
     if (user)
@@ -25,14 +26,20 @@ const About = ({ user }) => {
 }
 
 const Blogs = (props) => {
-  console.log(props)
+  console.log(props);
   return (
-    <div className='explore-card-parent'>
-      {
-        props.blogs.map((blog) => {return (<CardExplore title={blog.title} content={blog.content}/>)})
-      }
+    <>
+      <div className='go-to-editor'>
+        <h1>CONTINUE WHERE YOU LEFT?</h1>
+        <ButtonRed message='Open Editor' link='/editor'/>
       </div>
-    );
+      <div className='explore-card-parent'>
+        {
+          props.blogs.map((blog) => { return (<CardExplore title={blog.title} content={blog.summary} image={blog.blogImages[0]}/>) })
+        }
+      </div>
+    </>
+  );
 }
 
 const Stats = (props) => {
@@ -44,9 +51,9 @@ const Stats = (props) => {
 
 const Profile = () => {
   const history = useHistory();
-    const [user, setUser] = useState({}); 
-    const [state, stateSetter] = useState('About'); 
-    const [blogs, setBlogs] = useState([]);
+  const [user, setUser] = useState({}); 
+  const [state, stateSetter] = useState('About'); 
+  const [blogs, setBlogs] = useState([]);
   
     useEffect(() => {
       async function fetchMyAPI() {
@@ -102,8 +109,8 @@ const Profile = () => {
             <p className="info_links un" onClick={clickHandler}>Stats</p>
           </div>
           {state === 'About' && <About user={user} />}
-          {state === 'Stats' && <Stats blogs={blogs} />}
-          {state === 'Blogs' && <Blogs blogs={blogs} />}
+          {state === 'Blogs' && <Blogs blogs={blogs} currentBlog={user.currentBlog} />}
+          {state === 'Stats' && <Stats/>}
         </div>
       </>
     );

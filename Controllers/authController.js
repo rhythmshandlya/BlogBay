@@ -201,7 +201,9 @@ exports.isLoggedIn = catchAsync(async (req, res, next) => {
   console.log(token);
   if (!token) return next(new AppError('Please login to get access.', 401));
   const payLoad = await promisify(jwt.verify)(token, process.env.JWT);
-  const user = await User.findById(payLoad.id).select('+isVerified');
+  const user = await User.findById(payLoad.id).select(
+    '+isVerified +currentBlog'
+  );
 
   if (!user) return next(new AppError('User does not exists any longer', 401));
 

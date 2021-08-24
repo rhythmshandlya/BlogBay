@@ -9,7 +9,7 @@ exports.convertDataToHtml = (blocks) => {
         convertedHtml += `<h${block.data.level}>${block.data.text}</h${block.data.level}>`;
         break;
       case 'embed':
-        convertedHtml += `<div class="videoWrapperOuter"> <div class="videoWrapperInner"> <iframe src="${block.data.embed}" frameborder="0" allowfullscreen></iframe></div></div>`;
+        convertedHtml += `<div class="videoWrapperOuter"> <div class="videoWrapperInner"> <iframe src="${block.data.embed}?rel=0" frameborder="0" allowfullscreen></iframe></div></div>`;
         break;
       case 'paragraph':
         convertedHtml += `<p>${block.data.text.replaceAll(
