@@ -3,28 +3,52 @@ import './stylesheets/EasyCaed.css'
 import api from './../../Util/api'
 
 
+
 const EasyCard = (props) => {
+    const [isUpvoted, setisUpvoted] = useState(false);
+    function checkker(event){
+        let blogId=event.target.getAttribute('id');
+        if(isUpvoted){
+            downVoteHandler(blogId);
+            setisUpvoted(!isUpvoted);
+        }
+        else{
+            upVoteHandler(blogId);
+            setisUpvoted(!isUpvoted);
+        }
+    }
+    const [isLoggedIn, setisLoggedIn] = useState();
+    useEffect(() => {
+        async function find() {
+            try {
+                let res = await api.get('user/isLoggedIn', { withCredentials: true });
+                if (res.data.user) {
+                    setisLoggedIn(true);
+                }
+            } catch (err) {
+                setisLoggedIn(false);
+            }
+        }
+        find()
+    },[]);
     const [content, setcontent] = useState(props.upvotes)
-    async function ClickHandler(event){
-       try{
-           console.log("CHALLA")
-        var loginUser=await api.get('/user/isLoggedIn',{ withCredentials: true });
-        console.log(loginUser);
-        let blogId=event.target.getAttribute('id');      
+    async function upVoteHandler(blogId){
+              
         console.log(blogId);
-        if(loginUser){
+        if(true){
         var blog=await api.patch('blogs/upvote/'+blogId);
         console.log(blog);
-         setcontent(blog.data.upvotes);
-        }    
-       }
-       catch(err){
-           console.log(err);
-          alert("fsdfsdf"+err.response.data.message);
-       }
-        
+         setcontent(blog.data.upvotes+"like");
+        }       
      }
-   
+     async function downVoteHandler(blogId){      
+        console.log(blogId);
+        if(true){
+        var blog=await api.patch('blogs/downvote/'+blogId);
+        console.log(blog);
+         setcontent(blog.data.upvotes+"like");
+        }       
+     }
     const [state,setState]=useState(false);
     return (
         <div zxc="help">
@@ -47,7 +71,7 @@ const EasyCard = (props) => {
                     </div>
                 </div>
             </div>
-            <button onClick={ClickHandler} id={props.ID}>{content}</button>
+            <button onClick={isLoggedIn?checkker:()=>{alert("login")}} id={props.ID}>{content}</button>
         </div>
     );
 }
