@@ -56,7 +56,7 @@ exports.updateBlog = catchAsync(async (req, res) => {
 
 
 exports.upvoteBlog=catchAsync(async (req,res,next)=>{
-  console.log(req.user);
+  console.log(req.body);
   var asd=await Blog.findOneAndUpdate(
     {
       _id:req.params.id

@@ -43,7 +43,6 @@ const LandingPage = () => {
             try {
                 let res = await api.get('user/isLoggedIn', { withCredentials: true });
                 if (res.data.user) {
-                    console.log("dsdad "+res.data);
                 }
             } catch (err) {
                 setSignupCard(<SignupHeading />);
@@ -91,8 +90,8 @@ const LandingPage = () => {
         useEffect(() => {
            async function getMePhoto(id){
             try{
-                bloggerPic= await api.get('http://localhost:8000/api/v1/user?id='+id);
-                bloggerPic=bloggerPic.data.dp
+                bloggerPic= await api.get('http://localhost:8000/api/v1/user/'+id);
+                bloggerPic=bloggerPic.data.user.dp
                 dpSetter(bloggerPic);
             }
             catch(err){
@@ -101,10 +100,10 @@ const LandingPage = () => {
         }
         getMePhoto(content.authorID); 
         }, [])
-        var trimmedStringContent = (content.content).substring(0, 80);
+        var trimmedStringContent = (content.content.blocks[0].data.text).substring(0, 80);
         var trimmedStringTitle = ((content.title).substring(0, 50));
         return(
-            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle+"..."} blogLink={content.blogImage} interval={net} bloggerPic={dp} ID={content._id} upvotes={content.upvotes}/>
+            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle} blogLink={content.blogImages[0]} interval={net} bloggerPic={dp} ID={content._id} upvotes={content.upvotes}/>
         )
     }
 
@@ -126,7 +125,7 @@ const LandingPage = () => {
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
                 {/* {renderer(numBlogs)} */}
-                {content.slice(6,(numBlogs+6)).map(Renderer)}
+                {content.map(Renderer)}
             </div>
         )
     }

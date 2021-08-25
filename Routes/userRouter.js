@@ -22,11 +22,14 @@ router
 
 router.route('/').get(userController.getAllUsers);
 
-/* router
+ router
   .route('/:id')
   .get(userController.getUser)
   .patch(userController.updateUser)
   .delete(userController.deleteUser);
-*/
 
+router.route('/blogPush/:UID&:BID')
+  .patch(userController.pushBlog);
+router.route('/blogPull/:UID&:BID')
+  .patch(userController.pullBlog);
 module.exports = router;

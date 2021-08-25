@@ -35,6 +35,7 @@ exports.delete = catchAsync(async (req, res, next) => {
 });
 
 exports.getUser = catchAsync(async (req, res, next) => {
+  console.log(req);
   const user = await User.findById(req.params.id);
   if (user) {
     res.status(200).json({
@@ -59,7 +60,31 @@ exports.getCurrentBlog = catchAsync(async (req, res, next) => {
     blog: user.currentBlog
   });
 });
-
+exports.pushBlog=catchAsync(async (req,res,next)=>{
+  UserId=req.params.UID;
+  BlogId=req.params.BID;
+  const bp=await User.findByIdAndUpdate(
+    UserId,
+    {
+      $push:{upvotedBlogs:BlogId}
+    }
+  )
+  res.send(bp);
+});
+exports.pullBlog=catchAsync(async (req,res,next)=>{
+  UserId=req.params.UID;
+  BlogId=req.params.BID;
+  const bp=await User.findByIdAndUpdate(
+    UserId,
+    {
+      $pull:{upvotedBlogs:BlogId}
+    },
+    {
+      // multi: true 
+    }
+  )
+  res.send(bp);
+});
 exports.updateCurrentBlog = catchAsync(async (req, res, next) => {
   const { currentBlog } = await User.findByIdAndUpdate(
     req.user._id,

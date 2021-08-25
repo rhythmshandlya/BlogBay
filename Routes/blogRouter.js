@@ -21,7 +21,7 @@ router
 
 router
   .route('/downvote/:id')
-  .patch(blogController.downvoteBlog)
+  .patch(protect,blogController.downvoteBlog)
 
 router.get('/search/:text', blogController.search);
 
