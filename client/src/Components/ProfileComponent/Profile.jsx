@@ -35,7 +35,7 @@ const Blogs = (props) => {
       </div>
       <div className='explore-card-parent'>
         {
-          props.blogs.map((blog) => { return (<CardExplore title={blog.title} content={blog.summary} image={blog.blogImages[0]}/>) })
+          props.blogs.map((blog) => { return (<CardExplore title={blog.title} content={blog.summary} image={blog.blogImages[0]} id={blog._id}/>) })
         }
       </div>
     </>

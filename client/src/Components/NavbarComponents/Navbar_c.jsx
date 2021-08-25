@@ -5,13 +5,28 @@ import logo from './../../data/icon-st.svg';
 import Btn2 from './Btn_2';
 import './Stylesheets/Navbar.css'
 import api from './../../Util/api'
-import { Link } from 'react-router-dom';
+import { Link ,useHistory} from 'react-router-dom';
+import Cookies from 'universal-cookie';
+let cookies = new Cookies();
 
 const Navbar_c = () => {
-
+    const history = useHistory();
+    const handleLogout = () => {
+        cookies.set('jwt', '', { path: '/', maxAge: 2592000, secure: false });
+        window.location.reload();
+        history.push('/');
+    }
     const ProfilePicture = (props) => {
         return (
-            <Link to="/profile"><img className="navebar-profile" src={props.dpUrl} alt="jacket" width="40px" height="40px" /></Link>
+            <div class="dropdown-hvr">
+            <Link to="/profile"><img className="navbar-profile" src={props.dpUrl} alt="jacket" width="40px" height="40px" /></Link>
+            <div class="dropdown-content-hvr">
+                    <Link to="/profile"><div>🙍 PROFILE</div></Link>
+                    <Link to="/editor"><div>✍️ EDITOR </div></Link>
+                    <Link to="/settings"><div>⚙️ SETTINGS </div></Link>
+                    <Link onClick={handleLogout}><div>😞 LOGOUT </div></Link>
+                </div>
+            </div>
         );
     };
     const [loginOrProfile, setLoginOrProfile] = useState(null);
