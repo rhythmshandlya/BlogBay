@@ -73,6 +73,11 @@ const Notification = () => {
         <h1>Manage Notification</h1>
     </>);
 }
+const Logout = () => {
+    return (<>
+        <h1>Logout</h1>
+    </>);
+}
 const Loading = () => {
     return (<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>);
 }
@@ -119,9 +124,8 @@ const SettingsPage = () => {
     const handleLogout = (e) => {
         document.querySelector(lastFocus).classList.remove('to-green');
         document.querySelector('.l_st').classList.add('to-green');
-        cookies.set('jwt', '', { path: '/', maxAge: 1, secure: false });
-        history.push('/home');
-        window.location.reload();
+        setRender('logout');
+        lastFocus = '.l_st';
     }
     return (
         <>
@@ -144,7 +148,7 @@ const SettingsPage = () => {
                     {render === 'general' && <General user={user}/>}
                     {render === 'password' && <Password />}
                     {render === 'notification' && <Notification />}
-                    {render==='loading' && <Loading/>}
+                    {render==='loading' && <Logout/>}
             </div>
             </div>
         </>
