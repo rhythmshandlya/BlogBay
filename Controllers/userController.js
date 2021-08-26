@@ -16,7 +16,7 @@ exports.update = catchAsync(async (req, res, next) => {
   if (req.body.password || req.body.passwordConfirm)
     return next(new AppError('Cannot change user password from this route!'));
 
-  bodyFilter = filterData(req.body, 'name', 'description', 'niche', 'job');
+  bodyFilter = filterData(req.body, 'name', 'description', 'niche', 'job','upvotedBlogs');
   const updatedUser = await User.findByIdAndUpdate(req.user._id, bodyFilter, {
     new: true,
     runValidator: true
@@ -35,7 +35,6 @@ exports.delete = catchAsync(async (req, res, next) => {
 });
 
 exports.getUser = catchAsync(async (req, res, next) => {
-  console.log(req);
   const user = await User.findById(req.params.id);
   if (user) {
     res.status(200).json({
@@ -45,7 +44,8 @@ exports.getUser = catchAsync(async (req, res, next) => {
         description: user.description,
         dp: user.dp,
         cover: user.cover,
-        job: user.job
+        job: user.job,
+        upvotedBlogs:user.upvotedBlogs
       }
     });
   } else {

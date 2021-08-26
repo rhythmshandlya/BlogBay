@@ -36,13 +36,16 @@ const LandingPage = () => {
             }
             getmeBlogs(); 
         }, [])
-        
-    const [signupCard, setSignupCard] = useState(null);
+        const [Uid, setUid] = useState();
+        const [signupCard, setSignupCard] = useState(null);
     useEffect(() => {
         async function fetchMyAPI() {
             try {
                 let res = await api.get('user/isLoggedIn', { withCredentials: true });
                 if (res.data.user) {
+                    setUid(res.data.user._id);
+                    console.log(res.data.user._id)
+                    console.log("UID IS "+Uid)
                 }
             } catch (err) {
                 setSignupCard(<SignupHeading />);
@@ -87,6 +90,7 @@ const LandingPage = () => {
                 }
             }
         }
+        
         useEffect(() => {
            async function getMePhoto(id){
             try{
@@ -100,10 +104,12 @@ const LandingPage = () => {
         }
         getMePhoto(content.authorID); 
         }, [])
+
+        
         var trimmedStringContent = (content.content.blocks[0].data.text).substring(0, 80);
         var trimmedStringTitle = ((content.title).substring(0, 50));
         return(
-            <EasyCard content={trimmedStringContent+"..."} title={trimmedStringTitle} blogLink={content.blogImages[0]} interval={net} bloggerPic={dp} ID={content._id} upvotes={content.upvotes}/>
+            <EasyCard content={trimmedStringContent+"..."} uid={Uid} title={trimmedStringTitle} blogLink={content.blogImages[0]} interval={net} bloggerPic={dp} ID={content._id} upvotes={content.upvotes} />
         )
     }
 

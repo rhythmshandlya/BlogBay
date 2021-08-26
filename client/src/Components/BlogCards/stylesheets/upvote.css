@@ -3,8 +3,9 @@
 
 .widget {
   text-align: center;
+  width: 200px;
   position: absolute;  
-  background: white;
+  background: transparent;
   display: inline-block;
   border-radius: 12px;
   padding: 10px 15px 5px 15px;
@@ -25,9 +26,9 @@
   display: inline-block;
   background-color: #fafafa;
   padding: 12px;
-  width: 20px;
+  width: 35px;
   border-radius: 50%;
-  height: 20px;
+  height: 35px;
 }
 .widget .thumbs-icon-up:before,
 .widget .thumbs-icon-up:after,

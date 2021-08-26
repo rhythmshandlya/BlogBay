@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema({
   },
   upvotedBlogs: {
     type: Array,
-    default: {}
+    default: []
   },
   password: {
     type: String,
