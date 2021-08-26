@@ -54,6 +54,10 @@ const userSchema = new mongoose.Schema({
     type: Array,
     default: []
   },
+  downvotedBlogs: {
+    type: Array,
+    default: []
+  },
   password: {
     type: String,
     required: [true, 'Please enter a password'],

@@ -23,6 +23,10 @@ const BlogSchema = mongoose.Schema({
     type: Number,
     default: 0
   },
+  downvotes: {
+    type: Number,
+    default: 0
+  },
   content: {
     type: Object,
     required: true

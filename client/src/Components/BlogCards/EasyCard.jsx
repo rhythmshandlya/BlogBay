@@ -22,7 +22,7 @@ const EasyCard = (props) => {
                         <div class="user-info_ez">
                             <small>{props.interval}</small>
                         </div>
-                        <UpvoteBtns id={props.ID} upvotes={props.upvotes} uid={props.uid}/>
+                        <UpvoteBtns id={props.ID} upvotes={props.upvotes} downvotes={props.downvotes} uid={props.uid}/>
                     </div>
                 </div>
             </div>

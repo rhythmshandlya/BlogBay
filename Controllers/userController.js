@@ -45,7 +45,8 @@ exports.getUser = catchAsync(async (req, res, next) => {
         dp: user.dp,
         cover: user.cover,
         job: user.job,
-        upvotedBlogs:user.upvotedBlogs
+        upvotedBlogs:user.upvotedBlogs,
+        downvotedBlogs:user.downvotedBlogs
       }
     });
   } else {
