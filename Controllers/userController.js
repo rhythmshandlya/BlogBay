@@ -53,7 +53,8 @@ exports.getUser = catchAsync(async (req, res, next) => {
         description: user.description,
         dp: user.dp,
         cover: user.cover,
-        job: user.job
+        job: user.job,
+        upvotedBlogs: user.upvotedBlogs
       }
     });
   } else {
@@ -68,7 +69,28 @@ exports.getCurrentBlog = catchAsync(async (req, res, next) => {
     blog: user.currentBlog
   });
 });
-
+exports.pushBlog = catchAsync(async (req, res, next) => {
+  UserId = req.params.UID;
+  BlogId = req.params.BID;
+  const bp = await User.findByIdAndUpdate(UserId, {
+    $push: { upvotedBlogs: BlogId }
+  });
+  res.send(bp);
+});
+exports.pullBlog = catchAsync(async (req, res, next) => {
+  UserId = req.params.UID;
+  BlogId = req.params.BID;
+  const bp = await User.findByIdAndUpdate(
+    UserId,
+    {
+      $pull: { upvotedBlogs: BlogId }
+    },
+    {
+      // multi: true
+    }
+  );
+  res.send(bp);
+});
 exports.updateCurrentBlog = catchAsync(async (req, res, next) => {
   const { currentBlog } = await User.findByIdAndUpdate(
     req.user._id,
@@ -85,3 +107,4 @@ exports.updateCurrentBlog = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteUser = () => {};
+exports.updateUser = () => {};
