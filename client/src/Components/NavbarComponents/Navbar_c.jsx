@@ -14,7 +14,7 @@ const Navbar_c = () => {
     const handleLogout = () => {
         cookies.set('jwt', '', { path: '/', maxAge: 2592000, secure: false });
         window.location.reload();
-        history.push('/');
+        history.push('/home');
     }
     const ProfilePicture = (props) => {
         return (

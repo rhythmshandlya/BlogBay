@@ -7,6 +7,8 @@ import Loading from '../Extras/Loading';
 import Navbar from './../NavbarComponents/Navbar'
 let cookies = new Cookies();
 
+
+
 const LoginPage = () => {
         let history = useHistory();
         const [loading, setLoading] = useState(null);
@@ -39,10 +41,10 @@ const LoginPage = () => {
                <div className="container_p">
                <h1 className="login-heading">Login</h1>
 		
-                <form className="form" onSubmit={handleSubmit}>
+                <form className="form_p" onSubmit={handleSubmit}>
                 <input type="email" name="email" placeholder="Email" />
                 <input type="password" name="password" placeholder="Password" />
-                    <button type="submit" id="login-button">Login {loading}</button>
+                <button type="submit" id="login-button">Login {loading}</button>
                     
                 <br></br>
                 <a href="signup"  className="dont_have_an_account">Dont have an account?</a>
