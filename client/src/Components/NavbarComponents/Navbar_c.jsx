@@ -14,6 +14,8 @@ const Navbar_c = () => {
 
     const handleLogout = () => {
         cookies.set('jwt', 'NA', { path: '/', maxAge: 2000, secure: false });
+        localStorage.clear();
+        window.location.reload();
         history.push('/');
     }
     const ProfilePicture = (props) => {
@@ -40,7 +42,6 @@ const Navbar_c = () => {
                 }
             } catch (err) {
                 setLoginOrProfile(<Btn2/>);
-                
             }
         }
         fetchMyAPI();

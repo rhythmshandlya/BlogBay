@@ -9,7 +9,7 @@ import './settings.css'
 import api from './../../Util/api'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faKey, faSignInAlt, faBell } from '@fortawesome/free-solid-svg-icons';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 let cookies = new Cookies();
 const General = ({ user }) => {
@@ -39,6 +39,7 @@ const General = ({ user }) => {
     </>);
 }
 const Password = () => {
+    const history = useHistory();
     const [saving, setSaving] = useState(null);
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -49,18 +50,19 @@ const Password = () => {
         }
         try {
             setSaving(<Spin />);
-            const status = await api.patch('user/updatePassword', res, { withCredentials: true });
+            /* const status =  */await api.patch('user/updatePassword', res, { withCredentials: true });
             setSaving(null);
-            cookies.set('jwt', status.data.token, { path: '/', maxAge: 2592000, secure: false });
+            cookies.set('jwt', '', { path: '/', maxAge: 2592000, secure: false });
             alert('password changed successfully');
             window.location.reload();
+            history.push('/login');
         } catch (err) {
             setSaving(null);
             alert(err.response.data.message);
         }
     }
     return (<>
-        <h1>General Settings</h1>
+        <h1>Change Your Password</h1>
         <form autocomplete="off" onSubmit={handleSubmit} className='gs-form'>
             <input type="password" name="password" placeholder="Current Password"/>
             <input type="password" name="newPassword"  placeholder="New Password" />
@@ -76,7 +78,7 @@ const Notification = () => {
 }
 const Logout = () => {
     return (<>
-        <h1>Logout</h1>
+        <h1>If you are unable to logout, please clear the cookies manually.</h1>
     </>);
 }
 const Loading = () => {
@@ -125,7 +127,10 @@ const SettingsPage = () => {
     const handleLogout = (e) => {
         document.querySelector(lastFocus).classList.remove('to-green');
         document.querySelector('.l_st').classList.add('to-green');
-        setRender('logout');
+            setRender('logout');
+            cookies.set('jwt', 'NA', { path: '/', maxAge: 2000, secure: false });
+            window.location.reload();
+            history.push('/');
         lastFocus = '.l_st';
     }
     return (
