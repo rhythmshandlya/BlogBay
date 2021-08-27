@@ -25,7 +25,6 @@ const Navbar_m = () => {
                 let res = await api.get('user/isLoggedIn', { withCredentials: true });
                 if (res.data.user) {
                     setLoginOrProfile(<ProfilePicture dpUrl={res.data.user.dp}/>);
-                    
                 }
             } catch (err) {
                 setLoginOrProfile(<Btn2 />);

@@ -23,13 +23,7 @@ function swipe(){
 }
 const FullPageCard = () => {
   return (
-   <Swiper
-      // spaceBetween={30}
-      // slidesPerView={3}
-      // effect={ 'fade'}
-      // onSlideChange={() => console.log('slide change')}
-      // onSwiper={(swiper) => console.log(swiper)} 
-    >
+   <Swiper>
      <div class="blog-slider">
         <div class="blog-slider__wrp swiper-wrapper">
         <SwiperSlide>

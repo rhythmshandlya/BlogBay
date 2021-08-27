@@ -143,7 +143,6 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
   const user = await User.findById(req.user._id).select('+password');
-  console.log(req.body);
   if (!(await user.correctPassword(req.body.currentPassword, user.password)))
     return next(new AppError('Your current password is wrong', 401));
 
@@ -187,7 +186,6 @@ exports.protect = catchAsync(async (req, res, next) => {
   req.user = user;
   next();
 });
-
 exports.restrictTo =
   (...roles) =>
   (req, res, next) => {
@@ -199,7 +197,6 @@ exports.restrictTo =
 
 exports.isLoggedIn = catchAsync(async (req, res, next) => {
   let token = req.cookies.jwt;
-  console.log(token);
   if (!token) return next(new AppError('Please login to get access.', 401));
   const payLoad = await promisify(jwt.verify)(token, process.env.JWT);
   const user = await User.findById(payLoad.id).select(

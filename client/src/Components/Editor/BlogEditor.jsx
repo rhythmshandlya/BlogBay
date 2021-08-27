@@ -14,7 +14,6 @@ const ReactEditor = (props) => {
   const [loadingSave, setLoadingSave] = React.useState(null);
   const [loadingPublish, setLoadingPublish] = React.useState(null);
 
-  console.log(props.data);
   const editorJsRef = React.useRef(null);
 
   //Store data to api

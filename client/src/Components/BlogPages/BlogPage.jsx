@@ -21,7 +21,6 @@ const BlogPage = () => {
             try {
                 const res = await api.get(`blogs?_id=${id}`, { withCredentials: true });
                 htmlData.current = convertDataToHtml(res.data.data.allBlogs[0].content.blocks);
-                console.log(htmlData.current);
                 setLoading('notLoading');
             } catch (err) {
                 alert(err);

@@ -31,7 +31,6 @@ exports.convertDataToHtml = (blocks) => {
         convertedHtml += '</ol>';
         break;
       case 'quote':
-        console.log(blocks.data);
         convertedHtml += `<blockquote class="otro-blockquote">${block.data.text}<span>${block.data.caption}<span></blockquote>`;
         break;
 
@@ -50,7 +49,6 @@ exports.convertDataToHtml = (blocks) => {
         break;
 
       case 'code':
-        console.log(block.data.code);
         block.data.code = block.data.code
           .replaceAll('<', '&lt;')
           .replaceAll('>', '&gt;');

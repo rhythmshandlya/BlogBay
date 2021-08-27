@@ -86,7 +86,6 @@ const [upcontent, setupcontent] = useState(props.upvotes)
 const [downcontent, setdowncontent] = useState(props.downvotes)
 //////////////upvotehandler/////////////////////////
 async function UpVoteHandler(blogId){         
-    console.log("UP"+blogId);
     var blog=await api.patch('blogs/upvote/'+blogId);
     setupcontent(blog.data.upvotes);
     response={task:"upvotedBlogs"}
