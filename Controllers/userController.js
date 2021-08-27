@@ -15,8 +15,16 @@ exports.getAllUsers = async (req, res, next) => {
 exports.update = catchAsync(async (req, res, next) => {
   if (req.body.password || req.body.passwordConfirm)
     return next(new AppError('Cannot change user password from this route!'));
+  if (req.body.email) return next(new AppError('Email cannot be changed!'));
 
-  bodyFilter = filterData(req.body, 'name', 'description', 'niche', 'job','upvotedBlogs');
+  bodyFilter = filterData(
+    req.body,
+    'name',
+    'description',
+    'niche',
+    'job',
+    'upvotedBlogs'
+  );
   const updatedUser = await User.findByIdAndUpdate(req.user._id, bodyFilter, {
     new: true,
     runValidator: true
@@ -26,6 +34,7 @@ exports.update = catchAsync(async (req, res, next) => {
     user: updatedUser
   });
 });
+
 exports.delete = catchAsync(async (req, res, next) => {
   await User.findByIdAndUpdate(req.user._id, { active: false });
   res.status(204).json({
@@ -61,29 +70,26 @@ exports.getCurrentBlog = catchAsync(async (req, res, next) => {
     blog: user.currentBlog
   });
 });
-exports.pushBlog=catchAsync(async (req,res,next)=>{
-  UserId=req.params.UID;
-  BlogId=req.params.BID;
-  const bp=await User.findByIdAndUpdate(
-    UserId,
-    {
-      $push:{upvotedBlogs:BlogId}
-    }
-  )
+exports.pushBlog = catchAsync(async (req, res, next) => {
+  UserId = req.params.UID;
+  BlogId = req.params.BID;
+  const bp = await User.findByIdAndUpdate(UserId, {
+    $push: { upvotedBlogs: BlogId }
+  });
   res.send(bp);
 });
-exports.pullBlog=catchAsync(async (req,res,next)=>{
-  UserId=req.params.UID;
-  BlogId=req.params.BID;
-  const bp=await User.findByIdAndUpdate(
+exports.pullBlog = catchAsync(async (req, res, next) => {
+  UserId = req.params.UID;
+  BlogId = req.params.BID;
+  const bp = await User.findByIdAndUpdate(
     UserId,
     {
-      $pull:{upvotedBlogs:BlogId}
+      $pull: { upvotedBlogs: BlogId }
     },
     {
-      // multi: true 
+      // multi: true
     }
-  )
+  );
   res.send(bp);
 });
 exports.updateCurrentBlog = catchAsync(async (req, res, next) => {

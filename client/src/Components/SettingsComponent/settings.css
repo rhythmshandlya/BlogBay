@@ -1,0 +1,139 @@
+.container-settings {
+  font-family: poppins;
+  padding: 5%;
+  display: flex;
+}
+.side-menu-settings {
+  flex-basis: 20%;
+}
+.render-settings {
+  flex-basis: 80%;
+}
+.dp-name-settings {
+  text-align: center;
+  padding: 5%;
+}
+.dp-name-settings img {
+  border-radius: 50%;
+  border: 2px solid grey;
+}
+.dp-name-settings p {
+  color: gray;
+}
+.op-setting {
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.op-setting p {
+  padding: 5%;
+}
+.op-setting:hover {
+  background-color: #53dfa6;
+}
+@media screen and (max-width: 900px) {
+  .container-settings {
+    flex-flow: column;
+  }
+  .op-setting:hover {
+    background-color: #53dfa6;
+  }
+}
+
+.render-settings h1 {
+  text-align: center;
+  color: grey;
+}
+.to-green {
+  background-color: #53dfa6;
+}
+/*form*/
+.gs-form {
+  width: 60%;
+  margin: 0 auto;
+}
+.gs-form input[type='text'],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: poppins;
+  font-size: 16px;
+}
+.gs-form input[type='text']::placeholder {
+  color: #302e2e;
+}
+.gs-form input[type='password'],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: poppins;
+  font-size: 16px;
+}
+.gs-form input[type='password']::placeholder {
+  color: #302e2e;
+}
+
+.gs-form textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: poppins;
+  font-size: 17px;
+  resize: none;
+}
+.gs-form textarea::placeholder {
+  color: #302e2e;
+}
+
+.gs-form button {
+  width: 100%;
+  background-color: #302e2e;
+  color: white;
+  font-size: 20px;
+  font-family: poppins;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.gs-form button:hover {
+  background-color: black;
+}
+@media screen and (max-width: 900px) {
+  .gs-form {
+    width: 90%;
+  }
+}
+.logout-st {
+  margin: 5% 0 0 16%;
+}
+.logout-btn-st {
+  background-color: #302e2e;
+  color: white;
+  font-size: 20px;
+  font-family: poppins;
+  padding: 10px 20px;
+  margin: 8px 10%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.logout-p-st {
+  font-size: 20px;
+  display: inline-block;
+}

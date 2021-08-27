@@ -57,12 +57,12 @@ body :-ms-input-placeholder {
   transition-timing-function: ease-in-put;
   font-weight: 200;
 }
-form {
+.form_p {
   padding: 20px 0;
   position: relative;
   z-index: 2;
 }
-form input {
+.form_p input {
   display: block;
   appearance: none;
   outline: 0;
@@ -78,10 +78,10 @@ form input {
   transition-duration: 0.25s;
   font-weight: 300;
 }
-form input:hover {
+.form_p input:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
-form input:focus {
+.form_p input:focus {
   background-color: white;
   width: 300px;
   color: #53e3a6;
@@ -97,7 +97,7 @@ form input:focus {
 .dont_have_an_account:hover {
   color: black;
 }
-form button {
+.form_p button {
   appearance: none;
   outline: 0;
   background-color: white;
@@ -110,7 +110,7 @@ form button {
   font-size: 18px;
   transition-duration: 0.25s;
 }
-form button:hover {
+.form_p button:hover {
   background-color: #f5f7f9;
 }
 .bg-bubbles {

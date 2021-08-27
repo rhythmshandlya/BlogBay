@@ -44,8 +44,6 @@ const LandingPage = () => {
                 let res = await api.get('user/isLoggedIn', { withCredentials: true });
                 if (res.data.user) {
                     setUid(res.data.user._id);
-                    console.log(res.data.user._id)
-                    console.log("UID IS "+Uid)
                 }
             } catch (err) {
                 setSignupCard(<SignupHeading />);
