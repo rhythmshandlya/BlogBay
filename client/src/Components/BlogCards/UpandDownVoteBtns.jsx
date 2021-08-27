@@ -57,7 +57,6 @@ function checkker(event){
 const [content, setcontent] = useState(props.upvotes)
 //////////////upvotehandler/////////////////////////
 async function UpVoteHandler(blogId){         
-    console.log("UP"+blogId);
     var blog=await api.patch('blogs/upvote/'+blogId);
     setcontent(blog.data.upvotes);
    await api.patch(`user/blogPush/${UserId}&${blogId}`)
@@ -66,7 +65,6 @@ async function UpVoteHandler(blogId){
 //////////////upvotehandler/////////////////////////
 //////////////downvotehandler/////////////////////////
 async function downVoteHandler(blogId){      
-    console.log("down"+blogId);
     var blog=await api.patch('blogs/downvote/'+blogId);
     setcontent(blog.data.upvotes);  
     await api.patch(`user/blogPull/${UserId}&${blogId}`)

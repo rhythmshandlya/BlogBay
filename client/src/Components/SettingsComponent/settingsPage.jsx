@@ -49,10 +49,11 @@ const Password = () => {
         }
         try {
             setSaving(<Spin />);
-            await api.patch('user/updatePassword', res, { withCredentials: true });
-            alert('password changed successfully');
+            const status = await api.patch('user/updatePassword', res, { withCredentials: true });
             setSaving(null);
-            window.location.reload(false);
+            cookies.set('jwt', status.data.token, { path: '/', maxAge: 2592000, secure: false });
+            alert('password changed successfully');
+            window.location.reload();
         } catch (err) {
             setSaving(null);
             alert(err.response.data.message);

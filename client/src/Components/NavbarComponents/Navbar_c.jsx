@@ -11,9 +11,9 @@ let cookies = new Cookies();
 
 const Navbar_c = () => {
     const history = useHistory();
+
     const handleLogout = () => {
-        cookies.set('jwt', '', { path: '/', maxAge: 2592000, secure: false });
-        window.location.reload();
+        cookies.set('jwt', 'NA', { path: '/', maxAge: 2000, secure: false });
         history.push('/');
     }
     const ProfilePicture = (props) => {

@@ -26,7 +26,6 @@ const About = ({ user }) => {
 }
 
 const Blogs = (props) => {
-  console.log(props);
   return (
     <>
       <div className='go-to-editor'>
@@ -89,7 +88,7 @@ const Profile = () => {
           stateSetter('Blogs'); 
           break;
         default:
-          console.log('error')
+          alert("ERROR");
       }
       e.target.classList.add('un-p');
     }

@@ -29,7 +29,7 @@ const LoginPage = () => {
                 history.push('/home');
             }catch (err) {
                 setLoading(null);
-                alert(err.response.data.message);
+                alert(err.response.data);
             }
     }
 

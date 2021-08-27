@@ -2,7 +2,7 @@ const AppError = require('../Util/AppError');
 const Blog = require('./../Models/blogModel');
 const User = require('./../Models/userModel');
 const { catchAsync } = require('./../Util/catchAsync');
-const mongoose =require('mongoose');
+const mongoose = require('mongoose');
 
 exports.getAllBlogs = catchAsync(async (req, res) => {
   const allBlogs = await Blog.find(req.query);
@@ -54,41 +54,38 @@ exports.updateBlog = catchAsync(async (req, res) => {
   });
 });
 
-
-exports.upvoteBlog=catchAsync(async (req,res,next)=>{
-  console.log(req.body);
-  var asd=await Blog.findOneAndUpdate(
+exports.upvoteBlog = catchAsync(async (req, res, next) => {
+  var asd = await Blog.findOneAndUpdate(
     {
-      _id:req.params.id
+      _id: req.params.id
     },
     {
-      $inc:{
-      upvotes: 1
-      },
+      $inc: {
+        upvotes: 1
+      }
     },
     {
-      upsert:true,
-      new:true
+      upsert: true,
+      new: true
     }
-  )
+  );
   res.send(asd);
 });
-exports.downvoteBlog=catchAsync(async (req,res,next)=>{
-  console.log(req.user);
-  var asd=await Blog.findOneAndUpdate(
+exports.downvoteBlog = catchAsync(async (req, res, next) => {
+  var asd = await Blog.findOneAndUpdate(
     {
-      _id:req.params.id
+      _id: req.params.id
     },
     {
-      $inc:{
-      upvotes: -1
-      },
+      $inc: {
+        upvotes: -1
+      }
     },
     {
-      upsert:true,
-      new:true
+      upsert: true,
+      new: true
     }
-  )
+  );
   res.send(asd);
 });
 exports.deleteBlog = catchAsync(async (req, res) => {

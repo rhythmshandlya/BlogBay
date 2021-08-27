@@ -17,9 +17,7 @@ const BlogPagePreview = () => {
         async function fetchMyAPI() {
             try {
                 const res = await api.get('user/currentBlog', { withCredentials: true });
-                console.log(res.data.blog);
                 htmlData.current = convertDataToHtml(res.data.blog.blocks);
-                console.log(htmlData.current);
                 setLoading('not-loading');
             } catch (err) {
               alert(err);
