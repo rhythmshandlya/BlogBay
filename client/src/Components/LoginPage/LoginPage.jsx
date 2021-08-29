@@ -25,6 +25,7 @@ const LoginPage = () => {
                 setLoading(null);
                 //store as cookie
                 cookies.set('jwt', res.data.token, { path: '/', maxAge: 2592000, secure: false});
+                alert(cookies.get("jwt"))
                 //redirect to home
                 history.push('/home');
             }catch (err) {

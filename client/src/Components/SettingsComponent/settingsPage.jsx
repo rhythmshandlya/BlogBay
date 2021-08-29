@@ -55,8 +55,8 @@ const Password = () => {
             setSaving(<Spin />);
             /* const status =  */await api.patch('user/updatePassword', res, { withCredentials: true });
             setSaving(null);
-            cookies.set('jwt', '', { path: '/', maxAge: 2592000, secure: false });
-            alert('password changed successfully');
+            cookies.set('jwt', 'abcd', { path: '/', maxAge: 2592000, secure: false });
+            alert('password changed successfully'+cookies.get("jwt"));
             window.location.reload();
             history.push('/login');
         } catch (err) {
