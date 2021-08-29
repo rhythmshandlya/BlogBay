@@ -73,20 +73,18 @@ exports.getCurrentBlog = catchAsync(async (req, res, next) => {
 exports.pushBlog = catchAsync(async (req, res, next) => {
   UserId = req.params.UID;
   BlogId = req.params.BID;
-  task=req.body.task;
   const bp = await User.findByIdAndUpdate(UserId, {
-    $push: { task: BlogId }
+    $push: { upvotedBlogs: BlogId }
   });
   res.send(bp);
 });
 exports.pullBlog = catchAsync(async (req, res, next) => {
   UserId = req.params.UID;
   BlogId = req.params.BID;
-  task=req.body.task;
   const bp = await User.findByIdAndUpdate(
     UserId,
     {
-      $pull: { task: BlogId }
+      $pull: { upvotedBlogs: BlogId }
     },
     {
       // multi: true
