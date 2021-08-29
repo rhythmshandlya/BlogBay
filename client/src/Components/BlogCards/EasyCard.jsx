@@ -18,7 +18,7 @@ const EasyCard = (props) => {
                     <img src={props.blogLink} alt="rover" />
                 </div>
                 <div class="card-body">
-                    <span class="tag tag-teal">Technology</span>
+                    <span class="tag tag-teal">{props.category}</span>
                     <h4>{props.title}</h4>
                     <p>{props.content}</p>
                     <div class="user_ez">

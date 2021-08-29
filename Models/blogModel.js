@@ -15,6 +15,10 @@ const BlogSchema = mongoose.Schema({
   blogImages: {
     type: Array
   },
+  category: {
+    type: String,
+    default:"General"
+  },
   date: {
     type: Date,
     default: Date.now()
