@@ -74,6 +74,15 @@ const Password = () => {
 const Notification = () => {
     return (<>
         <h1>Manage Notification</h1>
+        <div className='notification-stng'>
+            <label for="notification">When can we email you?</label>
+            <select id="notification" name="notification">
+                <option value="australia">Always</option>
+                <option value="canada">Sometime</option>
+                <option value="usa">Never</option>
+            </select>
+            <button className='logout-btn-st '>Update</button>
+        </div>
     </>);
 }
 const Logout = () => {

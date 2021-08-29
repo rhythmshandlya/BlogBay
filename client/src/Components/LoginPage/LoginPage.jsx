@@ -1,13 +1,15 @@
 import './LoginPage.css'
 import { React,useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory,Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import api from './../../Util/api';
 import Loading from '../Extras/Loading';
 import Navbar from './../NavbarComponents/Navbar'
+
+import alertify from 'alertifyjs';
+import 'alertifyjs/build/css/alertify.css';
+
 let cookies = new Cookies();
-
-
 
 const LoginPage = () => {
         let history = useHistory();
@@ -29,7 +31,9 @@ const LoginPage = () => {
                 history.push('/home');
             }catch (err) {
                 setLoading(null);
-                alert(err.response.data);
+                alertify.alert('Error Occurred', err.response.data.message, function(){ 
+                    alertify.error('Login Again!'); 
+                });
             }
     }
 
@@ -47,7 +51,8 @@ const LoginPage = () => {
                 <button type="submit" id="login-button">Login {loading}</button>
                     
                 <br></br>
-                <a href="signup"  className="dont_have_an_account">Dont have an account?</a>
+                <Link to='/signup'><div href="signup"  className="dont_have_an_account">Dont have an account?</div></Link>
+                
                 </form>
                 </div>
             

@@ -18,7 +18,7 @@ body {
   border: none;
   position: sticky;
   top: 0;
-  z-index: 255611;
+  z-index: 1000;
   background-color: rgb(255, 255, 255);
   border-bottom: solid grey 1px;
 }
