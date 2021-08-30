@@ -15,6 +15,10 @@ const BlogSchema = mongoose.Schema({
   blogImages: {
     type: Array
   },
+  category: {
+    type: String,
+    default:"General"
+  },
   date: {
     type: Date,
     default: Date.now()
@@ -22,6 +26,10 @@ const BlogSchema = mongoose.Schema({
   upvotes: {
     type: Number,
     default: 0
+  },
+  downvotes: {
+    type: Number,
+    default: 10
   },
   content: {
     type: Object,

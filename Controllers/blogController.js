@@ -61,7 +61,7 @@ exports.upvoteBlog = catchAsync(async (req, res, next) => {
     },
     {
       $inc: {
-        upvotes: 1
+        upvotes:1
       }
     },
     {

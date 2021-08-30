@@ -1,6 +1,7 @@
 import React from 'react'
 import './stylesheets/upvote.css'
 import api from './../../Util/api'
+import Cookies from 'universal-cookie';
 import { useEffect, useState } from 'react'
 const UpandDownVoteBtns = (props) => {
 ///////////////LOGIN CHECKKER//////////////////
@@ -15,6 +16,7 @@ const UpandDownVoteBtns = (props) => {
                     setisLoggedIn(true);
                     setUserId(res.data.user._id);
                     checkIfUpvoted(props.uid);
+                    checkIfDownvoted(props.uid);
                 }
             } catch (err) {
                 setisLoggedIn(false);
@@ -38,53 +40,66 @@ const UpandDownVoteBtns = (props) => {
            
         }
     }
+
+    const [isDownvoted, setisDownvoted] = useState();
+    async function checkIfDownvoted(id){
+        try{
+           let user= await api.get('http://localhost:8000/api/v1/user/'+id);
+            user=user.data.user.downvotedBlogs
+            if(user.indexOf(props.id)===-1){
+                setisDownvoted(false)
+            }
+            else{
+                setisDownvoted(true)
+            }
+        }
+        catch(err){
+           
+        }
+    }
    
     
   
      
 ///////////////LOGIN CHECKKER//////////////////
 //////////////manager/////////////////////////
-function checkker(event){
+function checkkerUp(event){
     let blogId=event.target.getAttribute('id');
     if(isUpvoted){
-        downVoteHandler(blogId);
+        unUpVoteHandler(blogId);
     }
     else{
         UpVoteHandler(blogId);
     }
 }
 //////////////manager/////////////////////////
-const [content, setcontent] = useState(props.upvotes)
+const [upcontent, setupcontent] = useState(props.upvotes)
 //////////////upvotehandler/////////////////////////
 async function UpVoteHandler(blogId){         
     var blog=await api.patch('blogs/upvote/'+blogId);
-    setcontent(blog.data.upvotes);
+    setupcontent(blog.data.upvotes);
    await api.patch(`user/blogPush/${UserId}&${blogId}`)
     setisUpvoted(true);
 }
+
 //////////////upvotehandler/////////////////////////
-//////////////downvotehandler/////////////////////////
-async function downVoteHandler(blogId){      
+//////////////unUpvotehandler/////////////////////////
+async function unUpVoteHandler(blogId){      
+    console.log("down"+blogId);
     var blog=await api.patch('blogs/downvote/'+blogId);
-    setcontent(blog.data.upvotes);  
+    setupcontent(blog.data.upvotes);  
     await api.patch(`user/blogPull/${UserId}&${blogId}`)
     setisUpvoted(false);
  }
-//////////////downvotehandler/////////////////////////
+//////////////unUpvotehandler////////////////////////
 
 return (
         <div>
             <div class="widget top-left">
   <div class="upvote thumbs">
     <div style={{marginRight:'25px'}}>
-      <i class="thumbs-icon thumbs-icon-up"  onClick={isLoggedIn?checkker:()=>{alert("login")}} id={props.id} style={isUpvoted?{backgroundColor:"Green"}:{backgroundColor:"white"}} id={props.id}></i>
-      <p>{content}</p>
-    </div>
-  </div>
-  <div class="downvote thumbs">
-    <div>
-      <i class="thumbs-icon thumbs-icon-down" onClick={isLoggedIn?checkker:()=>{alert("login")}} ></i>
-      <p>{content}</p>
+      <i class="thumbs-icon thumbs-icon-up"  onClick={isLoggedIn?checkkerUp:()=>{alert("login")}} id={props.id} style={isUpvoted?{backgroundColor:"#75ceb7"}:{backgroundColor:"white"}}></i>
+      <p>{upcontent}</p>
     </div>
   </div>
 </div>

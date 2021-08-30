@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import Cookies from 'universal-cookie';
-
 import Navbar from './../NavbarComponents/Navbar';
 import Spin from './Loading';
 
@@ -13,6 +12,7 @@ import { useHistory } from 'react-router';
 
 let cookies = new Cookies();
 const General = ({ user }) => {
+    const [saving, setSaving] = useState(null);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const res = {
@@ -22,8 +22,11 @@ const General = ({ user }) => {
             description: e.target.description.value
         }
         try {
+            setSaving(<Spin/>)
             await api.patch('user/update', res, { withCredentials: true });
+            setSaving(null);
         } catch (err) {
+            setSaving(null);
             alert(err);
         }
     }
@@ -34,7 +37,7 @@ const General = ({ user }) => {
             <input type="text" name="job" defaultValue={user.job} placeholder='Profession'/>
             <input type="text" name="niche" defaultValue={user.niche} placeholder='Your Niche eg. Travel Blogger'/>
             <textarea name="description" cols="30" rows="6" defaultValue={user.description} placeholder='About You'/>
-            <button type='submit'>Update</button>
+            <button type='submit'>Update{saving}</button>
         </form>
     </>);
 }
@@ -52,8 +55,8 @@ const Password = () => {
             setSaving(<Spin />);
             /* const status =  */await api.patch('user/updatePassword', res, { withCredentials: true });
             setSaving(null);
-            cookies.set('jwt', '', { path: '/', maxAge: 2592000, secure: false });
-            alert('password changed successfully');
+            cookies.set('jwt', 'abcd', { path: '/', maxAge: 2592000, secure: false });
+            alert('password changed successfully'+cookies.get("jwt"));
             window.location.reload();
             history.push('/login');
         } catch (err) {

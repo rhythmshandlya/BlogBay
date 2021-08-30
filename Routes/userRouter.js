@@ -20,7 +20,7 @@ router
   .get(protect, userController.getCurrentBlog)
   .patch(protect, userController.updateCurrentBlog);
 
-router.route('/').get(userController.getAllUsers);
+router.route('/').get(protect,userController.getAllUsers);
 
  router
   .route('/:id')
