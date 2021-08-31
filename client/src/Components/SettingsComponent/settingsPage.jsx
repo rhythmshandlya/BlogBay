@@ -13,6 +13,8 @@ import { useHistory } from 'react-router';
 let cookies = new Cookies();
 const General = ({ user }) => {
     const [saving, setSaving] = useState(null);
+    const [savingPic, setSavingPic] = useState(null);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const res = {
@@ -22,7 +24,7 @@ const General = ({ user }) => {
             description: e.target.description.value
         }
         try {
-            setSaving(<Spin/>)
+            setSaving(<Spin />)
             await api.patch('user/update', res, { withCredentials: true });
             setSaving(null);
         } catch (err) {
@@ -30,16 +32,39 @@ const General = ({ user }) => {
             alert(err);
         }
     }
-    return (<>
-        <h1>General Settings</h1>
-        <form className='gs-form' onSubmit={handleSubmit}>
-            <input type="text" name="fullName" defaultValue={user.name} placeholder='Name'/>
-            <input type="text" name="job" defaultValue={user.job} placeholder='Profession'/>
-            <input type="text" name="niche" defaultValue={user.niche} placeholder='Your Niche eg. Travel Blogger'/>
-            <textarea name="description" cols="30" rows="6" defaultValue={user.description} placeholder='About You'/>
-            <button type='submit'>Update{saving}</button>
-        </form>
-    </>);
+    const handleSubmitPic = async (e) => {
+        e.preventDefault();
+        console.log(e.target.dp.value);
+            const resPic = {
+                dp: e.target.dp.value,
+                cover: e.target.cover.value
+        }
+        console.log(resPic);
+        //console.log(resPic);
+            try {
+                setSavingPic(<Spin />)
+                await api.patch('user/update', resPic, { withCredentials: true });
+                setSavingPic(null);
+            } catch (err) {
+                setSavingPic(null);
+                alert(err);
+            }
+        }
+        return (<>
+            <h1>General Settings</h1>
+            <form className='gs-form' onSubmit={handleSubmit}>
+                <input type="text" name="fullName" defaultValue={user.name} placeholder='Name' />
+                <input type="text" name="job" defaultValue={user.job} placeholder='Profession' />
+                <input type="text" name="niche" defaultValue={user.niche} placeholder='Your Niche eg. Travel Blogger' />
+                <textarea name="description" cols="15" rows="6" defaultValue={user.description} placeholder='About You' />
+                <button type='submit'>Update{saving}</button>
+            </form>
+            <form className='gs-form' onSubmit={handleSubmitPic}>
+                <input type="text" name="dp" defaultValue={user.dp} placeholder='Name' />
+                <input type="text" name="cover" defaultValue={user.cover} placeholder='Profession' />
+                <button type='submit'>Update{savingPic}</button>
+            </form>
+        </>);
 }
 const Password = () => {
     const history = useHistory();
@@ -76,7 +101,7 @@ const Password = () => {
 }
 const Notification = () => {
     return (<>
-        <h1>Manage Notification</h1>
+        <h1>Manage Notification</h1>5
         <div className='notification-stng'>
             <label for="notification">When can we email you?</label>
             <select id="notification" name="notification">
@@ -162,7 +187,6 @@ const SettingsPage = () => {
                 </div>
             </div>  
                 <div className='render-settings'>
-
                     {render === 'general' && <General user={user}/>}
                     {render === 'password' && <Password />}
                     {render === 'notification' && <Notification />}

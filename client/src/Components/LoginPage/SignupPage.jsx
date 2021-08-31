@@ -37,7 +37,7 @@ const SignupPage = () => {
             setLoading(null);
             setLoading(null);
             alertify.alert('Error Occurred', err.response.data.message, function(){ 
-                alertify.error('Login Again!'); 
+                alertify.error('Signup Again!'); 
             });
         }
     }

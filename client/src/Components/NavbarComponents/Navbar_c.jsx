@@ -13,8 +13,8 @@ const Navbar_c = () => {
     const history = useHistory();
 
     const handleLogout = () => {
-        alert(cookies.get("jwt"))
-        localStorage.clear();
+        //alert(cookies.get("jwt"))
+        //localStorage.clear();
         window.location.reload();
         history.push('/');
     }
@@ -23,10 +23,10 @@ const Navbar_c = () => {
             <div class="dropdown-hvr">
             <Link to="/profile"><img className="navbar-profile" src={props.dpUrl} alt="jacket" width="40px" height="40px" /></Link>
             <div class="dropdown-content-hvr">
-                    <Link to="/profile"><div>🙍 PROFILE</div></Link>
-                    <Link to="/editor"><div>✍️ EDITOR </div></Link>
-                    <Link to="/settings"><div>⚙️ SETTINGS </div></Link>
-                    <Link onClick={handleLogout}><div>😞 LOGOUT </div></Link>
+                    <Link to="/profile"><div>PROFILE</div></Link>
+                    <Link to="/editor"><div>EDITOR </div></Link>
+                    <Link to="/settings"><div>SETTINGS </div></Link>
+                    <Link onClick={handleLogout}><div>LOGOUT </div></Link>
                 </div>
             </div>
         );
