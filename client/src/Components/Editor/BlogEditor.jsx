@@ -64,7 +64,7 @@ const ReactEditor = (props) => {
       return;
     }
 
-    alertify.prompt("Enter The Niche Of Your Blog ie. travel ", "general",
+    alertify.prompt("Enter The Niche Of Your Blog ie. travel, tech, coding, food or fitness!", "general",
       async function (evt, value) {
         const blog = {
           title: savedData.blocks[0].data.text,
