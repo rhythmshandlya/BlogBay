@@ -13,8 +13,7 @@ const Navbar_c = () => {
     const history = useHistory();
 
     const handleLogout = () => {
-        //alert(cookies.get("jwt"))
-        //localStorage.clear();
+        cookies.set('jwt', '', { path: '/' });
         window.location.reload();
         history.push('/');
     }

@@ -39,8 +39,6 @@ const General = ({ user }) => {
                 dp: e.target.dp.value,
                 cover: e.target.cover.value
         }
-        console.log(resPic);
-        //console.log(resPic);
             try {
                 setSavingPic(<Spin />)
                 await api.patch('user/update', resPic, { withCredentials: true });
@@ -59,9 +57,10 @@ const General = ({ user }) => {
                 <textarea name="description" cols="15" rows="6" defaultValue={user.description} placeholder='About You' />
                 <button type='submit'>Update{saving}</button>
             </form>
+            <h1 className='gap-settings'>Profile And Cover</h1>
             <form className='gs-form' onSubmit={handleSubmitPic}>
-                <input type="text" name="dp" defaultValue={user.dp} placeholder='Name' />
-                <input type="text" name="cover" defaultValue={user.cover} placeholder='Profession' />
+                <input type="text" name="dp" defaultValue={user.dp} placeholder='Profile Pic URL' />
+                <input type="text" name="cover" defaultValue={user.cover} placeholder='Cover Pic URL' />
                 <button type='submit'>Update{savingPic}</button>
             </form>
         </>);

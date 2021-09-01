@@ -23,7 +23,9 @@ exports.update = catchAsync(async (req, res, next) => {
     'description',
     'niche',
     'job',
-    'upvotedBlogs'
+    'upvotedBlogs',
+    'dp',
+    'cover'
   );
   const updatedUser = await User.findByIdAndUpdate(req.user._id, bodyFilter, {
     new: true,
@@ -54,8 +56,8 @@ exports.getUser = catchAsync(async (req, res, next) => {
         dp: user.dp,
         cover: user.cover,
         job: user.job,
-        upvotedBlogs:user.upvotedBlogs,
-        downvotedBlogs:user.downvotedBlogs
+        upvotedBlogs: user.upvotedBlogs,
+        downvotedBlogs: user.downvotedBlogs
       }
     });
   } else {

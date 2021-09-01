@@ -3,6 +3,10 @@ import EditorJs from "react-editor-js";
 import { EDITOR_JS_TOOLS } from "./constants.js";
 import api from "../../Util/api.js";
 import './Stylesheets/editor.css';
+
+import alertify from 'alertifyjs';
+import 'alertifyjs/build/css/alertify.css';
+
 import { useHistory } from 'react-router-dom';
 
 import Loading from './Loading'
@@ -34,7 +38,8 @@ const ReactEditor = (props) => {
   }, []);
 
   //publish data
-  const handlePublish=async ()=>{
+  const handlePublish = async () => {
+    let niche = '';
     const savedData = await editorJsRef.current.save();
 
     let sampleImages = [];
@@ -42,24 +47,51 @@ const ReactEditor = (props) => {
     if (element.type === 'simpleImage')
         sampleImages.push(element.data.url);
     });
+    console.log(niche);
 
-    const blog = {
-      title: savedData.blocks[0].data.text,
-      content: savedData,
-      summary: savedData.blocks[1].data.text,
-      blogImages: sampleImages
+    if (!savedData.blocks[0]|| !savedData.blocks[1]) {
+      alertify
+        .alert("First block should be the heading and second should be the summary of your blog", function () {
+          alertify.message('Try Again!');
+        });
+      return;
     }
-    try {
-      setLoadingPublish(<Loading />);
-      const newBlog = await api.post('/blogs', blog, { withCredentials: true });
-      await api.patch('user/currentBlog', {}, { withCredentials: true });
-      setLoadingPublish(null);
+    else if (!sampleImages.length) {
+      alertify
+        .alert("Adding atleast one image is mandatory", function () {
+          alertify.message('Try Again!');
+        });
+      return;
+    }
 
-      history.push(`/blog/${newBlog.data.data._id}`);
-    } catch (err) {
-      setLoadingPublish(null);
-      alert(err.response);
-    }
+    alertify.prompt("Enter The Niche Of Your Blog ie. travel ", "general",
+      async function (evt, value) {
+        const blog = {
+          title: savedData.blocks[0].data.text,
+          content: savedData,
+          summary: savedData.blocks[1].data.text,
+          blogImages: sampleImages,
+          category: value
+        };
+        try {
+          setLoadingPublish(<Loading />);
+          const newBlog = await api.post('/blogs', blog, { withCredentials: true });
+          await api.patch('user/currentBlog', {}, { withCredentials: true });
+          setLoadingPublish(null);
+    
+          history.push(`/blog/${newBlog.data.data._id}`);
+        } catch (err) {
+          setLoadingPublish(null);
+          alertify
+          .alert(err.response.data.message, function () {
+            alertify.message('Try Again Later!');
+          });
+        }
+      },
+      function () {
+        alertify.error('ERROR');
+      }
+    );
   }
   const handlePreview = () => {
     document.querySelector('.inlineFrame').classList.toggle('hide');
