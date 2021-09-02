@@ -5,7 +5,7 @@ const { catchAsync } = require('./../Util/catchAsync');
 const mongoose = require('mongoose');
 
 exports.getAllBlogs = catchAsync(async (req, res) => {
-  const allBlogs = await Blog.find(req.query);
+  const allBlogs = await Blog.find(req.query).sort({upvotes:-1});
   res.status(200).json({
     status: true,
     length: allBlogs.length,

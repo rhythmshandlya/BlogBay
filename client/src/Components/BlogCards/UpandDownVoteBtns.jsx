@@ -16,7 +16,6 @@ const UpandDownVoteBtns = (props) => {
                     setisLoggedIn(true);
                     setUserId(res.data.user._id);
                     checkIfUpvoted(props.uid);
-                    checkIfDownvoted(props.uid);
                 }
             } catch (err) {
                 setisLoggedIn(false);
@@ -41,22 +40,7 @@ const UpandDownVoteBtns = (props) => {
         }
     }
 
-    const [isDownvoted, setisDownvoted] = useState();
-    async function checkIfDownvoted(id){
-        try{
-           let user= await api.get('http://localhost:8000/api/v1/user/'+id);
-            user=user.data.user.downvotedBlogs
-            if(user.indexOf(props.id)===-1){
-                setisDownvoted(false)
-            }
-            else{
-                setisDownvoted(true)
-            }
-        }
-        catch(err){
-           
-        }
-    }
+
    
     
   
@@ -79,7 +63,7 @@ async function UpVoteHandler(blogId){
     var blog=await api.patch('blogs/upvote/'+blogId);
     setupcontent(blog.data.upvotes);
    await api.patch(`user/blogPush/${UserId}&${blogId}`)
-    setisUpvoted(true);
+    checkIfUpvoted(props.uid);
 }
 
 //////////////upvotehandler/////////////////////////
@@ -89,7 +73,7 @@ async function unUpVoteHandler(blogId){
     var blog=await api.patch('blogs/downvote/'+blogId);
     setupcontent(blog.data.upvotes);  
     await api.patch(`user/blogPull/${UserId}&${blogId}`)
-    setisUpvoted(false);
+    checkIfUpvoted(props.uid);
  }
 //////////////unUpvotehandler////////////////////////
 
