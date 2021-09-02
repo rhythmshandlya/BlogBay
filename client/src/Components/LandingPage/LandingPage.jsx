@@ -19,8 +19,9 @@ const SignupHeading = () => {
     );
 }
 
-let bloggerPic = '';
+
 const LandingPage = () => {
+    const [temp, settemp] = useState([])
         var a="hello";
         const [content, setContent]=useState([]);
         var cont
@@ -124,8 +125,15 @@ const LandingPage = () => {
             <h1 className="cat-name">{props.name} <a style={{paddingBottom:"4px", color:"black",position:"relative",bottom:"6px"}} href={`${props.name}`}> <FontAwesomeIcon icon={faArrowRight} size="lg"/> </a> </h1>
         )
     }
-
-    function CatBlogs(){
+    function CatBlogs(props){
+        return(
+            <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
+                {/* {renderer(numBlogs)} */}
+                {content.filter(blog=>blog.category===props.category).map(Renderer)}
+            </div>
+        )
+    }
+    function TopBlogs(props){
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
                 {/* {renderer(numBlogs)} */}
@@ -139,11 +147,11 @@ const LandingPage = () => {
             <div className="landing-page">
                 {signupCard}
                 <CatName name="TOP BLOGS"></CatName>
-                <CatBlogs />
-                <CatName name="Recommended Blogs"></CatName>
-                <CatBlogs />
-                <CatName name="Travel Blogs"></CatName>
-                <CatBlogs />
+                <TopBlogs />
+                <CatName name="Coding Blogs"></CatName>
+                <CatBlogs category="coding" />
+                <CatName name="Tech Blogs"></CatName>
+                <CatBlogs category="tech"/>
                 <CatName name="About Us" />
 
                 <div className="about-us">
