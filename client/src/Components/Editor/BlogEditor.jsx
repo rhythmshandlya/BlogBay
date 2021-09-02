@@ -51,7 +51,7 @@ const ReactEditor = (props) => {
 
     if (!savedData.blocks[0]|| !savedData.blocks[1]) {
       alertify
-        .alert("First block should be the heading and second should be the summary of your blog", function () {
+        .alert("First block should be the heading and second should be the summary of your blog ie. paragraph", function () {
           alertify.message('Try Again!');
         });
       return;

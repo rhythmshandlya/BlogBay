@@ -2,7 +2,7 @@ import api from './../../Util/api'
 import { useEffect, useState} from 'react';
 import './Stylesheets/profile.css';
 import Navbar from './../NavbarComponents/Navbar';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faAddressBook, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
 import CardExplore from '../BlogCards/CardExplore';
@@ -29,8 +29,8 @@ const Blogs = (props) => {
   return (
     <>
       <div className='go-to-editor'>
-        <h1>CONTINUE WHERE YOU LEFT?</h1>
-        <ButtonRed message='Open Editor' link='/editor'/>
+        <h1>CONTINUE WHERE YOU LEFT</h1>
+       <Link to='/editor'><button>OPEN EDITOR</button></Link>
       </div>
       <div className='explore-card-parent'>
         {
