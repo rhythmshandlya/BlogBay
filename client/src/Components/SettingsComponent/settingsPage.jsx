@@ -34,7 +34,6 @@ const General = ({ user }) => {
     }
     const handleSubmitPic = async (e) => {
         e.preventDefault();
-        console.log(e.target.dp.value);
             const resPic = {
                 dp: e.target.dp.value,
                 cover: e.target.cover.value

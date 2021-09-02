@@ -63,35 +63,35 @@ const ReactEditor = (props) => {
         });
       return;
     }
-
-    alertify.prompt("Enter The Niche Of Your Blog ie. travel, tech, coding, food or fitness!", "general",
-      async function (evt, value) {
-        const blog = {
-          title: savedData.blocks[0].data.text,
-          content: savedData,
-          summary: savedData.blocks[1].data.text,
-          blogImages: sampleImages,
-          category: value
-        };
-        try {
-          setLoadingPublish(<Loading />);
-          const newBlog = await api.post('/blogs', blog, { withCredentials: true });
-          await api.patch('user/currentBlog', {}, { withCredentials: true });
-          setLoadingPublish(null);
-    
-          history.push(`/blog/${newBlog.data.data._id}`);
-        } catch (err) {
-          setLoadingPublish(null);
-          alertify
-          .alert(err.response.data.message, function () {
-            alertify.message('Try Again Later!');
-          });
-        }
-      },
-      function () {
-        alertify.error('ERROR');
+    var content = "<p>Choose the blog category</p> <select id='alertify-options'>    <option value='0'>General Blog</option>   <option value='1'>Travel Blog</option>   <option value='2'>Food Blog</option>    <option value='3'>Coding Blog</option>  <option value='4'>Tech Blog</option>   <option value='5'>Fitness Blog</option> </select> ";
+    alertify.confirm('Done!', async function () {
+      var e = document.getElementById("alertify-options");
+      var category = e.options[e.selectedIndex].text;
+      const blog = {
+        title: savedData.blocks[0].data.text,
+        content: savedData,
+        summary: savedData.blocks[1].data.text,
+        blogImages: sampleImages,
+        category
+      };
+      try {
+        setLoadingPublish(<Loading />);
+        const newBlog = await api.post('/blogs', blog, { withCredentials: true });
+        await api.patch('user/currentBlog', {}, { withCredentials: true });
+        setLoadingPublish(null);
+  
+        history.push(`/blog/${newBlog.data.data._id}`);
+      } catch (err) {
+        setLoadingPublish(null);
+        alertify
+        .alert(err.response.data.message, function () {
+          alertify.message('Try Again Later!');
+        });
       }
-    );
+    }, function () {
+      alertify.error('Cancelled!');
+    }).setContent(content).showModal();
+    return;
   }
   const handlePreview = () => {
     document.querySelector('.inlineFrame').classList.toggle('hide');
