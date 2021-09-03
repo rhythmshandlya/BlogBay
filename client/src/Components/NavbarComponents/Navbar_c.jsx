@@ -5,7 +5,10 @@ import logo from './../../data/icon-st.svg';
 import Btn2 from './Btn_2';
 import './Stylesheets/Navbar.css'
 import api from './../../Util/api'
-import { Link ,useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser,faPenFancy,faSignOutAlt,faCog } from '@fortawesome/free-solid-svg-icons';
+
 import Cookies from 'universal-cookie';
 let cookies = new Cookies();
 
@@ -22,10 +25,10 @@ const Navbar_c = () => {
             <div class="dropdown-hvr">
             <Link to="/profile"><img className="navbar-profile" src={props.dpUrl} alt="jacket" width="40px" height="40px" /></Link>
             <div class="dropdown-content-hvr">
-                    <Link to="/profile"><div>PROFILE</div></Link>
-                    <Link to="/editor"><div>EDITOR </div></Link>
-                    <Link to="/settings"><div>SETTINGS </div></Link>
-                    <Link onClick={handleLogout}><div>LOGOUT </div></Link>
+                    <Link to="/profile"><div><FontAwesomeIcon icon={faUser}/> PROFILE</div></Link>
+                    <Link to="/editor"><div><FontAwesomeIcon icon={faPenFancy}/> EDITOR </div></Link>
+                    <Link to="/settings"><div><FontAwesomeIcon icon={faCog}/> SETTINGS</div></Link>
+                    <Link onClick={handleLogout}><div><FontAwesomeIcon icon={faSignOutAlt}/> LOGOUT </div></Link>
                 </div>
             </div>
         );

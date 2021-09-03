@@ -61,9 +61,10 @@ body {
   position: absolute;
   right: 0;
   background-color: #f1f1f1;
-  min-width: 160px;
+  min-width: 145px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  border-radius: 10px;
 }
 .dropdown-content-hvr a {
   color: black;
@@ -73,7 +74,8 @@ body {
   display: block;
 }
 .dropdown-content-hvr a:hover {
-  background-color: #ddd;
+  background-color: rgb(129, 125, 125);
+  border: 1px solid grey;
 }
 .dropdown-hvr:hover .dropdown-content-hvr {
   display: block;

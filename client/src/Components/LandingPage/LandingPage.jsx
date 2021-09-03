@@ -149,9 +149,9 @@ const LandingPage = () => {
                 <CatName name="TOP BLOGS"></CatName>
                 <TopBlogs />
                 <CatName name="Coding Blogs"></CatName>
-                <CatBlogs category="coding" />
+                <CatBlogs category="Coding Blog" />
                 <CatName name="Tech Blogs"></CatName>
-                <CatBlogs category="tech"/>
+                <CatBlogs category="Tech Blog"/>
                 <CatName name="About Us" />
 
                 <div className="about-us">
