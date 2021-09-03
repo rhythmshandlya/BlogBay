@@ -17,6 +17,7 @@ import P404 from './Components/Extras/P404';
 import BlogEditor from './Components/Editor/BlogEditorV1.0.2';
 import BlogPagePreview from './Components/BlogPages/BlogPagePreview';
 import settings from './Components/SettingsComponent/settingsPage';
+import BlogPage from './Components/BlogPage/BlogPage';
 // old jwt can also be used to login even after pw change
 function App() {
   return (
@@ -33,9 +34,11 @@ function App() {
           <Route exact path="/preview" component={BlogPagePreview} />
           <Route exact path="/blog/:id" component={Blog} />
           <Route exact path="/settings" component={settings} />
+          <Route exact path="/blog" component={BlogPage} />
           <Route path="*" component={P404} />
         </Switch>
       </Router>
+      {console.clear()}
     </>
   );
 }

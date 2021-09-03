@@ -129,15 +129,15 @@ const LandingPage = () => {
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
                 {/* {renderer(numBlogs)} */}
-                {content.filter(blog=>blog.category===props.category).map(Renderer)}
+                {content.slice(4).filter(blog=>blog.category===props.category).map(Renderer)}
             </div>
         )
     }
-    function TopBlogs(props){
+    function TopBlogs(){
         return(
             <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
                 {/* {renderer(numBlogs)} */}
-                {content.map(Renderer)}
+                {content.slice(0,4).map(Renderer)}
             </div>
         )
     }
