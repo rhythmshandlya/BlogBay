@@ -6,7 +6,6 @@ import './Stylesheets/editor.css';
 
 import alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.css';
-
 import { useHistory } from 'react-router-dom';
 
 import Loading from './Loading'

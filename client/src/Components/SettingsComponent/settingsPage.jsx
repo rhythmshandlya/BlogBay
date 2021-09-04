@@ -29,7 +29,7 @@ const General = ({ user }) => {
             setSaving(null);
         } catch (err) {
             setSaving(null);
-            alert(err);
+            alert(err.response.data.message);
         }
     }
     const handleSubmitPic = async (e) => {
@@ -44,7 +44,7 @@ const General = ({ user }) => {
                 setSavingPic(null);
             } catch (err) {
                 setSavingPic(null);
-                alert(err);
+                alert(err.response.data.message);
             }
         }
         return (<>

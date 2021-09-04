@@ -20,7 +20,7 @@ const BlogEditorV1_0_2 = () => {
                 setData(res.data.blog);
                 setContent('editor');
             } catch (err) {
-              alert(err);
+                alert(err.response.data.message);
             }
         }
         fetchMyAPI();

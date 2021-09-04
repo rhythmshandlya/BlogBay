@@ -8,7 +8,7 @@
   overflow: hidden;
   width: 300px;
 }
-.blog-filter{
+.blog-filter {
   height: 480px;
   width: 300px;
   margin-top: 55px;
@@ -26,10 +26,10 @@
   background-size: 300px 380px;
   transition: ease 0.25s;
 }
-.card_ez:hover + .blog-filter{
+.card_ez:hover + .blog-filter {
   display: flex;
 }
-.thumbnail-title{
+.thumbnail-title {
   width: 150px;
   font-family: 'Poppins', sans-serif;
   font-weight: 100;
@@ -99,7 +99,7 @@
 .user-info_ez small {
   color: #545d7a;
 }
-.upvotter{
+.upvotter {
   margin-left: 100px;
   padding-bottom: 50px;
 }
