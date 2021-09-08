@@ -26,8 +26,7 @@ const BlogSearch = () => {
                 <div className='sort-by-dropdown'>
                     <h3>Sort Blogs By</h3>
                     <select id="sortByDropdown-select" placeholder="Sort By" name="sortByDropdown">
-                        <option value="" disabled selected hidden>Sort Blogs By</option>
-                        <option value="">Upvotes</option>
+                        <option selected value="">Upvotes</option>
                         <option value="">Length</option>
                         <option value="">Date</option>
                         <option value="">None</option>
@@ -65,11 +64,7 @@ const BlogSearch = () => {
                         </select>
                     </div>
                 </div>
-                {blogType.map((item) => {
-                        return (
-                            <h2>{item}</h2>
-                        )
-                })}
+                <h1 className="my-h1">Blogs Results</h1>
                 <hr style={{ width: "100%" }} />
             </div>
            
