@@ -7,15 +7,15 @@ const BlogSearch = () => {
         <div>
             <Navbar />
             <div className="sidenav">
-            <div className='sort-by-dropdown'>
-                <h3>Sort Blogs By</h3>
-                <select id="sortByDropdown-select" placeholder="Sort By" name="sortByDropdown">
-                    <option value="" disabled selected hidden>Sort Blogs By</option>
-                    <option value="">Upvotes</option>
-                    <option value="">Length</option>
-                    <option value="">Date</option>
-                    <option value="">None</option>
-                </select>
+                <div className='sort-by-dropdown'>
+                    <h3>Sort Blogs By</h3>
+                    <select id="sortByDropdown-select" placeholder="Sort By" name="sortByDropdown">
+                        <option value="" disabled selected hidden>Sort Blogs By</option>
+                        <option value="">Upvotes</option>
+                        <option value="">Length</option>
+                        <option value="">Date</option>
+                        <option value="">None</option>
+                    </select>
                 </div>
                 <h3> Top Creators</h3>
                 <ul>
@@ -23,7 +23,7 @@ const BlogSearch = () => {
                     <li>Eeshan Mattey</li>
                     <li>Ananya Shandlya</li>
                     <li>Siddhart Malothra</li>
-                </ul>  
+                </ul>
             </div>
 
 
@@ -39,11 +39,21 @@ const BlogSearch = () => {
                         <li><div className="tag-bg">Music Blogs</div></li>
                         <li><div className="tag-bg">Movie Blogs</div></li>
                     </ul>
+                    <div class="drop-hide">
+                         <select class="sortByDropdown-select" placeholder="Sort By" name="sortByDropdown">
+                        <option value="" disabled selected hidden>Sort Blogs By</option>
+                        <option value="">Upvotes</option>
+                        <option value="">Length</option>
+                        <option value="">Date</option>
+                        <option value="">None</option>
+                    </select>
+                    </div>
                 </div>
             </div>
+            <hr style={{ width: "100%"}}/>
 
         </div>
-    )
+    );
 }
 
 export default BlogSearch

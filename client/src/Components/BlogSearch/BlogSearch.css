@@ -87,18 +87,43 @@
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 23%; /* Set the width of the sidebar */
+  width: 20%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 11%; /* Stay at the top */
-  left: 0;
-  background-color: rgb(243, 242, 242); /* Black */
+  background-color: #53dfa6; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding: 50px 10px 0 35px;
   font-size: 1rem;
   font-family: poppins;
 }
 
+.drop-hide {
+  width: 100%;
+  padding-left: 15%;
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .sidenav {
+    display: none !important;
+  }
+  .blogSearchContainer {
+    margin-left: 0 !important;
+  }
+  .gs-form input[type='password'],
+  select {
+    display: block;
+    width: 70%;
+    margin-bottom: 10%;
+  }
+  .drop-hide {
+    display: block;
+  }
+  .tags-bg {
+    margin-left: 30px;
+  }
+}
 /* The navigation menu links */
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -114,6 +139,4 @@
 }
 .blogSearchContainer {
   margin-left: 23%;
-}
-@media only screen and (max-width: 900px) {
 }
