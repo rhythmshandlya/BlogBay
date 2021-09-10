@@ -180,3 +180,7 @@
 .my-h1 {
   font-family: poppins;
 }
+.blogSearchContainerGrid {
+  display: flex;
+  flex-wrap: wrap;
+}

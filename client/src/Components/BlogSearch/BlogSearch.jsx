@@ -1,10 +1,13 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import Navbar from './../NavbarComponents/Navbar';
+import NewCard from './NewCard';
 import './BlogSearch.css'
+import api from './../../Util/api'
 
 const BlogSearch = () => {
     const [blogType, setBlogType] = useState(['Top Blogs']);
+    const [renderedBlogs, setRenderedBlogs] = useState([]);
 
     const handleClick = (e) => {
         e.target.classList.toggle('crimson');
@@ -18,7 +21,18 @@ const BlogSearch = () => {
             setBlogType(blogTypeTemp);
         }
     }
-
+    useEffect(() => {
+        async function fetchMyAPI() {
+            try {
+                const res = await api.get('/blogs', { withCredentials: true });
+                setRenderedBlogs(res.data.data.allBlogs);
+            } catch (err) {
+                
+            }
+        }
+        fetchMyAPI()
+    }, []);
+    
     return (
         <div>
             <Navbar />
@@ -64,10 +78,16 @@ const BlogSearch = () => {
                         </select>
                     </div>
                 </div>
-                <h1 className="my-h1">Blogs Results</h1>
-                <hr style={{ width: "100%" }} />
+                <h1 className="my-h1">Top Results :</h1>
+                <div className="blogSearchContainerGrid">
+                    {renderedBlogs.map((item) => {
+                        return (
+                            <NewCard blog={item}/>
+                        )
+                    })}
+                </div>
             </div>
-           
+            
         </div>
     );
 }

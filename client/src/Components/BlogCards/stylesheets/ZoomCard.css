@@ -6,10 +6,11 @@
   height: 100%;
   position: absolute;
   transition: all 0.3s ease;
-  width: 100%;
+  width: 30%;
+  display: inline-block;
 }
 figure {
-  height: 400px;
+  height: 350px;
   overflow: hidden;
   position: relative;
 }
@@ -18,7 +19,6 @@ figure a {
   left: 0;
   position: absolute;
   top: 0;
-  width: 100%;
   z-index: 3;
 }
 figure:hover .media {
