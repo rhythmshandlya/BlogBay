@@ -1,2 +1,2 @@
 # BlogBay
-BlogBay is a MERN stack application for publishing blogs.
+BlogBay is a MERN stack application for publishing your own blogs.
