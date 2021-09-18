@@ -1,0 +1,28 @@
+.newcard {
+  width: 30%;
+  font-family: poppins;
+  border: 1.5px solid grey;
+  margin: 10px;
+  padding: 10px;
+}
+.newcard img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.newcard h1 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+.newCard-readmore {
+  color: #51baa3;
+  cursor: pointer;
+}
+.newCard-summary {
+  font-size: 1rem;
+}
+@media only screen and (max-width: 900px) {
+  .newcard {
+    width: 90%;
+  }
+}

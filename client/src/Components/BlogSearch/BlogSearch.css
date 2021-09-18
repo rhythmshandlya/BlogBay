@@ -16,7 +16,7 @@
   font-size: 14px;
   cursor: pointer;
   border-radius: 3px 0 0 3px;
-  color: #999;
+  color: crimson;
   display: inline-block;
   height: 26px;
   line-height: 26px;
@@ -25,6 +25,43 @@
   margin: 0 10px 10px 0;
   text-decoration: none;
   -webkit-transition: color 0.2s;
+}
+.crimson {
+  background: crimson;
+  font-family: poppins;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px 0 0 3px;
+  color: white;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+}
+.crimson::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+.crimson::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid crimson;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .tag-bg::before {
@@ -87,18 +124,43 @@
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 23%; /* Set the width of the sidebar */
+  width: 20%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 11%; /* Stay at the top */
-  left: 0;
-  background-color: rgb(243, 242, 242); /* Black */
+  background-color: #53dfa6; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding: 50px 10px 0 35px;
   font-size: 1rem;
   font-family: poppins;
 }
 
+.drop-hide {
+  width: 100%;
+  padding-left: 15%;
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .sidenav {
+    display: none !important;
+  }
+  .blogSearchContainer {
+    margin-left: 0 !important;
+  }
+  .gs-form input[type='password'],
+  select {
+    display: block;
+    width: 70%;
+    margin-bottom: 10%;
+  }
+  .drop-hide {
+    display: block;
+  }
+  .tags-bg {
+    margin-left: 30px;
+  }
+}
 /* The navigation menu links */
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -115,5 +177,19 @@
 .blogSearchContainer {
   margin-left: 23%;
 }
+.my-h1 {
+  font-family: poppins;
+}
+.blogSearchContainerGrid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*Blog card media*/
 @media only screen and (max-width: 900px) {
+}
+
+.my-h1 {
+  margin-top: 1rem;
+  margin-left: 1rem;
 }

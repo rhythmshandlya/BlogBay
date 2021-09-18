@@ -9,7 +9,6 @@ import api from './../.././Util/api.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../NavbarComponents/Navbar';
-
 const SignupHeading = () => {
     return (
         <div className='landing'>
@@ -18,7 +17,6 @@ const SignupHeading = () => {
         </div>
     );
 }
-
 
 const LandingPage = () => {
     const [temp, settemp] = useState([])
@@ -145,6 +143,7 @@ const LandingPage = () => {
         <>
             <Navbar />
             <div className="landing-page">
+               
                 {signupCard}
                 <CatName name="TOP BLOGS"></CatName>
                 <TopBlogs />

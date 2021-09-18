@@ -134,7 +134,7 @@ const SettingsPage = () => {
                 let res = await api.get('user/isLoggedIn', { withCredentials: true });
                 setUser(res.data.user);
                 setRender(prevState);
-            } catch (err) {
+            }catch (err) {
                 history.push('/login');
             }
         }

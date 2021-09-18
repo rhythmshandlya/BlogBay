@@ -1,11 +1,12 @@
 const AppError = require('../Util/AppError');
 const Blog = require('./../Models/blogModel');
 const User = require('./../Models/userModel');
-const { catchAsync } = require('./../Util/catchAsync');
+const Fuse = require('fuse.js');
 const mongoose = require('mongoose');
+const { catchAsync } = require('./../Util/catchAsync');
 
 exports.getAllBlogs = catchAsync(async (req, res) => {
-  const allBlogs = await Blog.find(req.query).sort({upvotes:-1});
+  const allBlogs = await Blog.find(req.query).sort({ upvotes: -1 });
   res.status(200).json({
     status: true,
     length: allBlogs.length,
@@ -61,7 +62,7 @@ exports.upvoteBlog = catchAsync(async (req, res, next) => {
     },
     {
       $inc: {
-        upvotes:1
+        upvotes: 1
       }
     },
     {
@@ -99,12 +100,16 @@ exports.deleteBlog = catchAsync(async (req, res) => {
 });
 
 exports.search = catchAsync(async (req, res, next) => {
-  const searchField = req.params.text;
-  const searchResults = await Blog.find({
-    summary: { $regex: searchField, $options: '$i' }
-  });
+  const allBlogs = await Blog.find(req.query).sort({ upvotes: -1 });
+  const options = {
+    includeScore: true,
+    keys: ['title', 'summary', 'category', 'authorID']
+  };
+  const fuse = new Fuse(allBlogs, options);
+  const result = fuse.search(req.params.text);
+
   res.status(200).json({
-    searchField,
-    searchResults
+    status: true,
+    data: result
   });
 });

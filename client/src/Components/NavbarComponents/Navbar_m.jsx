@@ -1,20 +1,27 @@
 import React from 'react'
 import Hamburger from './Hamburger'
-// import LoginButton from './Login';
 import Search from './Search';
 import { useEffect,useState } from 'react'
 import icon from './../../data/icon-st.svg'
 import api from './../../Util/api'
 import './Stylesheets/Navbar_m.css'
 import './Stylesheets/Navbar.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCog} from '@fortawesome/free-solid-svg-icons';
 import Btn2 from './Btn_2';
 import { Link } from 'react-router-dom';
 
+const css = {
+    margin:"5px"
+}
 const Navbar_m = () => {
     
     const ProfilePicture = (props) => {
         return (
-            <Link to='/profile'> <img className="navebar-profile_m" src={props.dpUrl} alt="Girl in a jacket" width="40px" height="40px" /></Link>
+            <div className='profileOrSettings'>
+                <Link to='/profile'> <img style={css} className="navebar-profile_m" src={props.dpUrl} alt="DP" width="40px" height="40px" /></Link>
+                <Link to='/settings'> <FontAwesomeIcon icon={faCog} size="2x" color="white" /></Link>
+            </div>
         );
     };
     const [loginOrProfile, setLoginOrProfile] = useState(null);
