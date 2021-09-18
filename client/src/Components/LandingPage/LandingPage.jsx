@@ -9,8 +9,6 @@ import api from './../.././Util/api.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../NavbarComponents/Navbar';
-import Carosel from './Carosel';
-
 const SignupHeading = () => {
     return (
         <div className='landing'>
@@ -144,7 +142,6 @@ const LandingPage = () => {
     return (
         <>
             <Navbar />
-            <Carosel />
             <div className="landing-page">
                
                 {signupCard}

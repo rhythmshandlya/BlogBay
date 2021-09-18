@@ -14,10 +14,15 @@
   font-size: 1.3rem;
   margin-bottom: 20px;
 }
-.newcard a {
+.newCard-readmore {
   color: #51baa3;
   cursor: pointer;
 }
 .newCard-summary {
   font-size: 1rem;
+}
+@media only screen and (max-width: 900px) {
+  .newcard {
+    width: 90%;
+  }
 }

@@ -10,7 +10,8 @@ import P404 from './Components/Extras/P404';
 import BlogEditor from './Components/Editor/BlogEditorV1.0.2';
 import BlogPagePreview from './Components/BlogPages/BlogPagePreview';
 import settings from './Components/SettingsComponent/settingsPage';
-import BlogSearch from './Components/BlogSearch/BlogSearch.jsx';
+import BlogSearch from './Components/BlogSearch/BlogSearch';
+import BlogSearchRequest from './Components/BlogSearch/BlogSearchRequest';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/blog/:id" component={Blog} />
           <Route exact path="/settings" component={settings} />
           <Route exact path="/blog" component={BlogSearch} />
+          <Route exact path="/search/:text" component={BlogSearchRequest} />
           <Route path="*" component={P404} />
         </Switch>
       </Router>

@@ -184,3 +184,12 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+/*Blog card media*/
+@media only screen and (max-width: 900px) {
+}
+
+.my-h1 {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}

@@ -14,7 +14,6 @@ const Navbar = () => {
         else
             menuSetter(false);
     }
-
     window.addEventListener("resize",check);
     return (<>{menu ? <MobNav /> : <ComNav />}</>);
 }

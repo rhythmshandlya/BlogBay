@@ -15,13 +15,9 @@ router
   .patch(blogController.updateBlog)
   .delete(blogController.deleteBlog);
 
-router
-  .route('/upvote/:id')
-  .patch(blogController.upvoteBlog)
+router.route('/upvote/:id').patch(blogController.upvoteBlog);
 
-router
-  .route('/downvote/:id')
-  .patch(blogController.downvoteBlog)
+router.route('/downvote/:id').patch(blogController.downvoteBlog);
 
 router.get('/search/:text', blogController.search);
 
