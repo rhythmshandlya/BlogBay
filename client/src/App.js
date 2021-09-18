@@ -11,6 +11,7 @@ import BlogEditor from './Components/Editor/BlogEditorV1.0.2';
 import BlogPagePreview from './Components/BlogPages/BlogPagePreview';
 import settings from './Components/SettingsComponent/settingsPage';
 import BlogSearch from './Components/BlogSearch/BlogSearch.jsx';
+import BlogPage from './Components/BlogPage/BlogPage'
 
 function App() {
   return (

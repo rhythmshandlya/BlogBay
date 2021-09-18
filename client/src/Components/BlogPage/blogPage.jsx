@@ -3,7 +3,7 @@ import EasyCard from '../BlogCards/EasyCard'
 import api from '../../Util/api'
 import "./blogpage.css"
 import Navbar from '../NavbarComponents/Navbar'
-const BlogPage = () => {
+const BlogPage = (props) => {
     var a="";
     const [content, setContent]=useState([]);
     var cont
@@ -97,17 +97,16 @@ function Renderer(content){
 
 window.addEventListener("resize",check);
 
-function CatBlogs(props){
+function CatBlogs(){
     return(
-        <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+numBlogs+",320px)"}}>
+        <div className="sample-blogs" style={{gridTemplateColumns:"repeat("+(numBlogs-1)+",320px)", marginLeft:"20%"}}>
             {/* {renderer(numBlogs)} */}
-            {content.map(Renderer)}
+            {props.option!=="Top Blogs"?content.filter(blog=>blog.category===props.option).map(Renderer):content.map(Renderer)}
         </div>
     )
 }
     return (
         <>
-        <Navbar/>
             <div className="landing-page">
                 <CatBlogs/>
             </div>
