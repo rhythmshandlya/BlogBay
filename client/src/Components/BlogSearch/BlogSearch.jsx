@@ -21,6 +21,7 @@ const BlogSearch = () => {
             setBlogType(blogTypeTemp);
         }
     }
+    
     useEffect(() => {
         async function fetchMyAPI() {
             try {

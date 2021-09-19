@@ -45,7 +45,7 @@ const BlogSearch = () => {
                 <div className='sort-by-dropdown'>
                     <h3>Sort Blogs By</h3>
                     <select id="sortByDropdown-select" placeholder="Sort By" name="sortByDropdown">
-                    <option value="" disabled selected>Upvotes</option>
+                        <option value="" disabled selected>Relevance</option>
                     </select>
                 </div>
                 <h3> Top Creators</h3>
@@ -62,24 +62,24 @@ const BlogSearch = () => {
                 <div className="navbar-below">
                     <div class="drop-hide">
                         <select class="sortByDropdown-select" placeholder="Sort By" name="sortByDropdown">
-                            <option value="" disabled selected>Upvotes</option>
+                            <option value="" disabled selected>Relevance</option>
                         </select>
                     </div>
                 </div>
                 <h1 className="my-h1">Top Results :</h1>
-                {loading === 'loading' && <Loading/>}
+                {loading === 'loading' && <Loading />}
                 {
                     loading === 'notLoading' &&
                     <div className="blogSearchContainerGrid">
-                    {renderedBlogs.length >0 && renderedBlogs.map((item) => {
-                        return (
-                            <NewCard blog={item.item}/>
-                        )
-                    })
-                }
-                    {
-                        renderedBlogs.length === 0 && <h1 style={cssh1}>Sorry no results for this query :( </h1>
-                    }
+                        {renderedBlogs.length > 0 && renderedBlogs.map((item) => {
+                            return (
+                                <NewCard blog={item.item} />
+                            )
+                        })
+                        }
+                        {
+                            renderedBlogs.length === 0 && <h1 style={cssh1}>Sorry no results for this query :( </h1>
+                        }
                     </div>
                 }
             </div>
