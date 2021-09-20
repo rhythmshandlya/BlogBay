@@ -5,8 +5,9 @@ import NewCard from './NewCard';
 import './BlogSearch.css'
 import BlogPage from './../BlogPage/BlogPage';
 import api from './../../Util/api'
+import EasyCard from '../BlogCards/EasyCard';
 const BlogSearch = () => {
-    const [blogType, setBlogType] = useState(['Top Blogs']);
+    const [blogType, setBlogType] = useState(['Top Blog']);
     const [renderedBlogs, setRenderedBlogs] = useState([]);
 
     const handleClick = (e) => {
@@ -60,14 +61,14 @@ const BlogSearch = () => {
             <div className='blogSearchContainer'>
                 <div className="navbar-below">
                     <ul className="tags-bg">
-                        <li><div className="crimson" onClick={handleClick}>Top Blogs</div></li>
-                        <li><div className="tag-bg" onClick={handleClick}>Travel Blogs</div></li>
-                        <li><div className="tag-bg" onClick={handleClick}>Coding Blogs</div></li>
-                        <li><div className="tag-bg" onClick={handleClick}>Tech Blogs</div></li>
-                        <li><div className="tag-bg" onClick={handleClick}>Food Blogs</div></li>
-                        <li><div className="tag-bg" onClick={handleClick}>Travel Blogs</div></li>
-                        <li><div className="tag-bg" onClick={handleClick}>Music Blogs</div></li>
-                        <li><div className="tag-bg" onClick={handleClick}>Movie Blogs</div></li>
+                        <li><div className="crimson" onClick={handleClick}>Top Blog</div></li>
+                        <li><div className="tag-bg" onClick={handleClick}>Travel Blog</div></li>
+                        <li><div className="tag-bg" onClick={handleClick}>Coding Blog</div></li>
+                        <li><div className="tag-bg" onClick={handleClick}>Tech Blog</div></li>
+                        <li><div className="tag-bg" onClick={handleClick}>Food Blog</div></li>
+                        <li><div className="tag-bg" onClick={handleClick}>Travel Blog</div></li>
+                        <li><div className="tag-bg" onClick={handleClick}>Music Blog</div></li>
+                        <li><div className="tag-bg" onClick={handleClick}>Movie Blog</div></li>
                     </ul>
                     <div class="drop-hide">
                         <select class="sortByDropdown-select" placeholder="Sort By" name="sortByDropdown">
@@ -81,11 +82,7 @@ const BlogSearch = () => {
                 </div>
                 <h1 className="my-h1">Top Results :</h1>
                 <div className="blogSearchContainerGrid">
-                    {renderedBlogs.map((item) => {
-                        return (
-                            <NewCard blog={item}/>
-                        )
-                    })}
+                <BlogPage blogs={renderedBlogs} blogType={blogType}/>
                 </div>
             </div>
             

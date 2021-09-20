@@ -35,7 +35,7 @@ const EasyCard = (props) => {
         }
     }
     var trimmedStringContent = (props.content.content.blocks[0].data.text).substring(0, 80);
-        var trimmedStringTitle = ((props.content.title).substring(0, 50));
+    var trimmedStringTitle = ((props.content.title).substring(0, 50));
     
         useEffect(() => {
             async function getMePhoto(id){
