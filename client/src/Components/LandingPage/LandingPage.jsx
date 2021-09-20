@@ -102,12 +102,17 @@ const LandingPage = () => {
         getMePhoto(content.authorID); 
         }, [])
 
+        let trimmedStringContent;
+        if (content.title.length > 36)
+             trimmedStringContent = "";
+        else    
+            trimmedStringContent = ((content.summary).substring(0, 65))+"...";
         
-        var trimmedStringContent = (content.content.blocks[0].data.text).substring(0, 80);
-        var trimmedStringTitle = ((content.title).substring(0, 50));
-        return(
-            <EasyCard content={trimmedStringContent+"..."} category={content.category} uid={Uid} title={trimmedStringTitle} blogLink={content.blogImages[0]} interval={net} bloggerPic={dp} ID={content._id} upvotes={content.upvotes}  />
-        )
+        let trimmedStringTitle = ((content.title).substring(0, 50));
+
+        return (
+            <EasyCard content={trimmedStringContent} category={content.category} uid={Uid} title={trimmedStringTitle} blogLink={content.blogImages[0]} interval={net} bloggerPic={dp} ID={content._id} upvotes={content.upvotes} />
+        );
     }
 
     

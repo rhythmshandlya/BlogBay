@@ -3,6 +3,7 @@ import './stylesheets/upvote.css'
 import api from './../../Util/api'
 import Cookies from 'universal-cookie';
 import { useEffect, useState } from 'react'
+
 const UpandDownVoteBtns = (props) => {
 ///////////////LOGIN CHECKKER//////////////////
     const [isLoggedIn, setisLoggedIn] = useState();
@@ -39,12 +40,6 @@ const UpandDownVoteBtns = (props) => {
            
         }
     }
-
-
-   
-    
-  
-     
 ///////////////LOGIN CHECKKER//////////////////
 //////////////manager/////////////////////////
 function checkkerUp(event){

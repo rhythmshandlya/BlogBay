@@ -19,7 +19,6 @@ export const EDITOR_JS_TOOLS = {
   marker: Marker,
   list: List,
   code: Code,
-  raw: Raw,
   header: Header,
   quote: Quote,
   delimiter: Delimiter,
