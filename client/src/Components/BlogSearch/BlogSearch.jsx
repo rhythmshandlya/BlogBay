@@ -1,21 +1,10 @@
-import React, { useState } from 'react'
 import React from 'react'
 import { useState ,useEffect} from 'react';
 import Navbar from './../NavbarComponents/Navbar';
 import NewCard from './NewCard';
 import './BlogSearch.css'
 import BlogPage from './../BlogPage/BlogPage';
-const BlogSearch = () => {
-    
-    const [option, setoption] = useState("Top Blogs");
-    function Renderer(event){
-        console.log(event.target.getAttribute("category"));
-        let cat=event.target.getAttribute("category");
-        console.log("cat is "+cat);
-        setoption(cat);
-    }
 import api from './../../Util/api'
-
 const BlogSearch = () => {
     const [blogType, setBlogType] = useState(['Top Blogs']);
     const [renderedBlogs, setRenderedBlogs] = useState([]);
@@ -103,5 +92,5 @@ const BlogSearch = () => {
         </div>
     );
 }
-}
+
 export default BlogSearch
