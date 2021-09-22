@@ -5,6 +5,7 @@ import NewCard from './NewCard';
 import './BlogSearch.css'
 import api from './../../Util/api'
 import { useParams } from 'react-router-dom';
+import BlogPage from '../BlogPages/BlogPage';
 
 
 const Loading = () => {
@@ -40,7 +41,6 @@ const BlogSearch = () => {
     
     return (
         <div>
-            <Navbar />
             <div className="sidenav">
                 <div className='sort-by-dropdown'>
                     <h3>Sort Blogs By</h3>
@@ -71,14 +71,8 @@ const BlogSearch = () => {
                 {
                     loading === 'notLoading' &&
                     <div className="blogSearchContainerGrid">
-                        {renderedBlogs.length > 0 && renderedBlogs.map((item) => {
-                            return (
-                                <NewCard blog={item.item} />
-                            )
-                        })
-                        }
                         {
-                            renderedBlogs.length === 0 && <h1 style={cssh1}>Sorry no results for this query :( </h1>
+                            renderedBlogs.length === 0 ? <h1 style={cssh1}>Sorry no results for this query :( </h1>:<BlogPage content={renderedBlogs} blogType={["Top Blog"]}/>
                         }
                     </div>
                 }

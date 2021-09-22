@@ -2,7 +2,7 @@ import React from 'react'
 import { useState ,useEffect} from 'react';
 import Navbar from './../NavbarComponents/Navbar';
 import './BlogSearch.css'
-import BlogPage from './../BlogPage/blogPage';
+import BlogPage from './../BlogPage/BlogPage';
 import api from './../../Util/api'
 import EasyCard from '../BlogCards/EasyCard';
 
