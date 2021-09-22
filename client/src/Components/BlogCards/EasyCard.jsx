@@ -55,7 +55,7 @@ const EasyCard = (props) => {
     return (
         <div zxc="help">
         <div className="blog-filter" style={state?{display:"flex"}:{display:"none"}} onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)}></div>
-      <Link to={`/blog/${props.ID}`}>  <h3 className="thumbnail-title" onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)} style={state?{visibility:"visible"}:{visibility:"hidden"}} >Read More</h3></Link>
+      <Link to={`/blog/${props.content._id}`}>  <h3 className="thumbnail-title" onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)} style={state?{visibility:"visible"}:{visibility:"hidden"}} >Read More</h3></Link>
             <div  class="card_ez" onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)}>
                 <div class="card-header">
                     <img src={props.content.blogImages[0]} alt="rover" />
