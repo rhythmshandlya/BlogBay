@@ -1,21 +1,24 @@
 import React from 'react'
 import './stylesheets/upvote.css'
 import api from './../../Util/api'
-import Cookies from 'universal-cookie';
 import { useEffect, useState } from 'react'
 
 const UpandDownVoteBtns = (props) => {
 ///////////////LOGIN CHECKKER//////////////////
     const [isLoggedIn, setisLoggedIn] = useState();
-    const [UserId, setUserId] = useState();
+    const [Uid, setUid] = useState();
     useEffect(() => {
         async function find() {
             try {
                 let res = await api.get('user/isLoggedIn', { withCredentials: true });
                 if (res.data.user) {
                     setisLoggedIn(true);
-                    setUserId(res.data.user._id);
-                    checkIfUpvoted(UserId);
+                    setUid(res.data.user._id);
+                    console.log(Uid);
+                    console.log(res.data.user._id)
+                    // console.log(res.data.user._id);
+                    // console.log(UserId);
+                    checkIfUpvoted(res.data.user._id);
                 }
             } catch (err) {
                 setisLoggedIn(false);
@@ -29,10 +32,10 @@ const UpandDownVoteBtns = (props) => {
            let user= await api.get('http://localhost:8000/api/v1/user/'+id);
             user=user.data.user.upvotedBlogs
             if(user.indexOf(props.id)===-1){
-                setisUpvoted(false)
+                setisUpvoted(false);
             }
             else{
-                setisUpvoted(true)
+                setisUpvoted(true);
             }
         }
         catch(err){
@@ -56,8 +59,8 @@ const [upcontent, setupcontent] = useState(props.upvotes)
 async function UpVoteHandler(blogId){         
     var blog=await api.patch('blogs/upvote/'+blogId);
     setupcontent(blog.data.upvotes);
-   await api.patch(`user/blogPush/${UserId}&${blogId}`)
-    checkIfUpvoted(UserId);
+   await api.patch(`user/blogPush/${Uid}&${blogId}`)
+    checkIfUpvoted(Uid);
 }
 
 //////////////upvotehandler/////////////////////////
@@ -66,8 +69,8 @@ async function unUpVoteHandler(blogId){
     console.log("down"+blogId);
     var blog=await api.patch('blogs/downvote/'+blogId);
     setupcontent(blog.data.upvotes);  
-    await api.patch(`user/blogPull/${UserId}&${blogId}`)
-    checkIfUpvoted(UserId);
+    await api.patch(`user/blogPull/${Uid}&${blogId}`)
+    checkIfUpvoted(Uid);
  }
 //////////////unUpvotehandler////////////////////////
 
