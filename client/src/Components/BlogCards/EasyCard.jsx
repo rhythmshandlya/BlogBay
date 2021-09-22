@@ -50,20 +50,7 @@ const EasyCard = (props) => {
          }
          getMePhoto(props.content.authorID); 
          }, [])
-         const [Uid, setUid] = useState();
-         useEffect(() => {
-            async function fetchMyAPI() {
-                try {
-                    let res = await api.get('user/isLoggedIn', { withCredentials: true });
-                    if (res.data.user) {
-                        setUid(res.data.user._id);
-                    }
-                } catch (err) {
-                    
-                }
-            }
-            fetchMyAPI()
-        },[]);
+        
     const [state,setState]=useState(false);
     return (
         <div zxc="help">
@@ -82,7 +69,7 @@ const EasyCard = (props) => {
                         <div class="user-info_ez">
                             <small>{props.interval}</small>
                         </div>
-                        <UpvoteBtns id={props.content._id} upvotes={props.content.upvotes} uid={Uid}/>
+                        <UpvoteBtns id={props.content._id} upvotes={props.content.upvotes} />
                     </div>
                 </div>
             </div>

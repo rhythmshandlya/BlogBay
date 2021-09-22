@@ -8,7 +8,6 @@ const UpandDownVoteBtns = (props) => {
 ///////////////LOGIN CHECKKER//////////////////
     const [isLoggedIn, setisLoggedIn] = useState();
     const [UserId, setUserId] = useState();
-    
     useEffect(() => {
         async function find() {
             try {
@@ -16,7 +15,7 @@ const UpandDownVoteBtns = (props) => {
                 if (res.data.user) {
                     setisLoggedIn(true);
                     setUserId(res.data.user._id);
-                    checkIfUpvoted(props.uid);
+                    checkIfUpvoted(UserId);
                 }
             } catch (err) {
                 setisLoggedIn(false);
@@ -58,7 +57,7 @@ async function UpVoteHandler(blogId){
     var blog=await api.patch('blogs/upvote/'+blogId);
     setupcontent(blog.data.upvotes);
    await api.patch(`user/blogPush/${UserId}&${blogId}`)
-    checkIfUpvoted(props.uid);
+    checkIfUpvoted(UserId);
 }
 
 //////////////upvotehandler/////////////////////////
@@ -68,7 +67,7 @@ async function unUpVoteHandler(blogId){
     var blog=await api.patch('blogs/downvote/'+blogId);
     setupcontent(blog.data.upvotes);  
     await api.patch(`user/blogPull/${UserId}&${blogId}`)
-    checkIfUpvoted(props.uid);
+    checkIfUpvoted(UserId);
  }
 //////////////unUpvotehandler////////////////////////
 
