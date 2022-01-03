@@ -10,6 +10,7 @@ const getJwt = (userId, secret, exp) => {
     expiresIn: exp
   });
 };
+
 const sendCookie = (res, token) => {
   const cookieOptions = {
     expires: new Date(
